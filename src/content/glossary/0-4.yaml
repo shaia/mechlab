@@ -1,0 +1,22 @@
+# Glossary terms introduced in lesson 0.4 (graphs and linearization). Ids fixed by .claude/specs/ch0-1.md.
+# Slope, intercept, direct proportion and linear function belong to 0.3.
+
+- id: measurement-error
+  term: אי-ודאות במדידה
+  en: measurement uncertainty
+  definition: כמה רחוק יכול הערך האמיתי להיות מהערך שקראנו במכשיר. היא נובעת מגבול הדיוק של המכשיר (למשל מילימטר אחד בסרגל) ומהשינוי הקטן בין מדידה למדידה. בגלל אי-הוודאות, נקודות המדידה בגרף מתפזרות מעט סביב הקו, ולא יושבות עליו בדיוק.
+  lesson: '0.4'
+
+- id: best-fit-line
+  term: קו מגמה
+  en: best-fit line
+  definition: הקו הישר שעובר קרוב ככל האפשר לכל נקודות המדידה יחד, חלקן מעליו וחלקן מתחתיו. הוא לא חייב לעבור דרך אף נקודה. את השיפוע שלו מחשבים משתי נקודות רחוקות עליו, ולא משתי מדידות מהטבלה.
+  reject: [קו התאמה, קו הכי טוב, קו מתאים ביותר]
+  lesson: '0.4'
+
+- id: linearization
+  term: ליניאריזציה
+  en: linearization
+  definition: בחירה של מה לשים על הצירים, למשל t² במקום t, כך שקשר שאינו קו ישר ייראה בגרף כקו ישר. מהשיפוע של הקו הישר מוצאים גודל פיזיקלי.
+  reject: [לינאריזציה]
+  lesson: '0.4'
