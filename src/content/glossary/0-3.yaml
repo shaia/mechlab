@@ -1,0 +1,74 @@
+# Glossary terms introduced in lesson 0.3 (the math toolbox). Ids fixed by .claude/specs/ch0-1.md;
+# `intercept`, `hypotenuse` and `leg` are not in the spec's table and were added here (0.3 owns slope, intercept and the right triangle).
+
+- id: direct-proportion
+  term: יחס ישר
+  en: direct proportion
+  definition: קשר בין שני גדלים שבו הכפלה של אחד מהם פי מספר כלשהו מכפילה גם את השני פי אותו מספר. המנה y/x קבועה, והגרף הוא קו ישר שעובר בראשית.
+  lesson: '0.3'
+
+- id: inverse-proportion
+  term: יחס הפוך
+  en: inverse proportion
+  definition: קשר בין שני גדלים שבו הכפלה של אחד מהם פי מספר כלשהו מחלקת את השני באותו מספר. המכפלה x·y קבועה. למשל, הזמן שלוקח לעבור דרך קבועה ביחס הפוך למהירות.
+  lesson: '0.3'
+
+- id: linear-function
+  term: פונקציה קווית
+  en: linear function
+  definition: קשר שהגרף שלו הוא קו ישר, y = m·x + b, כאשר m הוא השיפוע ו-b נקודת החיתוך עם הציר האנכי. רק כאשר b = 0 הקו עובר בראשית, ורק אז זה יחס ישר.
+  lesson: '0.3'
+
+- id: slope
+  term: שיפוע
+  en: slope
+  definition: בקו ישר, השינוי בגודל שעל הציר האנכי לכל יחידה של הגודל שעל הציר האופקי, Δy/Δx. יחידות השיפוע הן יחידות y חלקי יחידות x, למשל m/s. השיפוע אינו הזווית שבציור, כי הזווית תלויה בקנה המידה של הצירים.
+  symbol: m
+  lesson: '0.3'
+
+- id: intercept
+  term: נקודת החיתוך עם הציר
+  en: intercept
+  definition: הנקודה שבה קו ישר חותך את הציר האנכי, כלומר הערך של y כאשר x = 0. יש לה היחידות של הציר האנכי.
+  symbol: b
+  lesson: '0.3'
+
+- id: sine
+  term: סינוס
+  en: sine
+  definition: במשולש ישר-זווית, היחס בין הניצב שמול הזווית לבין היתר. הוא תלוי רק בזווית, לא בגודל המשולש, ואינו גדל ביחס ישר לזווית.
+  symbol: '\sin\theta'
+  lesson: '0.3'
+
+- id: cosine
+  term: קוסינוס
+  en: cosine
+  definition: במשולש ישר-זווית, היחס בין הניצב שליד הזווית לבין היתר. הוא תלוי רק בזווית.
+  symbol: '\cos\theta'
+  lesson: '0.3'
+
+- id: tangent-trig
+  term: טנגנס
+  en: tangent (of an angle)
+  definition: במשולש ישר-זווית, היחס בין הניצב שמול הזווית לבין הניצב שליד הזווית. הוא תלוי רק בזווית. (המשיק לגרף, בשיעור 1.5, הוא מושג אחר.)
+  symbol: '\tan\theta'
+  lesson: '0.3'
+
+- id: pythagoras
+  term: משפט פיתגורס
+  en: Pythagorean theorem
+  definition: במשולש ישר-זווית, סכום הריבועים של שני הניצבים שווה לריבוע של היתר. במדרון, h² + w² = L².
+  reject: [פיטגורס]
+  lesson: '0.3'
+
+- id: hypotenuse
+  term: יתר
+  en: hypotenuse
+  definition: במשולש ישר-זווית, הצלע הארוכה, שמול הזווית הישרה. במדרון, היתר הוא המדרון עצמו.
+  lesson: '0.3'
+
+- id: leg
+  term: ניצב
+  en: leg (of a right triangle)
+  definition: במשולש ישר-זווית, כל אחת משתי הצלעות שיוצרות את הזווית הישרה. ביחס לזווית חדה, ניצב אחד הוא "הניצב שמול" הזווית והשני "הניצב שליד" הזווית.
+  lesson: '0.3'

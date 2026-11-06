@@ -1,0 +1,29 @@
+# Verified YouTube videos for lesson 0.3. Each ID was checked by oEmbed (200, title and channel as below) on the
+# date in `verified`; the length and the description were read from the watch page. Nobody has watched them:
+# `why` claims only what the title and the description say.
+
+- id: v-0-3-trig-intro
+  youtubeId: zN2JR_NSZKw
+  title: 'מבוא לטריגונומטריה - הגדרות של סינוס, קוסינוס וטנגנס במשולש ישר זווית.'
+  channel: Pi Plus Education
+  lang: he
+  captions: []
+  start: 0
+  minutes: 9
+  why: >-
+    שיעור בעברית (עם אנטון פיליפנקו, לפי תיאור הסרטון) על ההגדרות של סינוס, קוסינוס וטנגנס במשולש ישר-זווית, עם דוגמאות בסיסיות.
+    השוו את ההגדרות לשורות sin θ = h/L, cos θ = w/L ו-tan θ = h/w שמתחת לאיור 0.3ב.
+  verified: '2026-11-05'
+
+- id: v-0-3-calculator
+  youtubeId: _nSEHu_7SPA
+  title: "טריגונומטריה שיעור מס' 4: שימוש במחשבון בטריגונומטריה"
+  channel: Cesar Gabriel Seidler “‫חוכמטיקה‬‎” Hochmatica
+  lang: he
+  captions: []
+  start: 0
+  minutes: 5
+  why: >-
+    סרטון קצר בעברית על שימוש במחשבון בטריגונומטריה: חישוב סינוס, קוסינוס וטנגנס, וחישוב זווית (לפי תיאור הסרטון).
+    בדקו במחשבון שלכם את מה שהשיעור הזהיר ממנו: שהוא במצב מעלות (DEG), ושהמקש ההפוך נותן זווית.
+  verified: '2026-11-05'
