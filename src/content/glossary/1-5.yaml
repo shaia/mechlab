@@ -1,0 +1,30 @@
+# Glossary terms introduced in lesson 1.5 (instantaneous velocity). All three ids are fixed by .claude/specs/ch0-1.md.
+# "גבול" (limit) is named once in the lesson in words only; lesson 8.1 owns it as a term.
+
+- id: secant
+  term: מיתר
+  en: secant (chord)
+  definition: >-
+    קו ישר שמחבר שתי נקודות על גרף. בגרף מקום-זמן, השיפוע של המיתר בין הרגע t₁ לרגע t₂ הוא Δx/Δt, המהירות
+    הממוצעת בקטע הזמן הזה.
+  lesson: '1.5'
+
+- id: tangent-line
+  term: משיק
+  en: tangent line
+  definition: >-
+    הקו הישר שהמיתר מתקרב אליו כשהנקודה השנייה מתקרבת עוד ועוד לנקודה הראשונה. ליד נקודת ההשקה הוא נוגע בגרף
+    ונוטה כמוהו. בגרף מקום-זמן, השיפוע של המשיק ברגע מסוים הוא המהירות הרגעית באותו רגע.
+  reject: [טנגנט]
+  lesson: '1.5'
+
+- id: instantaneous-velocity
+  term: מהירות רגעית
+  en: instantaneous velocity
+  definition: >-
+    המהירות של גוף ברגע אחד: הערך שאליו מתקרבת המהירות הממוצעת Δx/Δt כשקטע הזמן Δt סביב הרגע הזה קטן עוד ועוד.
+    בגרף מקום-זמן היא השיפוע של המשיק באותו רגע. יש לה סימן: חיובית כשהגוף נע בכיוון הציר, ושלילית כשהוא נע נגדו.
+    בדף הנוסחאות היא כתובה v = dx/dt. גודלה הוא מה שמראה מד המהירות.
+  symbol: v
+  unit: m/s
+  lesson: '1.5'

@@ -1,0 +1,18 @@
+# Videos for lesson 1.5. Every id was checked against YouTube oEmbed (200: exists and embeddable; title and channel
+# as below) on the `verified` date. Length (1010 s) and the caption tracks (human Hebrew `.iw` and English `.en`) were
+# read off the watch page's player data; the description credits a Hebrew translator.
+# No Hebrew video on secant → tangent for a position-time graph was found (searched 2026-11-05).
+
+- id: v-1-5-paradox
+  youtubeId: 9vKqVkMQHKk
+  title: 'The paradox of the derivative | Chapter 2, Essence of calculus'
+  channel: 3Blue1Brown
+  lang: en
+  captions: [he, en]
+  start: 0
+  minutes: 17
+  why: >-
+    לפי התיאור, הסרטון שואל מה פירוש "קצב שינוי רגעי" כשהשינוי קורה לאורך זמן, ומשתמש במד מהירות שמודד מרחק בזמן
+    קצר מאוד. זה בדיוק הרעיון של השיעור, עם הסימון של דף הנוסחאות. הסרטון משתמש בכלים של פרק 8 (נגזרת), ולכן
+    הצפייה בו רשות.
+  verified: '2026-11-05'
