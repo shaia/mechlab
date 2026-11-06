@@ -1,0 +1,33 @@
+# Glossary terms introduced in lesson 1.8 (slope and area). `area-under-graph` and `acceleration-time-graph` are fixed
+# by .claude/specs/ch0-1.md; `signed-area` is not in the spec's table and was added here (the lesson needs a name for
+# "area above the axis counts plus, below it minus"). Its first wording, "שטח מסומן", read to a student as "the
+# marked/shaded area", so the term is now "שטח עם סימן" and the old wording is rejected.
+
+- id: area-under-graph
+  term: שטח מתחת לגרף
+  en: area under a graph
+  definition: >-
+    השטח שבין הגרף לבין ציר הזמן, בין שני רגעים. היחידות שלו הן יחידות הציר האנכי כפול יחידות ציר הזמן. השטח מתחת
+    לגרף מהירות-זמן הוא ההעתק בפרק הזמן הזה (m/s כפול s נותן m), והשטח מתחת לגרף תאוצה-זמן הוא שינוי המהירות
+    (m/s² כפול s נותן m/s). השטח נותן שינוי, לא ערך: את המקום עצמו מקבלים רק כשמוסיפים את המקום ההתחלתי.
+  unit: יחידות הציר האנכי כפול שניות
+  lesson: '1.8'
+
+- id: signed-area
+  term: שטח עם סימן
+  en: signed area
+  definition: >-
+    שטח מתחת לגרף שנספר עם סימן: חלק שנמצא מעל ציר הזמן נספר בחיוב, וחלק שנמצא מתחתיו נספר בשלילה. השטח עם
+    הסימן מתחת לגרף מהירות-זמן הוא ההעתק. אם מחברים את כל החלקים בלי סימנים, מקבלים את הדרך.
+  reject: [שטח מסומן]
+  lesson: '1.8'
+
+- id: acceleration-time-graph
+  term: גרף תאוצה-זמן
+  en: a–t graph
+  definition: >-
+    גרף שבו הציר האופקי הוא הזמן והציר האנכי הוא התאוצה, עם הסימן שלה. בתנועה שמורכבת מקטעים של תאוצה קבועה הוא
+    בנוי מקטעים אופקיים. השטח מתחתיו בין שני רגעים, עם סימן, הוא שינוי המהירות בפרק הזמן הזה.
+  symbol: 'a(t)'
+  unit: m/s²
+  lesson: '1.8'

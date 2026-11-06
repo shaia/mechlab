@@ -1,0 +1,16 @@
+# Videos for lesson 1.8. The id was checked against YouTube oEmbed (200: exists and embeddable; title and channel
+# as below) on the `verified` date. The length is not in oEmbed and the watch page did not give it; a transcript
+# mirror lists a last chapter at 04:55, so `minutes` is a conservative estimate. Captions not confirmed.
+# No Hebrew video on slope and area between motion graphs at Bagrut level was found (searched 2026-11-05).
+
+- id: v-1-8-area-khan
+  youtubeId: d-_eqgj5-K8
+  title: 'Why distance is area under velocity-time line | Physics | Khan Academy'
+  channel: Khan Academy
+  lang: en
+  start: 0
+  minutes: 6
+  why: >-
+    לפי הכותרת ותמליל הפתיחה, הסרטון מתחיל בגוף שנע במהירות קבועה של 5 מטרים לשנייה, ומראה שמהירות כפול זמן היא
+    השטח של מלבן מתחת לגרף המהירות-זמן. שימו לב: בסרטון המהירות חיובית, ולכן "distance" שם הוא גם ההעתק.
+  verified: '2026-11-05'
