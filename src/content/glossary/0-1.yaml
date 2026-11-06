@@ -1,0 +1,35 @@
+# Glossary terms introduced in lesson 0.1. Ids `physical-model` and `live-figure` are fixed by .claude/specs/ch0-1.md;
+# `prediction` and `misconception` are added by this lesson (no other lesson owns them).
+
+- id: live-figure
+  term: איור חי
+  en: live figure
+  definition: >-
+    איור בספר שאפשר להפעיל: לשנות בו מספרים בפסי גרירה, ללחוץ על כפתורים ולראות מה קורה. האיור מחשב את מה שהוא מראה
+    לפי מודל, ובודק בעצמו משימות שמבצעים בו.
+  lesson: '0.1'
+
+- id: physical-model
+  term: מודל
+  en: model
+  definition: >-
+    תיאור פשוט של מצב אמיתי, שמשאיר רק את מה שחשוב לשאלה ומזניח את השאר, למשל "כדור בלי התנגדות אוויר". מודל
+    מאפשר לחשב תוצאות, ותמיד צריך לדעת מה הוא הזניח ומתי ההזנחה כבר לא סבירה.
+  reject: [מודל פיזיקאלי]
+  lesson: '0.1'
+
+- id: prediction
+  term: חיזוי
+  en: prediction
+  definition: >-
+    תשובה שמתחייבים אליה לפני שרואים את הניסוי או את ההסבר. בקורס החיזוי נשמר, ובסוף השיעור משווים אותו למה שגיליתם.
+  lesson: '0.1'
+
+- id: misconception
+  term: תפיסה שגויה
+  en: misconception
+  definition: >-
+    רעיון שנשמע הגיוני ושרבים מאמינים בו, אבל הוא סותר את מה שקורה בניסוי. בקורס מזהים אותה לפי טעות שעונים עליה
+    בביטחון.
+  reject: [תפיסה מוטעית]
+  lesson: '0.1'

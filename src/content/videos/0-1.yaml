@@ -1,0 +1,14 @@
+# Verified YouTube videos for lesson 0.1. Format and rules: .claude/skills/curate-videos/SKILL.md.
+
+- id: v-0-1-veritasium-videos
+  youtubeId: eVtCO84MDj8
+  title: 'Khan Academy and the Effectiveness of Science Videos'
+  channel: Veritasium
+  lang: en
+  captions: []
+  start: 0
+  minutes: 8
+  why: >-
+    לפי תיאור הסרטון, תלמידים מרגישים שהם לומדים מסרטון שמסביר בבהירות, אבל במבחן מתברר שלא, בגלל רעיונות שגויים
+    שהביאו איתם. זו הסיבה שהקורס מבקש לחזות לפני ההסבר.
+  verified: '2026-11-05'
