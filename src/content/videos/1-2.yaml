@@ -1,0 +1,16 @@
+# Videos for lesson 1.2. The id was checked against YouTube oEmbed (200: exists and embeddable; title and channel as
+# below) on the `verified` date. Content and chapter times (up to 4:11) come from the transcript page on rosetta.to;
+# the exact length and caption tracks were not confirmed. No Hebrew video on x–t graphs was found (searched 2026-11-05).
+
+- id: v-1-2-khan-xt
+  youtubeId: 9XxzIoUQd78
+  title: 'Position-time graphs | One-dimensional motion | AP Physics 1 | Khan Academy'
+  channel: Khan Academy
+  lang: en
+  start: 0
+  minutes: 5
+  why: >-
+    לפי התמליל, הסרטון מתאר תנועה של גוף על ציר בשלוש דרכים: טבלה של זמן ומקום, הנפשה של הגוף על הציר, וגרף
+    מקום-זמן. הוא מסביר למה בגרף רואים במבט אחד איפה הגוף עמד ואיפה נע, ובסוף מריץ את ההנפשה לצד הגרף. השוו לאיור
+    1.2א: אותם ייצוגים, ותרגום ביניהם.
+  verified: '2026-11-05'

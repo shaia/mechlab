@@ -1,0 +1,43 @@
+# Glossary terms introduced in lesson 1.2 (four representations of a motion). The first three ids are fixed by
+# .claude/specs/ch0-1.md; `ticker-timer` is not in the spec's table and was added here (the Ministry syllabus names
+# the device among its recommended experiments, and the workbook uses it).
+
+- id: motion-diagram
+  term: תרשים עקבות
+  en: motion (dot) diagram
+  definition: >-
+    ציור של המקומות של גוף ברגעים שביניהם עוברים פרקי זמן שווים, נקודה אחת לכל רגע, לאורך ציר המקום. נקודות
+    רחוקות זו מזו: הגוף עבר מטרים רבים בפרק זמן אחד, כלומר נע מהר. נקודות צפופות: נע לאט. כמה נקודות באותו מקום:
+    הגוף עומד. את הנקודה הראשונה מסמנים, כדי שיהיה ברור מאיפה התנועה התחילה. כשהגוף חוזר על עקבותיו, כותבים
+    ליד כל נקודה את הרגע שלה ומציירים את נקודות החזרה בשורה נפרדת.
+  reject: [תרשים נקודות, דיאגרמת תנועה]
+  lesson: '1.2'
+
+- id: position-time-graph
+  term: גרף מקום-זמן
+  en: position–time (x–t) graph
+  definition: >-
+    גרף שבו הזמן t על הציר האופקי והמקום x על הציר האנכי. כל נקודה בגרף אומרת איפה הגוף נמצא ברגע מסוים. הגרף
+    אינו ציור של המסלול: גוף שנע הלוך ושוב על קו ישר יכול לתת גרף של עליות וירידות. עלייה בגרף: הגוף נע בכיוון
+    החיובי. ירידה: בכיוון השלילי. קטע אופקי: הגוף עומד.
+  symbol: 'x(t)'
+  reject: [גרף מיקום-זמן, גרף זמן-מקום]
+  lesson: '1.2'
+
+- id: equation-of-motion
+  term: ביטוי מקום-זמן
+  en: position function x(t)
+  definition: >-
+    נוסחה שנותנת את מקום הגוף בכל רגע: מציבים בה זמן t ומקבלים את המקום x באותו רגע, למשל x = 8t − t² (x במטרים,
+    t בשניות). נקרא גם משוואת מקום-זמן. הביטוי נותן גם מקומות בין השורות של טבלה, אבל הוא נכון רק בטווח הזמן שבו
+    הוא תקף.
+  symbol: 'x(t)'
+  lesson: '1.2'
+
+- id: ticker-timer
+  term: רשם-זמן
+  en: ticker timer
+  definition: >-
+    מכשיר מעבדה שמסמן נקודה על סרט נייר בפרקי זמן שווים (למשל כל 0.02 שנייה), בזמן שהסרט נמשך עם גוף נע. הסרט
+    הוא תרשים עקבות של הגוף.
+  lesson: '1.2'
