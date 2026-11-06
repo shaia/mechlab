@@ -1,0 +1,68 @@
+# Glossary terms introduced in lesson 0.2. One spelling per concept, course-wide.
+# `reject` lists spellings that must not appear in course text (lint-content enforces it).
+
+- id: si-unit
+  term: יחידת יסוד
+  en: SI base unit
+  definition: >-
+    יחידה של מערכת היחידות הבין-לאומית (SI), שכל היחידות האחרות נבנות ממנה. במכניקה יש שלוש: מטר (m) לאורך,
+    קילוגרם (kg) למסה ושנייה (s) לזמן. כל הקבועים בדף הנוסחאות כתובים ביחידות האלה ובמה שנבנה מהן, למשל m/s.
+  lesson: '0.2'
+
+- id: si-prefix
+  term: קידומת
+  en: SI prefix
+  definition: >-
+    אות שכותבים לפני יחידה, במקום חזקה של 10. למשל m (מילי) היא 10⁻³, ולכן 20 ms הן 20·10⁻³ s = 0.020 s.
+  lesson: '0.2'
+
+- id: scientific-notation
+  term: כתיב מדעי
+  en: scientific notation
+  definition: >-
+    כתיבה של מספר כמספר בין 1 ל-10, כפול חזקה של 10. למשל 0.00045 נכתב 4.5·10⁻⁴, ו-6,400,000 נכתב 6.4·10⁶.
+  reject: [סימון מדעי]
+  lesson: '0.2'
+
+- id: significant-figures
+  term: ספרות משמעותיות
+  en: significant figures
+  definition: >-
+    הספרות במספר שבאמת ידועות מהמדידה. סופרים מהספרה הראשונה שאינה אפס. אפסים בתחילת מספר אינם משמעותיים; אפס
+    בסוף, אחרי הנקודה העשרונית, כן. ב-0.0250 יש 3 ספרות משמעותיות.
+  reject: [ספרות ערך]
+  lesson: '0.2'
+
+- id: unit-check
+  term: בדיקת יחידות
+  en: unit (dimensional) check
+  definition: >-
+    הצבה של היחידות בלבד בנוסחה או בתוצאה, וצמצום שלהן כמו אותיות באלגברה, כדי לבדוק שהתוצאה יוצאת ביחידות של
+    הגודל המבוקש. בדיקה כזו יכולה לפסול נוסחה, אבל לא להוכיח שהיא נכונה.
+  lesson: '0.2'
+
+- id: formula-sheet
+  term: דף הנוסחאות
+  en: formula sheet
+  definition: >-
+    הנספח הרשמי שמקבלים בבחינת הבגרות, עם הנוסחאות, הקבועים והנתונים. פתרון בבגרות מתחיל מנוסחה כפי שהיא כתובה
+    בו.
+  lesson: '0.2'
+
+- id: density
+  term: צפיפות
+  en: density
+  symbol: ρ
+  unit: kg/m³
+  definition: >-
+    המסה של כל מטר מעוקב של חומר: המסה חלקי הנפח, ρ = m/V. למשל, לצפיפות של מים, 1.0·10³ kg/m³, פירוש: מטר
+    מעוקב של מים הוא 1000 קילוגרם.
+  lesson: '0.2'
+
+- id: photogate
+  term: שער אור
+  en: photogate
+  definition: >-
+    מכשיר מעבדה שמודד זמנים קצרים: קרן אור עוברת אל חיישן, ושעון מודד כמה זמן גוף שחולף בדרך חוסם את הקרן. שער אור
+    מודד זמנים של אלפיות שנייה ופחות.
+  lesson: '0.2'

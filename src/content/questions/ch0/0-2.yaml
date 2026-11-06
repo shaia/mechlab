@@ -1,0 +1,350 @@
+# Chapter 0 question bank, lesson 0.2 (units, scientific notation, solution format).
+# Every number recomputed with npx tsx (g = G from src/physics/constants.ts where it appears).
+
+chapter: 0
+questions:
+  # ---------------------------------------------------------------- OBJ-0.2-1 scientific notation and prefixes
+  - id: Q-0.2-micro-s
+    type: numeric
+    objectives: [OBJ-0.2-1]
+    prompt: >-
+      הבזק של מצלמה נמשך $4.0\cdot10^{-4}\,\text{s}$. כמה מיקרו-שניות ($\mu\text{s}$) הוא נמשך?
+    answer: 400
+    unit: μs
+    tolerance: 0.01
+    correctFeedback: 'נכון: $1\,\mu\text{s} = 10^{-6}\,\text{s}$, ולכן בשנייה אחת יש $10^{6}$ מיקרו-שניות. $4.0\cdot10^{-4}\cdot10^{6} = 4.0\cdot10^{2} = 400\,\mu\text{s}$.'
+    wrongFeedback: 'מיקרו ($\mu$) פירושו מיליונית, $10^{-6}$. כמה מיקרו-שניות יש בשנייה אחת?'
+    commonWrong:
+      - value: 4.0e-10
+        feedback: 'כפלתם ב-$10^{-6}$ במקום לחלק. מיקרו-שנייה היא יחידה קטנה מאוד, ולכן באותו זמן יש **הרבה** מיקרו-שניות: המספר צריך לגדול, לא לקטון.'
+        misconception: MC-power-direction
+      - value: 0.4
+        feedback: 'זה הזמן במילי-שניות, $0.4\,\text{ms}$. מיקרו קטן פי 1000 ממילי, ולכן במיקרו-שניות המספר גדול פי 1000.'
+      - value: 4.0e5
+        feedback: 'זה הזמן בננו-שניות. ננו היא $10^{-9}$, ומיקרו היא $10^{-6}$.'
+    hints:
+      - 'מצאו את $\mu$ על הסרגל באיור 0.2. איזו חזקה של 10 כתובה מתחתיה? כמה מיקרו-שניות יש, אם כן, בשנייה אחת?'
+
+  - id: Q-0.2-sci-form
+    type: mc
+    objectives: [OBJ-0.2-1]
+    prompt: >-
+      איך כותבים אורך של $0.00045\,\text{m}$ בכתיב מדעי?
+    choices:
+      - text: '$4.5\cdot10^{-4}\,\text{m}$'
+        correct: true
+        feedback: 'נכון. מזיזים את הנקודה 4 מקומות ימינה כדי לקבל 4.5, ולכן החזקה היא $-4$.'
+      - text: '$4.5\cdot10^{-5}\,\text{m}$'
+        feedback: 'ספרתם 5 מקומות. מ-0.00045 עד 4.5 הנקודה זזה 4 מקומות בלבד. בדקו: $4.5\cdot10^{-5} = 0.000045$.'
+      - text: '$45\cdot10^{-5}\,\text{m}$'
+        feedback: 'הערך נכון, אבל בכתיב מדעי המספר שלפני החזקה הוא בין 1 ל-10. כתבו $4.5\cdot10^{-4}\,\text{m}$.'
+      - text: '$4.5\cdot10^{4}\,\text{m}$'
+        feedback: 'זה 45,000 מטרים, 45 קילומטרים. מספר קטן מ-1 מקבל חזקה שלילית.'
+        misconception: MC-power-direction
+
+  - id: Q-0.2-rank-lengths
+    type: rank
+    objectives: [OBJ-0.2-1]
+    qualitative: true
+    prompt: >-
+      דרגו את האורכים מהגדול לקטן:
+    items:
+      - id: b
+        label: '$2\,\text{mm}$'
+      - id: c
+        label: '$5\cdot10^{-4}\,\text{m}$'
+      - id: a
+        label: '$3000\,\mu\text{m}$'
+      - id: d
+        label: '$2\cdot10^{6}\,\text{nm}$'
+    order: [a, [b, d], c]
+    correctFeedback: >-
+      נכון. במטרים: $3000\,\mu\text{m} = 3\cdot10^{-3}\,\text{m}$, $2\,\text{mm} = 2\cdot10^{6}\,\text{nm} = 2\cdot10^{-3}\,\text{m}$,
+      ו-$5\cdot10^{-4}\,\text{m}$ הוא הקצר ביותר.
+    wrongFeedback: 'המירו את כולם למטרים, בכתיב מדעי, ורק אז השוו. שימו לב: שניים מהם שווים. ($\text{n}$, ננו, היא $10^{-9}$.)'
+    hints:
+      - '$\text{m} = 10^{-3}$, $\mu = 10^{-6}$, $\text{n} = 10^{-9}$.'
+
+  - id: Q-0.2-which-bigger
+    type: mc
+    objectives: [OBJ-0.2-1]
+    qualitative: true
+    prompt: >-
+      מה ארוך יותר, $1\,\text{ms}$ או $1\,\mu\text{s}$? ופי כמה?
+    choices:
+      - text: '$1\,\text{ms}$, פי 1000.'
+        correct: true
+        feedback: 'נכון. $1\,\text{ms} = 10^{-3}\,\text{s}$ ו-$1\,\mu\text{s} = 10^{-6}\,\text{s}$. ההפרש הוא שלוש חזקות של 10, כלומר פי 1000.'
+      - text: '$1\,\mu\text{s}$, כי מיקרו פירושו מיליון.'
+        feedback: 'מיקרו פירושו מיליונית, לא מיליון. $1\,\mu\text{s}$ היא מיליונית של שנייה.'
+        misconception: MC-power-direction
+      - text: '$1\,\text{ms}$, פי 10.'
+        feedback: 'על הסרגל, בין m ל-μ יש שלושה קווים, וכל קו הוא פי 10. לכן פי $10^3 = 1000$.'
+      - text: שניהם שווים, כי בשניהם כתוב 1.
+        feedback: הקידומת משנה את הגודל. אותו מספר עם קידומת אחרת הוא כמות אחרת לגמרי.
+
+  # ---------------------------------------------------------------- OBJ-0.2-2 conversions: km/h, area, volume
+  - id: Q-0.2-kmh
+    type: numeric
+    objectives: [OBJ-0.2-2]
+    prompt: >-
+      מכונית נוסעת בכביש מהיר במהירות של 90 קמ״ש. מה המהירות שלה ב-$\text{m/s}$?
+    answer: 25
+    unit: m/s
+    tolerance: 0.01
+    correctFeedback: 'נכון: $90\,\dfrac{\text{km}}{\text{h}} = 90\cdot\dfrac{1000\,\text{m}}{3600\,\text{s}} = \dfrac{90}{3.6}\,\dfrac{\text{m}}{\text{s}} = 25\,\text{m/s}$.'
+    wrongFeedback: 'החליפו כל יחידה בערכה: קילומטר הוא 1000 מטרים, ושעה היא 3600 שניות.'
+    commonWrong:
+      - value: 324
+        feedback: 'הכיוון הפוך: כפלתם ב-3.6. בשנייה אחת המכונית עוברת רק חלק קטן ממה שהיא עוברת בשעה, ולכן המספר ב-m/s קטן יותר. מחלקים ב-3.6.'
+        misconception: MC-kmh-to-ms-multiply
+      - value: 90000
+        feedback: 'המרתם רק את הקילומטרים למטרים, ושכחתם את השעה. בשעה יש 3600 שניות.'
+        misconception: MC-units-decoration
+      - value: 1.5
+        feedback: 'חילקתם רק ב-60, כאילו בשעה יש 60 שניות. בשעה יש $60\cdot60 = 3600$ שניות, וגם את הקילומטרים צריך להמיר.'
+      - value: 0.025
+        feedback: 'המרתם את השעה לשניות אבל השארתם קילומטרים: $0.025\,\text{km/s}$. ב-m/s כופלים גם ב-1000.'
+    hints:
+      - '$1\,\text{m/s} = 3.6\,\text{km/h}$. האם המספר ב-m/s צריך להיות גדול או קטן מ-90?'
+
+  - id: Q-0.2-ms-to-kmh
+    type: numeric
+    objectives: [OBJ-0.2-2]
+    prompt: >-
+      רצה מהירה מגיעה למהירות של $12\,\text{m/s}$. מה המהירות שלה בקמ״ש?
+    answer: 43.2
+    unit: km/h
+    tolerance: 0.02
+    correctFeedback: 'נכון: $12\cdot3.6 = 43.2\,\text{km/h}$. בכל שעה היא הייתה עוברת $12\cdot3600 = 43{,}200$ מטרים, כלומר $43.2$ קילומטרים.'
+    wrongFeedback: 'מ-m/s לקמ״ש כופלים ב-3.6.'
+    commonWrong:
+      - value: 3.33
+        feedback: 'חילקתם ב-3.6. רצה לא רצה 3 קמ״ש, מהירות של הליכה איטית. מ-m/s לקמ״ש כופלים ב-3.6.'
+        misconception: MC-kmh-to-ms-multiply
+      - value: 720
+        feedback: 'כפלתם רק ב-60, והמספר יצא במטרים לדקה. בשעה יש 3600 שניות, ובקילומטר 1000 מטרים.'
+      - value: 43200
+        feedback: 'זה מספר המטרים בשעה. בקילומטר יש 1000 מטרים, ולכן זה $43.2\,\text{km/h}$.'
+
+  - id: Q-0.2-kmh-direction
+    type: mc
+    objectives: [OBJ-0.2-2]
+    qualitative: true
+    prompt: >-
+      אותה מהירות כתובה פעם בקמ״ש ופעם ב-$\text{m/s}$. באיזו מהן המספר גדול יותר, ולמה?
+    choices:
+      - text: 'בקמ״ש, כי $1\,\text{m/s}$ היא מהירות גדולה מ-$1\,\text{km/h}$, פי 3.6.'
+        correct: true
+        feedback: 'נכון. $1\,\text{m/s}$ הם 3600 מטרים בשעה, כלומר $3.6\,\text{km/h}$. יחידה גדולה יותר נותנת מספר קטן יותר.'
+      - text: 'ב-$\text{m/s}$, כי מטר קטן מקילומטר ולכן צריך יותר מטרים.'
+        feedback: 'גם השנייה קטנה מהשעה, פי 3600, ולכן המהירות במטרים לשנייה דווקא קטנה יותר במספרים. שתי ההמרות פועלות יחד, ונשאר פי 3.6.'
+        misconception: MC-kmh-to-ms-multiply
+      - text: 'המספרים שווים, כי זו אותה מהירות.'
+        feedback: 'הגודל שווה, אבל המספר תלוי ביחידה. $20\,\text{m/s}$ ו-$72\,\text{km/h}$ הם אותה מהירות.'
+        misconception: MC-units-decoration
+
+  - id: Q-0.2-area
+    type: numeric
+    objectives: [OBJ-0.2-2]
+    prompt: >-
+      שטח הבסיס של קופסה הוא $20\,\text{cm}^2$. כמה זה ב-$\text{m}^2$?
+    answer: 2.0e-3
+    unit: m²
+    tolerance: 0.01
+    correctFeedback: 'נכון: $1\,\text{cm}^2 = (10^{-2}\,\text{m})^2 = 10^{-4}\,\text{m}^2$, ולכן $20\,\text{cm}^2 = 20\cdot10^{-4} = 2\cdot10^{-3}\,\text{m}^2$.'
+    wrongFeedback: 'בשטח יש שני אורכים. כל אחד מהם מומר מסנטימטרים למטרים.'
+    commonWrong:
+      - value: 0.2
+        feedback: 'המרתם כאילו זה אורך: $20\cdot10^{-2}$. אבל $\text{cm}^2$ הוא סנטימטר כפול סנטימטר, ולכן $10^{-2}\cdot10^{-2} = 10^{-4}$.'
+        misconception: MC-area-units-scale-linearly
+      - value: 2.0e5
+        feedback: 'הכיוון הפוך. סנטימטר רבוע קטן ממטר רבוע, ולכן במטרים רבועים המספר קטן יותר.'
+        misconception: MC-power-direction
+    hints:
+      - 'בריבוע של מטר על מטר יש $100\cdot100$ ריבועים של סנטימטר על סנטימטר.'
+
+  - id: Q-0.2-volume
+    type: numeric
+    objectives: [OBJ-0.2-2]
+    prompt: >-
+      בכוס יש $500\,\text{cm}^3$ מים. כמה זה ב-$\text{m}^3$?
+    answer: 5.0e-4
+    unit: m³
+    tolerance: 0.01
+    correctFeedback: 'נכון: $1\,\text{cm}^3 = (10^{-2}\,\text{m})^3 = 10^{-6}\,\text{m}^3$, ולכן $500\,\text{cm}^3 = 500\cdot10^{-6} = 5\cdot10^{-4}\,\text{m}^3$. זה חצי ליטר.'
+    wrongFeedback: 'בנפח יש שלושה אורכים, וכל אחד מהם מומר.'
+    commonWrong:
+      - value: 5
+        feedback: 'המרתם כאילו זה אורך, $500\cdot10^{-2}$. בסנטימטר מעוקב יש שלושה סנטימטרים, ולכן $10^{-2}\cdot10^{-2}\cdot10^{-2} = 10^{-6}$.'
+        misconception: MC-area-units-scale-linearly
+      - value: 0.05
+        feedback: 'המרתם כאילו זה שטח, $500\cdot10^{-4}$. בנפח יש שלושה אורכים: $(10^{-2})^3 = 10^{-6}$.'
+        misconception: MC-area-units-scale-linearly
+
+  - id: Q-0.2-area-twotier
+    type: twotier
+    objectives: [OBJ-0.2-2]
+    qualitative: true
+    prompt: >-
+      האם $1\,\text{cm}^2 = 10^{-2}\,\text{m}^2$?
+    choices:
+      - text: לא.
+        correct: true
+        feedback: 'נכון. $1\,\text{cm}^2 = 10^{-4}\,\text{m}^2$.'
+      - text: כן.
+        feedback: 'זה נכון לאורך, $1\,\text{cm} = 10^{-2}\,\text{m}$, אבל לא לשטח. בדקו את הנימוקים.'
+        misconception: MC-area-units-scale-linearly
+    reasonPrompt: ומה הנימוק?
+    reasons:
+      - text: 'בשטח יש שני אורכים, וכל אחד מהם מומר: $(10^{-2}\,\text{m})^2 = 10^{-4}\,\text{m}^2$.'
+        correct: true
+        feedback: 'בדיוק. דרך נוספת לראות את זה: ריבוע של מטר על מטר מכיל 100 שורות של 100 ריבועים של סנטימטר, כלומר 10,000.'
+      - text: 'סנטימטר הוא $10^{-2}$ מטר, וזה לא משתנה כשמדובר בשטח.'
+        feedback: 'סנטימטר רבוע הוא סנטימטר כפול סנטימטר. גם הקידומת "נכפלת": $10^{-2}\cdot10^{-2}$.'
+        misconception: MC-area-units-scale-linearly
+      - text: אי אפשר להמיר יחידות של שטח, רק יחידות של אורך.
+        feedback: 'אפשר, וזה קורה הרבה: שטח של שולחן, של כנף, של חתך. ממירים כל אחד משני האורכים.'
+
+  # ---------------------------------------------------------------- OBJ-0.2-3 significant figures
+  - id: Q-0.2-sigfigs-report
+    type: mc
+    objectives: [OBJ-0.2-3]
+    qualitative: true
+    prompt: >-
+      כדור התגלגל על שולחן $1.2\,\text{m}$ ב-$0.70\,\text{s}$, ומבקשים את המהירות שלו. המחשבון מציג 1.7142857. מה הכי מתאים לכתוב בתשובה?
+    choices:
+      - text: '$1.7\,\text{m/s}$'
+        correct: true
+        feedback: 'נכון. ב-$1.2$ יש שתי ספרות משמעותיות, וגם ב-$0.70$ (האפס שבסוף משמעותי, והאפס שבהתחלה לא). לכן גם בתוצאה שתיים, ועם יחידות.'
+      - text: '$1.7142857\,\text{m/s}$'
+        feedback: 'שמונה ספרות טוענות לדיוק שאין לנו: הנתונים ידועים רק בשתי ספרות. כתבו $1.7\,\text{m/s}$.'
+        misconception: MC-calculator-digits
+      - text: '$2\,\text{m/s}$'
+        feedback: 'עיגלתם יותר מדי, לספרה אחת, והתוצאה רחוקה בכ-17%. ב-$0.70$ יש שתי ספרות משמעותיות: האפס שבסוף נמדד.'
+      - text: '$1.7$'
+        feedback: 'המספר טוב, אבל בלי יחידות הוא לא תשובה. $1.7$ מה? מטרים לשנייה? קמ״ש? אלה מהירויות שונות מאוד.'
+        misconception: MC-units-decoration
+
+  - id: Q-0.2-count-sigfigs
+    type: mc
+    objectives: [OBJ-0.2-3]
+    prompt: >-
+      כמה ספרות משמעותיות יש במספר $0.0250\,\text{m}$?
+    choices:
+      - text: '3'
+        correct: true
+        feedback: 'נכון: 2, 5, והאפס שבסוף. האפסים שבהתחלה רק מראים איפה הנקודה העשרונית. בכתיב מדעי רואים את זה מיד: $2.50\cdot10^{-2}$.'
+      - text: '5'
+        feedback: 'האפסים שבהתחלה אינם ספרות משמעותיות. הם רק מסמנים את מקום הנקודה, ונעלמים בכתיב מדעי.'
+      - text: '2'
+        feedback: 'האפס בסוף, אחרי הנקודה, כן משמעותי. מי שכתב אותו מדד עד הספרה הזו.'
+      - text: '4'
+        feedback: 'ספרו מהספרה הראשונה שאינה אפס: 2, 5, 0.'
+
+  - id: Q-0.2-sigfigs-why
+    type: mc
+    objectives: [OBJ-0.2-3]
+    qualitative: true
+    prompt: >-
+      תלמיד חישב את אורך הדרך של מכונית וכתב $72345.678\,\text{m}$, אבל הנתונים בשאלה היו בשתי ספרות משמעותיות. מה הבעיה?
+    choices:
+      - text: 'התוצאה טוענת לדיוק של 8 ספרות, אבל הנתונים ידועים רק בשתיים. עדיף $7.2\cdot10^{4}\,\text{m}$.'
+        correct: true
+        feedback: נכון. התוצאה לא יכולה להיות מדויקת יותר מהנתונים שממנה חושבה.
+      - text: אין בעיה. יותר ספרות פירושן תשובה מדויקת יותר.
+        feedback: 'הספרות העודפות הן רק רעש של המחשבון. הן לא ידועות, ולכן לכתוב אותן זה לטעון משהו לא נכון.'
+        misconception: MC-calculator-digits
+      - text: 'צריך לעגל למספר שלם: $72346\,\text{m}$.'
+        feedback: 'גם $72346$ טוען לחמש ספרות ידועות, דיוק של מטר אחד בכמעט 72 קילומטרים. לפי הנתונים, רק שתי הספרות הראשונות ידועות.'
+        misconception: MC-calculator-digits
+
+  # ---------------------------------------------------------------- OBJ-0.2-4 solution format and unit check
+  - id: Q-0.2-format-order
+    type: mc
+    objectives: [OBJ-0.2-4]
+    qualitative: true
+    shuffle: false
+    prompt: >-
+      מה הסדר של שלבי הפתרון שמצופה מכם בבגרות?
+    choices:
+      - text: נתונים ביחידות SI, כיוון חיובי (כשיש כיוונים), נוסחה, פיתוח באותיות, הצבה עם יחידות, ותוצאה עם יחידות.
+        correct: true
+        feedback: נכון. קודם עובדים באותיות, ורק בסוף מציבים מספרים. כך קל לבדוק כל שלב.
+      - text: הצבה של כל המספרים, אחר כך נוסחה, ובסוף תוצאה.
+        feedback: אי אפשר להציב לפני שיודעים באיזו נוסחה. והצבה מוקדמת גוררת טעויות חשבון שקשה לאתר.
+      - text: תוצאה, ואחריה הנוסחה, כדי להראות שהתוצאה נכונה.
+        feedback: הפתרון מוביל אל התוצאה, לא מצדיק אותה בדיעבד. הבודק רוצה לראות איך הגעתם אליה.
+      - text: נוסחה והצבה, והיחידות רק בתוצאה הסופית.
+        feedback: 'היחידות שבהצבה הן מה שמגלה טעות, למשל קמ״ש שהוצבו במקום m/s. כותבים אותן לאורך כל הדרך.'
+        misconception: MC-units-decoration
+
+  - id: Q-0.2-units-before
+    type: twotier
+    objectives: [OBJ-0.2-4]
+    qualitative: true
+    prompt: >-
+      בשאלה המהירות נתונה בקמ״ש, והנוסחה כוללת את $g = 10\,\text{m/s}^2$. מתי ממירים את המהירות ל-$\text{m/s}$?
+    choices:
+      - text: לפני ההצבה בנוסחה.
+        correct: true
+        feedback: נכון. ממירים את כל הנתונים ליחידות SI, ורק אז מציבים.
+      - text: בסוף, אחרי שמקבלים תוצאה.
+        feedback: 'אחרי שהמספרים הוצבו, התוצאה כבר שגויה, ולא תמיד ברור פי כמה. ממירים לפני ההצבה.'
+        misconception: MC-units-decoration
+      - text: לא צריך להמיר, כי קמ״ש היא יחידה רגילה של מהירות.
+        feedback: 'היא רגילה, אבל היא לא יחידת SI. $g$ כתוב במטרים ובשניות, וכדי שהיחידות יתאימו, גם המהירות צריכה להיות במטרים לשנייה.'
+        misconception: MC-units-decoration
+    reasonPrompt: ומה הנימוק?
+    reasons:
+      - text: הקבועים בדף הנוסחאות כתובים ביחידות SI, ולכן כל הנתונים חייבים להיות ב-SI.
+        correct: true
+        feedback: 'בדיוק. קבוע שכתוב במטרים ובשניות "מצפה" לנתונים במטרים ובשניות.'
+      - text: זה רק עניין של סגנון, והתוצאה יוצאת אותו דבר.
+        feedback: 'התוצאה לא יוצאת אותו דבר. בנוסחה עם $v^2$, הצבה של קמ״ש במקום m/s משנה את התוצאה פי $3.6^2 \approx 13$.'
+        misconception: MC-units-decoration
+      - text: מספרים בקמ״ש גדולים מדי בשביל המחשבון.
+        feedback: המחשבון מסתדר עם כל מספר. הבעיה היא התאמת היחידות לקבועים.
+
+  - id: Q-0.2-unit-check
+    type: mc
+    objectives: [OBJ-0.2-4]
+    qualitative: true
+    prompt: >-
+      פתרתם שאלה שמבקשת זמן, והתוצאה יצאה ביחידות של $\text{m/s}$. מה זה אומר?
+    choices:
+      - text: שיש טעות בנוסחה או בפיתוח, כי זמן נמדד בשניות.
+        correct: true
+        feedback: נכון. בדיקת יחידות היא בדיקה חינמית. יחידות שגויות מגלות טעות עוד לפני שבודקים את המספר.
+      - text: 'שום דבר. יחידות הן רק תוספת לתשובה.'
+        feedback: 'יחידות הן חלק מהתשובה, והן גם בדיקה. זמן ביחידות של מהירות פירושו שמשהו בדרך השתבש.'
+        misconception: MC-units-decoration
+      - text: שצריך למחוק את היחידות ולכתוב במקומן s.
+        feedback: 'זה מסתיר את הטעות במקום לתקן אותה. חזרו לנוסחה ולפיתוח, ומצאו איפה היחידות התקלקלו.'
+        misconception: MC-units-decoration
+
+  - id: Q-0.2-reaction
+    type: numeric
+    objectives: [OBJ-0.2-4, OBJ-0.2-2]
+    level: bagrut
+    prompt: >-
+      נהגת נוסעת במהירות קבועה של 72 קמ״ש ורואה מכשול. עד שהיא לוחצת על הבלם עוברות $0.80\,\text{s}$,
+      ובזמן הזה המכונית ממשיכה באותה מהירות. כמה מטרים עוברת המכונית עד הלחיצה על הבלם?
+    answer: 16
+    unit: m
+    tolerance: 0.02
+    correctFeedback: >-
+      נכון. $v = 72/3.6 = 20\,\text{m/s}$, ולכן $d = vt = 20\,\dfrac{\text{m}}{\text{s}}\cdot0.80\,\text{s} = 16\,\text{m}$.
+      השניות מצטמצמות, ונשארים מטרים.
+    wrongFeedback: 'המירו את המהירות ל-m/s לפני ההצבה, והשתמשו ב-$d = vt$.'
+    commonWrong:
+      - value: 57.6
+        feedback: 'הצבתם קמ״ש ישר בנוסחה: $72\cdot0.80$. בדיקת יחידות מגלה את זה: $\text{km/h}$ כפול $\text{s}$ אינו מטר. המירו קודם: $72/3.6 = 20\,\text{m/s}$.'
+        misconception: MC-units-decoration
+      - value: 207.36
+        feedback: 'כפלתם ב-3.6 במקום לחלק: $72\cdot3.6 = 259\,\text{m/s}$, מהירות של מטוס. מקמ״ש ל-m/s מחלקים ב-3.6.'
+        misconception: MC-kmh-to-ms-multiply
+      - value: 0.016
+        feedback: 'זה נכון, אבל בקילומטרים: $0.016\,\text{km}$. השאלה מבקשת מטרים, $16\,\text{m}$.'
+    hints:
+      - '$72\,\text{km/h} = 72\cdot\dfrac{1000\,\text{m}}{3600\,\text{s}}$.'

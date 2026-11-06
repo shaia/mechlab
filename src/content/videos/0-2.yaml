@@ -1,0 +1,25 @@
+# Videos for lesson 0.2. Every id was checked against YouTube oEmbed (200: exists and embeddable; title and channel
+# as below) on the `verified` date. Never add an id that was not checked.
+
+- id: v-0-2-unit-conversion
+  youtubeId: sl6R_NBwxII
+  title: 'יחידות מידה והמרת יחידות'
+  channel: מבוא לפיזיקה BIU
+  lang: he
+  captions: []
+  minutes: 8
+  why: >-
+    יחידות מידה והמרה ביניהן, מתוך קורס המבוא לפיזיקה של אוניברסיטת בר-אילן (לפי כותרת הסרטון והערוץ).
+  verified: '2026-11-05'
+
+- id: v-0-2-powers-of-ten
+  youtubeId: 0fKBhvDjuy0
+  title: 'Powers of Ten™ (1977)'
+  channel: Eames Office
+  lang: en
+  captions: []
+  minutes: 9
+  why: >-
+    הסרט הקלסי של צ׳רלס וריי אימס: המצלמה מתרחקת מאדם שיושב בפארק פי 10 בכל צעד, עד מיליוני שנות אור, וחוזרת פנימה
+    עד חלקי אטום. זה הסרגל של איור 0.2, בתנועה.
+  verified: '2026-11-05'

@@ -1,0 +1,265 @@
+# Workbook, lesson 0.2. Every number recomputed with npx tsx (g = G from src/physics/constants.ts).
+
+lesson: '0.2'
+practice:
+  - id: W-0.2-01
+    level: basic
+    qualitative: false
+    objectives: [OBJ-0.2-1]
+    prompt: >-
+      כתבו כל גודל ביחידות היסוד (מטר, קילוגרם, שנייה) ובכתיב מדעי:
+
+      (א) גובה הר האוורסט, כ-$8.8\,\text{km}$;
+
+      (ב) זמן תגובה של נהג, $180\,\text{ms}$;
+
+      (ג) מסה של נמלה, $2.5\,\text{mg}$;
+
+      (ד) שנה של 365 ימים, בשניות.
+    answer: '(א) $8.8\cdot10^{3}\,\text{m}$ (ב) $1.8\cdot10^{-1}\,\text{s}$ (ג) $2.5\cdot10^{-6}\,\text{kg}$ (ד) $3.15\cdot10^{7}\,\text{s}$'
+    solution:
+      - { kind: given, text: 'הקידומות: $\text{k} = 10^{3}$, $\text{m} = 10^{-3}$. ביממה 24 שעות, בשעה 3600 שניות, ו-$1\,\text{g} = 10^{-3}\,\text{kg}$.' }
+      - { kind: manipulation, text: '(א) $8.8\,\text{km} = 8.8\cdot10^{3}\,\text{m}$.' }
+      - { kind: manipulation, text: '(ב) $180\,\text{ms} = 180\cdot10^{-3}\,\text{s} = 1.8\cdot10^{2}\cdot10^{-3}\,\text{s} = 1.8\cdot10^{-1}\,\text{s}$.' }
+      - { kind: manipulation, text: '(ג) כאן יש שתי קידומות בדרך: מיליגרם הוא $10^{-3}\,\text{g}$, וגרם הוא $10^{-3}\,\text{kg}$. לכן $2.5\,\text{mg} = 2.5\cdot10^{-3}\cdot10^{-3}\,\text{kg} = 2.5\cdot10^{-6}\,\text{kg}$.' }
+      - { kind: substitution, text: '(ד) $365\cdot24\cdot3600\,\text{s} = 31{,}536{,}000\,\text{s} = 3.1536\cdot10^{7}\,\text{s}$.' }
+      - { kind: result, text: '$8.8\cdot10^{3}\,\text{m}$, $1.8\cdot10^{-1}\,\text{s}$, $2.5\cdot10^{-6}\,\text{kg}$, וכ-$3.15\cdot10^{7}\,\text{s}$ בשנה.' }
+
+  - id: W-0.2-02
+    level: basic
+    qualitative: true
+    objectives: [OBJ-0.2-1, OBJ-0.2-3]
+    prompt: >-
+      ארבעה תלמידים כתבו את אורך המסלול באצטדיון כך: $0.4\cdot10^{3}\,\text{m}$, $4.00\cdot10^{2}\,\text{m}$,
+      $40\cdot10^{1}\,\text{m}$ ו-$4\cdot10^{2}\,\text{m}$.
+
+      (א) האם כל הכתיבות שוות זו לזו?
+
+      (ב) אילו מהן כתובות בכתיב מדעי?
+
+      (ג) מה ההבדל בין $4.00\cdot10^{2}\,\text{m}$ לבין $4\cdot10^{2}\,\text{m}$?
+    answer: 'כולן שוות ל-400 מטרים. רק $4.00\cdot10^{2}$ ו-$4\cdot10^{2}$ כתובות בכתיב מדעי, וההבדל ביניהן הוא מספר הספרות המשמעותיות: שלוש לעומת אחת.'
+    solution:
+      - { kind: reasoning, text: '(א) $0.4\cdot10^{3} = 0.4\cdot1000 = 400$, $40\cdot10^{1} = 400$, $4.00\cdot10^{2} = 4\cdot10^{2} = 400$. כולן אותו ערך.' }
+      - { kind: reasoning, text: '(ב) בכתיב מדעי המספר שלפני החזקה הוא בין 1 ל-10. 0.4 קטן מ-1 ו-40 גדול מ-10, ולכן רק $4.00\cdot10^{2}$ ו-$4\cdot10^{2}$ כתובות בכתיב מדעי.' }
+      - { kind: reasoning, text: '(ג) האפסים שאחרי הנקודה ב-4.00 משמעותיים: מי שכתב אותם אומר שהאורך ידוע עד המטר. ב-$4.00\cdot10^{2}\,\text{m}$ יש שלוש ספרות משמעותיות, וב-$4\cdot10^{2}\,\text{m}$ רק אחת, כלומר האורך ידוע רק עד כמאה מטרים.' }
+      - { kind: result, text: 'הערך זהה, 400 מטרים. בכתיב מדעי כתובות רק שתיים מהן, והן נבדלות בדיוק שהן מצהירות עליו: 3 ספרות משמעותיות לעומת 1.' }
+
+  - id: W-0.2-03
+    level: basic
+    qualitative: false
+    objectives: [OBJ-0.2-2]
+    prompt: >-
+      השלימו את ההמרות:
+
+      (א) $36\,\text{km/h}$ ב-$\text{m/s}$;
+
+      (ב) $120\,\text{km/h}$ ב-$\text{m/s}$;
+
+      (ג) $15\,\text{m/s}$ ב-$\text{km/h}$;
+
+      (ד) חילזון זוחל $1.0\,\text{mm}$ בכל שנייה. כמה מטרים הוא זוחל בשעה?
+    answer: '(א) $10\,\text{m/s}$ (ב) $33\,\text{m/s}$ (ג) $54\,\text{km/h}$ (ד) $3.6\,\text{m}$ בשעה'
+    solution:
+      - { kind: formula, text: '$1\,\text{km/h} = \dfrac{1000\,\text{m}}{3600\,\text{s}} = \dfrac{1}{3.6}\,\text{m/s}$. מקמ״ש ל-m/s מחלקים ב-3.6, ובכיוון ההפוך כופלים.' }
+      - { kind: substitution, text: '(א) $36/3.6 = 10\,\text{m/s}$. (ב) $120/3.6 = 33.3\,\text{m/s}$.' }
+      - { kind: substitution, text: '(ג) $15\cdot3.6 = 54\,\text{km/h}$.' }
+      - { kind: substitution, text: '(ד) בשעה יש 3600 שניות: $1.0\cdot10^{-3}\,\dfrac{\text{m}}{\text{s}}\cdot3600\,\dfrac{\text{s}}{\text{h}} = 3.6\,\dfrac{\text{m}}{\text{h}}$. השניות מצטמצמות.' }
+      - { kind: result, text: '(א) $10\,\text{m/s}$ (ב) כ-$33\,\text{m/s}$ (ג) $54\,\text{km/h}$ (ד) $3.6$ מטרים בשעה.' }
+
+  - id: W-0.2-04
+    level: mid
+    qualitative: false
+    objectives: [OBJ-0.2-2]
+    prompt: >-
+      משטח של שולחן הוא מלבן של $120\,\text{cm}$ על $80\,\text{cm}$.
+      מה שטח המשטח בסנטימטרים רבועים, במטרים רבועים ובמילימטרים רבועים?
+    answer: '$9.6\cdot10^{3}\,\text{cm}^2 = 0.96\,\text{m}^2 = 9.6\cdot10^{5}\,\text{mm}^2$'
+    solution:
+      - { kind: given, text: 'אורך $120\,\text{cm}$, רוחב $80\,\text{cm}$.' }
+      - { kind: formula, text: 'שטח של מלבן: $A = ab$.' }
+      - { kind: substitution, text: '$A = 120\,\text{cm}\cdot80\,\text{cm} = 9600\,\text{cm}^2 = 9.6\cdot10^{3}\,\text{cm}^2$.' }
+      - { kind: manipulation, text: '$1\,\text{cm}^2 = (10^{-2}\,\text{m})^2 = 10^{-4}\,\text{m}^2$, ולכן $9600\,\text{cm}^2 = 9600\cdot10^{-4}\,\text{m}^2 = 0.96\,\text{m}^2$. בדיקה: $1.20\,\text{m}\cdot0.80\,\text{m} = 0.96\,\text{m}^2$.' }
+      - { kind: manipulation, text: 'בסנטימטר יש 10 מילימטרים, ולכן $1\,\text{cm}^2 = (10\,\text{mm})^2 = 100\,\text{mm}^2$, ו-$9600\,\text{cm}^2 = 9.6\cdot10^{5}\,\text{mm}^2$.' }
+      - { kind: result, text: '$9.6\cdot10^{3}\,\text{cm}^2$, שהם $0.96\,\text{m}^2$ ו-$9.6\cdot10^{5}\,\text{mm}^2$. מי שמחלק ב-100 בלבד מקבל $96\,\text{m}^2$, שולחן בגודל של דירה.' }
+
+  - id: W-0.2-05
+    level: mid
+    qualitative: true
+    objectives: [OBJ-0.2-4]
+    prompt: >-
+      תלמיד כתב שהמהירות של גוף שעובר מרחק $d$ בזמן $t$, במהירות קבועה, היא $v = d\cdot t$.
+
+      (א) מה היחידות של $d\cdot t$? האם הנוסחה יכולה להיות נכונה?
+
+      (ב) איזו נוסחה עוברת את בדיקת היחידות? בדקו אותה גם במספרים: $100\,\text{m}$ ב-$20\,\text{s}$.
+    answer: '(א) $\text{m}\cdot\text{s}$, לא יחידות של מהירות, ולכן לא. (ב) $v = d/t$, ביחידות $\text{m/s}$; במספרים $5.0\,\text{m/s}$.'
+    solution:
+      - { kind: reasoning, text: '(א) $d$ נמדד במטרים ו-$t$ בשניות, ולכן $d\cdot t$ נמדד ב-$\text{m}\cdot\text{s}$. מהירות נמדדת ב-$\text{m/s}$, כלומר מטרים **חלקי** שניות. הנוסחה נפסלת.' }
+      - { kind: reasoning, text: 'גם בלי יחידות רואים שמשהו לא בסדר: לפי $v = dt$, מי שעובר את אותו מרחק בזמן ארוך יותר נע מהר יותר.' }
+      - { kind: reasoning, text: '(ב) ב-$v = d/t$ היחידות הן $\text{m}/\text{s}$, כמו שצריך. ואם הזמן ארוך יותר, המהירות קטנה, כצפוי.' }
+      - { kind: substitution, text: '$v = \dfrac{100\,\text{m}}{20\,\text{s}} = 5.0\,\text{m/s}$.' }
+      - { kind: result, text: 'הנוסחה $v = d\cdot t$ שגויה: היחידות שלה $\text{m}\cdot\text{s}$. הנוסחה $v = d/t$ עוברת את הבדיקה, ובמספרים נותנת $5.0\,\text{m/s}$.' }
+
+  - id: W-0.2-06
+    level: mid
+    qualitative: false
+    objectives: [OBJ-0.2-2, OBJ-0.2-3]
+    prompt: >-
+      רכבת עברה $300\,\text{km}$ (בשלוש ספרות משמעותיות) בשעה ו-45 דקות. נניח שנסעה כל הדרך באותה מהירות. מה המהירות שלה, במטרים לשנייה ובקמ״ש?
+      כתבו את התשובה עם מספר סביר של ספרות משמעותיות.
+    answer: '$47.6\,\text{m/s}$, כלומר $171\,\text{km/h}$'
+    solution:
+      - { kind: given, text: '$d = 300\,\text{km} = 3.00\cdot10^{5}\,\text{m}$. הזמן: $1\,\text{h} + 45\,\text{min} = 105\,\text{min} = 105\cdot60\,\text{s} = 6300\,\text{s}$.' }
+      - { kind: formula, text: 'במהירות קבועה, המהירות היא הדרך חלקי הזמן: $v = \dfrac{d}{t}$. (אם הרכבת האטה והאיצה בדרך, זו מהירות ממוצעת, מושג שתפגשו בשיעור 1.3.)' }
+      - { kind: substitution, text: '$v = \dfrac{3.00\cdot10^{5}\,\text{m}}{6300\,\text{s}} = 47.62\,\text{m/s}$.' }
+      - { kind: substitution, text: 'בקמ״ש: $47.62\cdot3.6 = 171.4\,\text{km/h}$. בדיקה בדרך אחרת: $300\,\text{km}/1.75\,\text{h} = 171.4\,\text{km/h}$.' }
+      - { kind: reasoning, text: 'הנתונים בשלוש ספרות משמעותיות, ולכן גם התוצאה. המחשבון מציג $47.619047\ldots$, אבל הספרות שאחרי השלישית אינן ידועות.' }
+      - { kind: result, text: '$v \approx 47.6\,\text{m/s} \approx 171\,\text{km/h}$.' }
+
+  - id: W-0.2-07
+    level: mid
+    qualitative: true
+    objectives: [OBJ-0.2-3]
+    prompt: >-
+      מונה המרחק של מכונית הראה שעברה $12.0\,\text{km}$, ושעון עצר מדד $0.25\,\text{h}$.
+      ארבעה תלמידים חילקו את הדרך בזמן וכתבו את המהירות: $48.000\,\text{km/h}$, $48.0\,\text{km/h}$, $48\,\text{km/h}$ ו-$50\,\text{km/h}$.
+      איזו תשובה הכי מתאימה? נמקו.
+    answer: '$48\,\text{km/h}$: הנתון הכי פחות מדויק, הזמן, ידוע רק בשתי ספרות משמעותיות.'
+    solution:
+      - { kind: given, text: 'אורך הדרך $12.0\,\text{km}$: שלוש ספרות משמעותיות. הזמן $0.25\,\text{h}$: שתיים.' }
+      - { kind: substitution, text: '$v = \dfrac{12.0\,\text{km}}{0.25\,\text{h}} = 48\,\text{km/h}$.' }
+      - { kind: reasoning, text: '$48.000$ טוען לחמש ספרות ידועות, ו-$48.0$ לשלוש. שתיהן נשענות על מונה המרחק המדויק ושוכחות שהזמן פחות מדויק. מונה מדויק לא מתקן שעון פחות מדויק.' }
+      - { kind: reasoning, text: '$50\,\text{km/h}$ מעוגל לספרה אחת, וזורק ספרה שכן ידועה.' }
+      - { kind: result, text: '$48\,\text{km/h}$, בשתי ספרות משמעותיות, כמו הנתון הכי פחות מדויק.' }
+
+  - id: W-0.2-08
+    level: bagrut
+    qualitative: false
+    objectives: [OBJ-0.2-4, OBJ-0.2-2]
+    prompt: >-
+      אבן נופלת ממנוחה מגשר גבוה, בלי התנגדות אוויר. אחרי זמן $t$ המהירות שלה היא $v = gt$, והיא ירדה גובה $h = \tfrac{1}{2}gt^2$
+      (את הנוסחאות תפתחו בשיעור 1.7). נתון $g = 10\,\text{m/s}^2$, והאבן פוגעת במים אחרי $4.0\,\text{s}$.
+
+      (א) מה מהירות האבן כשהיא פוגעת במים, במטרים לשנייה ובקמ״ש?
+
+      (ב) מה גובה הגשר מעל המים?
+
+      (ג) הראו בבדיקת יחידות ששתי הנוסחאות נותנות את היחידות הנכונות.
+
+      (ד) מה היה משתנה בתשובות (א) ו-(ב) אם הנפילה הייתה נמשכת זמן כפול?
+    answer: '(א) $40\,\text{m/s} = 144\,\text{km/h}$ (ב) $80\,\text{m}$ (ד) המהירות גדלה פי 2, והגובה פי 4.'
+    solution:
+      - { kind: given, text: '$t = 4.0\,\text{s}$, $g = 10\,\text{m/s}^2$. כל הנתונים כבר ביחידות SI.' }
+      - { kind: formula, text: '$v = gt$, $h = \tfrac{1}{2}gt^2$.' }
+      - { kind: substitution, text: '(א) $v = 10\,\dfrac{\text{m}}{\text{s}^2}\cdot4.0\,\text{s} = 40\,\dfrac{\text{m}}{\text{s}}$. בקמ״ש: $40\cdot3.6 = 144\,\text{km/h}$.' }
+      - { kind: substitution, text: '(ב) $h = \tfrac{1}{2}\cdot10\,\dfrac{\text{m}}{\text{s}^2}\cdot(4.0\,\text{s})^2 = 5\cdot16\,\text{m} = 80\,\text{m}$.' }
+      - { kind: reasoning, text: '(ג) ב-$gt$: $\dfrac{\text{m}}{\text{s}^2}\cdot\text{s} = \dfrac{\text{m}}{\text{s}}$, יחידות של מהירות. ב-$\tfrac{1}{2}gt^2$: $\dfrac{\text{m}}{\text{s}^2}\cdot\text{s}^2 = \text{m}$, יחידות של אורך. ל-$\tfrac{1}{2}$ אין יחידות.' }
+      - { kind: reasoning, text: '(ד) $v$ פרופורציונית ל-$t$, ולכן בזמן כפול היא גדלה פי 2, ל-$80\,\text{m/s}$. $h$ פרופורציוני ל-$t^2$, ולכן הוא גדל פי $2^2 = 4$, ל-$320\,\text{m}$.' }
+      - { kind: result, text: '(א) $40\,\text{m/s}$, כלומר $144\,\text{km/h}$. (ב) $80\,\text{m}$. (ג) היחידות מתאימות. (ד) מהירות פי 2, גובה פי 4.' }
+
+  - id: W-0.2-09
+    level: bagrut
+    qualitative: true
+    objectives: [OBJ-0.2-4]
+    prompt: >-
+      זמן המחזור של מטוטלת, הזמן של תנודה שלמה הלוך וחזור, תלוי באורך החוט $L$ ובתאוצת הנפילה $g$.
+      שתי תלמידות כתבו: $T = 2\pi\sqrt{L/g}$ ו-$T = 2\pi\sqrt{g/L}$.
+      ($\pi$, האות היוונית פאי, היא מספר, כ-3.14, ולכן $2\pi \approx 6.28$ הוא מספר בלי יחידות.)
+
+      (א) קבעו בבדיקת יחידות איזו נוסחה יכולה להיות נכונה.
+
+      (ב) לפי הנוסחה שבחרתם, חשבו את $T$ לחוט באורך $1.0\,\text{m}$, עם $g = 10\,\text{m/s}^2$.
+
+      (ג) מה משתנה בזמן המחזור אם מאריכים את החוט פי 4?
+    answer: '(א) $T = 2\pi\sqrt{L/g}$, שנותנת שניות. (ב) $T \approx 2.0\,\text{s}$. (ג) זמן המחזור גדל פי 2.'
+    solution:
+      - { kind: reasoning, text: '(א) ל-$2\pi$ אין יחידות, ולכן בודקים רק את השורש. ב-$\sqrt{L/g}$ מחלקים מטרים ב-$\text{m/s}^2$. חילוק בשבר הוא כפל בשבר ההפוך: $\dfrac{\text{m}}{\text{m/s}^2} = \text{m}\cdot\dfrac{\text{s}^2}{\text{m}} = \text{s}^2$, ולכן $\sqrt{\text{s}^2} = \text{s}$.' }
+      - { kind: reasoning, text: 'ב-$\sqrt{g/L}$ מחלקים $\text{m/s}^2$ במטרים, והמטרים מצטמצמים: $\dfrac{\text{m/s}^2}{\text{m}} = \dfrac{\text{m}}{\text{s}^2}\cdot\dfrac{1}{\text{m}} = \dfrac{1}{\text{s}^2}$. השורש של $\dfrac{1}{\text{s}^2}$ הוא $\dfrac{1}{\text{s}}$, כי $\dfrac{1}{\text{s}}\cdot\dfrac{1}{\text{s}} = \dfrac{1}{\text{s}^2}$. אחת חלקי שנייה אינה יחידה של זמן.' }
+      - { kind: reasoning, text: 'לכן רק $T = 2\pi\sqrt{L/g}$ יכולה להיות נכונה. הבדיקה לא מוכיחה שהיא נכונה, רק פוסלת את השנייה.' }
+      - { kind: substitution, text: '(ב) $T = 2\pi\sqrt{\dfrac{1.0\,\text{m}}{10\,\text{m/s}^2}} = 2\pi\sqrt{0.10\,\text{s}^2} = 2\pi\cdot0.316\,\text{s} = 1.99\,\text{s}$.' }
+      - { kind: reasoning, text: '(ג) $T$ פרופורציוני ל-$\sqrt{L}$. כש-$L$ גדל פי 4, $T$ גדל פי $\sqrt{4} = 2$, ל-$4.0\,\text{s}$ בערך.' }
+      - { kind: result, text: '(א) $T = 2\pi\sqrt{L/g}$. (ב) $T \approx 2.0\,\text{s}$, בשתי ספרות משמעותיות. (ג) פי 2, לא פי 4.' }
+
+  - id: W-0.2-10
+    level: bagrut
+    qualitative: false
+    objectives: [OBJ-0.2-2, OBJ-0.2-3, OBJ-0.2-4]
+    prompt: >-
+      מכונית צורכת $6.0$ ליטרים של דלק לכל $100\,\text{km}$, ונפח המכל שלה $45\,\text{L}$. נניח שהצפיפות של הדלק היא
+      $7.5\cdot10^{2}\,\text{kg/m}^3$. ($1\,\text{L} = 10^{-3}\,\text{m}^3$)
+
+      (א) כמה קילומטרים אפשר לנסוע עם מכל מלא?
+
+      (ב) מה נפח הדלק במכל מלא, במטרים מעוקבים, ומה המסה שלו?
+
+      (ג) בנסיעה מהירה הצריכה עולה ל-$8.0$ ליטרים לכל $100\,\text{km}$. מה משתנה בתשובה (א)?
+    answer: '(א) $750\,\text{km}$ (ב) $4.5\cdot10^{-2}\,\text{m}^3$, כ-$34\,\text{kg}$ (ג) כ-$5.6\cdot10^{2}\,\text{km}$'
+    solution:
+      - { kind: given, text: 'צריכה $6.0\,\text{L}$ ל-$100\,\text{km}$, מכל $V = 45\,\text{L}$, $\rho = 7.5\cdot10^{2}\,\text{kg/m}^3$.' }
+      - { kind: substitution, text: '(א) כל ליטר מספיק ל-$\dfrac{100\,\text{km}}{6.0\,\text{L}} = 16.7\,\text{km/L}$, ולכן $45\,\text{L}\cdot16.7\,\dfrac{\text{km}}{\text{L}} = 750\,\text{km}$. הליטרים מצטמצמים.' }
+      - { kind: manipulation, text: '(ב) $V = 45\,\text{L} = 45\cdot10^{-3}\,\text{m}^3 = 4.5\cdot10^{-2}\,\text{m}^3$.' }
+      - { kind: formula, text: '$m = \rho V$.' }
+      - { kind: substitution, text: '$m = 7.5\cdot10^{2}\,\dfrac{\text{kg}}{\text{m}^3}\cdot4.5\cdot10^{-2}\,\text{m}^3 = 33.75\,\text{kg}$. בדיקת יחידות: $\text{kg/m}^3$ כפול $\text{m}^3$ נותן $\text{kg}$.' }
+      - { kind: reasoning, text: '(ג) הטווח הפוך לצריכה: $45\,\text{L}\cdot\dfrac{100\,\text{km}}{8.0\,\text{L}} = 562.5\,\text{km}$. צריכה גדולה פי $8.0/6.0$ נותנת טווח קטן באותו יחס.' }
+      - { kind: result, text: '(א) $750\,\text{km}$ (ב) $4.5\cdot10^{-2}\,\text{m}^3$ וכ-$34\,\text{kg}$, בשתי ספרות משמעותיות (ג) הטווח קטן לכ-$5.6\cdot10^{2}\,\text{km}$.' }
+
+challenge:
+  - id: W-0.2-c1
+    stars: 1
+    objectives: [OBJ-0.2-3, OBJ-0.2-2]
+    prompt: >-
+      בגמר משחה של 100 מטרים פרפר באולימפיאדה של 2008 סיים המנצח ב-$50.58\,\text{s}$, והשני ב-$50.59\,\text{s}$.
+      השעון מציג זמנים עד מאית השנייה.
+
+      (א) כמה מטרים, בממוצע, עבר השחיין השני בכל שנייה?
+
+      (ב) כמה סנטימטרים, בערך, היה השחיין השני מאחורי המנצח ברגע שהמנצח נגע בקיר?
+
+      (ג) הזמנים מוצגים בעיגול למאית השנייה, ולכן ההפרש האמיתי ביניהם יכול להיות כל דבר מכמעט אפס ועד כ-$0.02\,\text{s}$.
+      כמה ספרות משמעותיות מגיעות לתשובה (ב)?
+    answer: '(א) כ-$1.98\,\text{m/s}$ (ב) כ-$2\,\text{cm}$ (ג) ספרה משמעותית אחת לכל היותר: ההפרש בין 0 לכ-4 סנטימטרים.'
+    solution:
+      - { kind: given, text: '$d = 100\,\text{m}$, $t_2 = 50.59\,\text{s}$. ההפרש בזמנים $\Delta t = 50.59 - 50.58 = 0.01\,\text{s}$.' }
+      - { kind: formula, text: 'הדרך חלקי הזמן נותנת כמה מטרים עברו, בממוצע, בכל שנייה: $v = \dfrac{d}{t}$. בזמן קצר שבו המהירות כמעט קבועה, האורך שעוברים הוא $v\,\Delta t$.' }
+      - { kind: substitution, text: '(א) $v = \dfrac{100\,\text{m}}{50.59\,\text{s}} = 1.977\,\text{m/s}$.' }
+      - { kind: substitution, text: '(ב) כשהמנצח נגע בקיר, לשני נשארו עוד $0.01\,\text{s}$ של שחייה: $1.977\,\dfrac{\text{m}}{\text{s}}\cdot0.01\,\text{s} = 0.0198\,\text{m} \approx 2\,\text{cm}$.' }
+      - { kind: reasoning, text: '(ג) בהפרש $0.01\,\text{s}$ יש ספרה משמעותית אחת, ובעצם גם היא לא בטוחה: ההפרש האמיתי בין כמעט 0 לכ-$0.02\,\text{s}$, כלומר בין כמעט 0 לכ-$4\,\text{cm}$. לכן כותבים "כ-2 סנטימטרים", ולא $1.977\,\text{cm}$.' }
+      - { kind: result, text: '(א) $1.98\,\text{m/s}$ (ב) כ-$2\,\text{cm}$, אורך של ציפורן (ג) ספרה משמעותית אחת לכל היותר. שעון שמודד מאיות השנייה לא יכול להבחין בהפרש קטן בהרבה מכמה סנטימטרים.' }
+    source:
+      name: PhysicsBowl
+      year: 2019
+      problem: 'Question 34'
+      url: https://aapt.org/Programs/PhysicsBowl/upload/2019-PhysicsBowl-Exam.pdf
+      verified: '2026-11-06'
+      adapted: true
+
+  - id: W-0.2-c2
+    stars: 1
+    objectives: [OBJ-0.2-4, OBJ-0.2-2]
+    prompt: >-
+      כשגוף נע מהר באוויר, הכוח שהאוויר מפעיל עליו נגד התנועה נתון בקירוב בנוסחה $F = Kv^2A$, כאשר $v$ היא המהירות של הגוף
+      ו-$A$ השטח של החזית שלו. יחידת הכוח היא ניוטון, שתכירו בפרק 2: $1\,\text{N} = 1\,\text{kg}\cdot\text{m/s}^2$.
+
+      (א) מצאו את היחידות של $K$ ביחידות היסוד. לאיזה גודל מוכר יש יחידות כאלה?
+
+      (ב) מה קורה לכוח אם המהירות גדלה פי 2?
+
+      (ג) למכונית יש שטח חזית של $2.0\,\text{m}^2$, ונניח ש-$K = 0.50$ ביחידות שמצאתם. מה הכוח שהאוויר מפעיל על המכונית
+      ב-72 קמ״ש, ומה הוא ב-144 קמ״ש?
+    answer: '(א) $\text{kg/m}^3$, יחידות של צפיפות. (ב) גדל פי 4. (ג) $4.0\cdot10^{2}\,\text{N}$, ו-$1.6\cdot10^{3}\,\text{N}$.'
+    solution:
+      - { kind: manipulation, text: '(א) מבודדים את $K$ באותיות: $K = \dfrac{F}{v^2A}$.' }
+      - { kind: reasoning, text: 'היחידות: $\dfrac{\text{kg}\cdot\text{m/s}^2}{(\text{m/s})^2\cdot\text{m}^2} = \dfrac{\text{kg}\cdot\text{m}/\text{s}^2}{\text{m}^4/\text{s}^2} = \dfrac{\text{kg}}{\text{m}^3}$. השניות בריבוע מצטמצמות, ומטר אחד במונה מצטמצם עם אחד מארבעת המטרים במכנה.' }
+      - { kind: reasoning, text: 'ל-$\text{kg/m}^3$ יש יחידות של צפיפות, מסה של מטר מעוקב. ואכן, $K$ תלוי בצפיפות האוויר.' }
+      - { kind: reasoning, text: '(ב) $F$ פרופורציוני ל-$v^2$, ולכן מהירות כפולה נותנת כוח גדול פי $2^2 = 4$.' }
+      - { kind: given, text: '(ג) ממירים ל-SI: $72\,\text{km/h} = 72/3.6 = 20\,\text{m/s}$, ו-$144\,\text{km/h} = 40\,\text{m/s}$.' }
+      - { kind: substitution, text: '$F = 0.50\,\dfrac{\text{kg}}{\text{m}^3}\cdot\left(20\,\dfrac{\text{m}}{\text{s}}\right)^2\cdot2.0\,\text{m}^2 = 400\,\dfrac{\text{kg}\cdot\text{m}}{\text{s}^2} = 4.0\cdot10^{2}\,\text{N}$. ב-$40\,\text{m/s}$: פי 4, $1.6\cdot10^{3}\,\text{N}$.' }
+      - { kind: result, text: '(א) $K$ נמדד ב-$\text{kg/m}^3$, יחידות של צפיפות. (ב) הכוח גדל פי 4. (ג) $4.0\cdot10^{2}\,\text{N}$ ב-72 קמ״ש, ו-$1.6\cdot10^{3}\,\text{N}$ ב-144 קמ״ש. מי שמציב קמ״ש מקבל כוח גדול פי $3.6^2 \approx 13$.' }
+    source:
+      name: Oxford Physics Aptitude Test (PAT)
+      year: 2009
+      problem: 'Question 19'
+      url: https://www.physics.ox.ac.uk/system/files/file_attachments/pat-2009.pdf
+      verified: '2026-11-06'
+      adapted: true
