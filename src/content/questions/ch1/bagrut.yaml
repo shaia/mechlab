@@ -1,0 +1,601 @@
+# Chapter 1 Bagrut-style questions: a scenario with lettered parts (א, ב, ג…), 33 points each, as in
+# paper 036361. Parts are auto-graded (mc, numeric, vector, twotier) or `open`: the student writes a solution,
+# reveals the model one in Bagrut format (formula → manipulation → substitution with units → result) and ticks
+# the rubric. Each question has a "קבעו ונמקו" part and a "בטאו באמצעות" part.
+#
+# Every number was recomputed with src/physics (makeMotion, uniform, avgAcceleration, displacement, position,
+# timesAtVelocity, stoppingDistance, apex, flight, timesAtPosition from kinematics.ts; closingSpeed from
+# relative.ts; add, sub, len, angle from vec.ts; accelComponents from planar.ts; G from constants.ts).
+# YAML note: plain and single-quoted strings keep backslashes literally; never use "…" for TeX.
+
+chapter: 1
+questions:
+  # ------------------------------------------------- 1: a car closing in on a motorcycle (reaction time, braking)
+  - id: Q-1-bagrut-1
+    type: bagrut
+    title: מכונית מתקרבת לאופנוע
+    prompt: >-
+      מכונית (A) נוסעת בכביש ישר במהירות קבועה של $20\,\text{m/s}$. לפניה, באותו נתיב ובאותו כיוון, נוסע אופנוע (B)
+      במהירות קבועה של $12\,\text{m/s}$. ברגע $t = 0$ נהג המכונית מבחין שהמרחק בינו לבין האופנוע הוא $30\,\text{m}$.
+      זמן התגובה של הנהג $1.0\,\text{s}$, ואחריו הוא בולם בתאוצה קבועה עד שהמכונית נעצרת. האופנוע ממשיך במהירות
+      קבועה. הגרף מתאר את המהירות של שני כלי הרכב כתלות בזמן. הכיוון החיובי הוא כיוון הנסיעה, והתייחסו לכלי
+      הרכב כאל גופים נקודתיים.
+    diagramAlt: >-
+      גרף מהירות-זמן. ציר הזמן מאפס עד 8 שניות, ציר המהירות מאפס עד 20 מטרים לשנייה. הקו של המכונית A אופקי
+      ב-20 מטרים לשנייה עד שנייה 1, ואז יורד בקו ישר עד אפס ב-6 שניות ונשאר באפס. הקו של האופנוע B אופקי
+      ב-12 מטרים לשנייה לאורך כל הגרף. הקווים נחתכים ב-3 שניות.
+    diagram: |
+      <svg viewBox="0 0 420 250" width="420" height="250" font-size="13" aria-hidden="true">
+        <g stroke="var(--rule)" stroke-width="1">
+          <line x1="100" y1="50" x2="100" y2="210"/><line x1="140" y1="50" x2="140" y2="210"/>
+          <line x1="180" y1="50" x2="180" y2="210"/><line x1="220" y1="50" x2="220" y2="210"/>
+          <line x1="260" y1="50" x2="260" y2="210"/><line x1="300" y1="50" x2="300" y2="210"/>
+          <line x1="340" y1="50" x2="340" y2="210"/><line x1="380" y1="50" x2="380" y2="210"/>
+          <line x1="60" y1="178" x2="380" y2="178"/><line x1="60" y1="146" x2="380" y2="146"/>
+          <line x1="60" y1="114" x2="380" y2="114"/><line x1="60" y1="82" x2="380" y2="82"/>
+          <line x1="60" y1="50" x2="380" y2="50"/>
+        </g>
+        <line x1="60" y1="210" x2="400" y2="210" stroke="currentColor" stroke-width="1.5"/>
+        <polygon points="400,205 410,210 400,215" fill="currentColor"/>
+        <line x1="60" y1="210" x2="60" y2="28" stroke="currentColor" stroke-width="1.5"/>
+        <polygon points="55,28 60,18 65,28" fill="currentColor"/>
+        <text x="396" y="232" fill="currentColor">t (s)</text>
+        <text x="68" y="20" fill="currentColor">v (m/s)</text>
+        <g fill="currentColor" text-anchor="middle">
+          <text x="60" y="226">0</text><text x="100" y="226">1</text><text x="140" y="226">2</text>
+          <text x="180" y="226">3</text><text x="220" y="226">4</text><text x="260" y="226">5</text>
+          <text x="300" y="226">6</text><text x="340" y="226">7</text><text x="380" y="226">8</text>
+        </g>
+        <g fill="currentColor" text-anchor="end">
+          <text x="54" y="182">4</text><text x="54" y="150">8</text><text x="54" y="118">12</text>
+          <text x="54" y="86">16</text><text x="54" y="54">20</text>
+        </g>
+        <polyline points="60,50 100,50 300,210 380,210" fill="none" stroke="var(--velocity)" stroke-width="3"/>
+        <line x1="60" y1="114" x2="380" y2="114" stroke="var(--velocity)" stroke-width="3" stroke-dasharray="9 6"/>
+        <text x="78" y="42" fill="var(--velocity)" font-weight="700" font-size="15">A</text>
+        <text x="366" y="106" fill="var(--velocity)" font-weight="700" font-size="15">B</text>
+      </svg>
+    parts:
+      - label: א
+        type: numeric
+        points: 4
+        level: basic
+        objectives: [OBJ-1.6-1, OBJ-1.8-1]
+        prompt: מה התאוצה של המכונית בזמן הבלימה? כתבו אותה עם סימן.
+        answer: -4
+        unit: m/s²
+        correctFeedback: >-
+          נכון. התאוצה היא השיפוע של גרף המהירות-זמן בקטע הבלימה:
+          $a = \dfrac{\Delta v}{\Delta t} = \dfrac{0 - 20}{6 - 1} = -4\,\text{m/s}^2$. היא שלילית, נגד כיוון הנסיעה, והמהירות
+          חיובית: סימנים מנוגדים, ולכן המכונית מאטה.
+        wrongFeedback: >-
+          התאוצה היא השיפוע של גרף המהירות-זמן. קחו את קטע הבלימה בלבד, מ-$t = 1\,\text{s}$ עד $t = 6\,\text{s}$,
+          וחשבו $\Delta v/\Delta t$ עם הסימן.
+        commonWrong:
+          - value: 4
+            feedback: >-
+              הגודל נכון, אבל המהירות קטנה בכיוון החיובי, ולכן $\Delta v$ שלילי והתאוצה $-4\,\text{m/s}^2$. בבגרות
+              הסימן הוא חלק מהתשובה.
+          - value: -3.33
+            feedback: >-
+              חישבתם את השיפוע מ-$t = 0$. בשנייה הראשונה, זמן התגובה, המהירות קבועה ואין תאוצה. הבלימה מתחילה
+              ב-$t = 1\,\text{s}$, ולכן $\Delta t = 5\,\text{s}$.
+        hints:
+          - 'באיזה קטע זמן הקו של A יורד? חשבו את השיפוע רק בו.'
+
+      - label: ב
+        type: numeric
+        points: 5
+        level: mid
+        objectives: [OBJ-1.8-2, OBJ-1.6-3]
+        prompt: מה ההעתק של המכונית מהרגע שהנהג מבחין באופנוע ועד שהמכונית נעצרת?
+        answer: 70
+        unit: m
+        correctFeedback: >-
+          נכון. ההעתק הוא השטח מתחת לגרף המהירות-זמן של A: מלבן בזמן התגובה, $20\cdot1 = 20\,\text{m}$, ומשולש בזמן
+          הבלימה, $\tfrac12\cdot5\cdot20 = 50\,\text{m}$. יחד $70\,\text{m}$.
+        wrongFeedback: >-
+          ההעתק הוא השטח מתחת לגרף המהירות-זמן, מ-$t = 0$ עד $t = 6\,\text{s}$. פרקו אותו למלבן (זמן התגובה) ולמשולש
+          (הבלימה).
+        commonWrong:
+          - value: 50
+            feedback: >-
+              זה מרחק הבלימה בלבד. בזמן התגובה המכונית ממשיכה לנסוע $20\,\text{m}$ במהירות קבועה, ומרחק העצירה כולל
+              אותם.
+          - value: 120
+            feedback: >-
+              חישבתם $20\cdot6$, כאילו המכונית נסעה $20\,\text{m/s}$ כל הזמן. בזמן הבלימה המהירות יורדת, והשטח מתחת
+              לקו היורד הוא משולש, חצי מלבן.
+        hints:
+          - 'השטח מתחת לגרף המהירות-זמן הוא ההעתק. מאילו צורות הוא בנוי?'
+
+      - label: ג
+        type: twotier
+        points: 6
+        level: mid
+        qualitative: true
+        objectives: [OBJ-1.4-3, OBJ-1.8-3]
+        prompt: 'קבעו ונמקו: באיזה רגע המרחק בין המכונית לאופנוע הוא הקטן ביותר?'
+        choices:
+          - text: 'ב-$t = 1\,\text{s}$, כשהבלימה מתחילה.'
+            feedback: >-
+              ב-$t = 1\,\text{s}$ המכונית עדיין נוסעת $20\,\text{m/s}$, מהר יותר מהאופנוע, ולכן היא ממשיכה להתקרב אליו
+              גם אחרי שהיא מתחילה לבלום. הבלימה משנה את המהירות שלה בהדרגה, ולא עוצרת את ההתקרבות ברגע אחד.
+            misconception: MC-fast-means-accel
+          - text: 'ב-$t = 3\,\text{s}$, כשהקווים בגרף נחתכים.'
+            correct: true
+            feedback: 'נכון. ברגע הזה המהירויות שוות, וההתקרבות מתחלפת בהתרחקות.'
+          - text: 'ב-$t = 6\,\text{s}$, כשהמכונית נעצרת.'
+            feedback: >-
+              מ-$t = 3\,\text{s}$ המכונית איטית מהאופנוע. היא עדיין נוסעת קדימה, אבל האופנוע מתרחק ממנה, והמרחק כבר
+              גדל.
+            misconception: MC-velocity-absolute
+        reasons:
+          - text: >-
+              עד $t = 3\,\text{s}$ המכונית מהירה מהאופנוע, ולכן המרחק קטן. אחרי $t = 3\,\text{s}$ האופנוע מהיר יותר,
+              ולכן המרחק גדל.
+            correct: true
+            feedback: >-
+              זה הנימוק. המרחק משתנה בכל שנייה ב-$v_A - v_B$, והוא מפסיק לקטון בדיוק כש-$v_A - v_B = 0$.
+          - text: 'בנקודה שבה הקווים בגרף נחתכים, שני כלי הרכב נמצאים באותו מקום.'
+            feedback: >-
+              נקודת חיתוך בגרף **מהירות**-זמן אומרת רק "אותה מהירות". רק חיתוך בגרף מקום-זמן הוא פגישה. ב-$t = 3\,\text{s}$
+              כלי הרכב עדיין רחוקים זה מזה.
+            misconception: MC-graphs-same-shape
+          - text: 'כל זמן שהמכונית נוסעת קדימה היא מתקרבת לאופנוע.'
+            feedback: >-
+              גם האופנוע נוסע קדימה. מה שקובע אם המרחק קטן הוא המהירות של המכונית **ביחס לאופנוע**, $v_A - v_B$,
+              ולא המהירות שלה ביחס לכביש.
+            misconception: MC-velocity-absolute
+          - text: 'ברגע שהמכונית מתחילה לבלום היא כבר לא מתקרבת.'
+            feedback: >-
+              בלימה מקטינה את המהירות של המכונית, אבל כל עוד היא גדולה מ-$12\,\text{m/s}$ המכונית מתקרבת. התאוצה אומרת
+              איך המהירות משתנה, לא אם המכונית מהירה מהאופנוע.
+            misconception: MC-fast-means-accel
+        hints:
+          - 'מתי המכונית מהירה מהאופנוע, ומתי האופנוע מהיר ממנה?'
+
+      - label: ד
+        type: numeric
+        points: 7
+        level: bagrut
+        objectives: [OBJ-1.6-3, OBJ-1.8-2]
+        prompt: מה המרחק הקטן ביותר בין המכונית לאופנוע?
+        answer: 14
+        unit: m
+        correctFeedback: >-
+          נכון. עד $t = 3\,\text{s}$ המכונית עוברת $20 + \tfrac{20 + 12}{2}\cdot2 = 52\,\text{m}$, והאופנוע עובר
+          $12\cdot3 = 36\,\text{m}$. המרחק: $30 + 36 - 52 = 14\,\text{m}$.
+        wrongFeedback: >-
+          המרחק הקטן ביותר הוא ברגע שבו המהירויות שוות. חשבו את ההעתק של כל רכב עד הרגע הזה (שטחים מתחת לגרפים),
+          והשוו אותם בעזרת המרחק ההתחלתי.
+        commonWrong:
+          - value: 32
+            feedback: >-
+              זה המרחק ב-$t = 6\,\text{s}$, כשהמכונית נעצרת. אבל מ-$t = 3\,\text{s}$ האופנוע מהיר יותר, והמרחק כבר
+              גדל. הקטן ביותר הוא ב-$t = 3\,\text{s}$.
+            misconception: MC-velocity-absolute
+          - value: 22
+            feedback: 'זה המרחק ב-$t = 1\,\text{s}$. אחרי שהבלימה מתחילה המכונית עדיין מהירה מהאופנוע וממשיכה להתקרב.'
+            misconception: MC-fast-means-accel
+          - value: 16
+            feedback: >-
+              $16\,\text{m}$ הוא כמה שהמכונית **התקרבה** לאופנוע עד $t = 3\,\text{s}$. המרחק שנשאר הוא
+              $30 - 16 = 14\,\text{m}$.
+        hints:
+          - 'השטח בין שני הקווים בגרף, מ-$t = 0$ עד $t = 3\,\text{s}$, הוא כמה שהמכונית התקרבה.'
+
+      - label: ה
+        type: open
+        points: 11
+        level: bagrut
+        objectives: [OBJ-1.4-3, OBJ-1.6-3]
+        prompt: >-
+          בטאו באמצעות מהירות המכונית $v_A$, מהירות האופנוע $v_B$, זמן התגובה $t_r$ וגודל התאוצה בבלימה $a$ את המרחק
+          ההתחלתי הקטן ביותר $d_{\min}$ שבו המכונית עוד לא פוגעת באופנוע. הציבו את הנתונים, וקבעו אם התשובה מתאימה
+          לסעיף ד. כתבו את הפתרון בפורמט בגרות.
+        hints:
+          - 'עברו למערכת הייחוס של האופנוע: הוא נע במהירות קבועה. מה המהירות של המכונית בה, ומה התאוצה שלה?'
+          - 'עד איזה רגע המכונית מתקרבת לאופנוע?'
+        solution:
+          - { kind: formula, text: 'הכיוון החיובי הוא כיוון הנסיעה. במערכת הייחוס של האופנוע, שנע במהירות קבועה, המהירות של המכונית היא $v_{AB} = v_A - v_B$. מדף הנוסחאות: $v^2 = v_0^2 + 2a(x - x_0)$.' }
+          - { kind: manipulation, text: 'בזמן התגובה $v_{AB} = v_A - v_B$ קבועה, והמכונית מתקרבת לאופנוע ב-$(v_A - v_B)\,t_r$. בבלימה $v_B$ לא משתנה, ולכן $v_{AB}$ משתנה בדיוק כמו $v_A$: במערכת של האופנוע התאוצה של המכונית היא $a_{AB} = -a$. המכונית מתקרבת עד ש-$v_{AB} = 0$, כלומר עד שהמהירויות שוות. אחר כך $v_{AB}$ שלילית, והמרחק גדל.' }
+          - { kind: manipulation, text: 'בקטע הבלימה, עד שהמהירויות שוות, מציבים בנוסחה שבדף מהירות התחלתית $v_A - v_B$, מהירות סופית $0$ ותאוצה $-a$: $0 = (v_A - v_B)^2 - 2a\,(x - x_0)$, ולכן ההתקרבות בקטע הזה היא $x - x_0 = \dfrac{(v_A - v_B)^2}{2a}$. ההתקרבות הכוללת היא המרחק ההתחלתי הקטן ביותר שעוד לא גורם לפגיעה:' }
+          - { kind: manipulation, text: '$d_{\min} = (v_A - v_B)\,t_r + \dfrac{(v_A - v_B)^2}{2a}$' }
+          - { kind: substitution, text: '$d_{\min} = 8\,\text{m/s}\cdot1.0\,\text{s} + \dfrac{(8\,\text{m/s})^2}{2\cdot4\,\text{m/s}^2} = 8\,\text{m} + 8\,\text{m} = 16\,\text{m}$' }
+          - { kind: result, text: '$d_{\min} = (v_A - v_B)\,t_r + \dfrac{(v_A - v_B)^2}{2a} = 16\,\text{m}$. המרחק ההתחלתי, $30\,\text{m}$, גדול ממנו, ולכן אין פגיעה, והמרחק הקטן ביותר הוא $30 - 16 = 14\,\text{m}$, כמו בסעיף ד.' }
+        rubric:
+          - text: השתמשתי במהירות היחסית $v_A - v_B$ (במערכת של האופנוע, או בביטוי מקום לכל רכב).
+          - text: כתבתי את ההתקרבות בזמן התגובה, $(v_A - v_B)\,t_r$.
+          - text: הסברתי שהמרחק הקטן ביותר הוא ברגע שהמהירויות שוות, ולא כשהמכונית נעצרת.
+          - text: פיתחתי את $\dfrac{(v_A - v_B)^2}{2a}$ מנוסחה שבדף, וקיבלתי ביטוי מפורש ל-$d_{\min}$.
+          - text: הצבתי עם יחידות, קיבלתי $16\,\text{m}$, ובדקתי מול סעיף ד.
+
+  # ----------------------------------------------------------- 2: a ball thrown up from a balcony
+  - id: Q-1-bagrut-2
+    type: bagrut
+    title: כדור נזרק ממרפסת
+    prompt: >-
+      מרפסת נמצאת $15\,\text{m}$ מעל הקרקע. ילדה זורקת ממנה כדור אנכית כלפי מעלה, במהירות $10\,\text{m/s}$. הכדור
+      עולה, נעצר לרגע, יורד ליד הבניין ופוגע בקרקע. הזניחו את השפעת האוויר. הכיוון החיובי כלפי מעלה, והראשית
+      בקרקע.
+    diagramAlt: >-
+      בניין עם מרפסת בגובה 15 מטרים מעל הקרקע. ליד המרפסת כדור, וחץ מהירות כלפי מעלה שעליו כתוב 10 מטרים לשנייה.
+      בצד ציר y אנכי שמצביע למעלה, עם אפס בקרקע ו-15 מטרים בגובה המרפסת.
+    diagram: |
+      <svg viewBox="0 0 320 260" width="320" height="260" font-size="13" aria-hidden="true">
+        <line x1="10" y1="230" x2="300" y2="230" stroke="currentColor" stroke-width="2"/>
+        <rect x="40" y="80" width="80" height="150" fill="var(--paper-3)" stroke="var(--equip)" stroke-width="1.5"/>
+        <line x1="120" y1="80" x2="160" y2="80" stroke="var(--equip)" stroke-width="3"/>
+        <circle cx="146" cy="72" r="7" fill="var(--paper)" stroke="currentColor" stroke-width="2"/>
+        <line x1="146" y1="63" x2="146" y2="30" stroke="var(--velocity)" stroke-width="3"/>
+        <polygon points="140,32 146,20 152,32" fill="var(--velocity)"/>
+        <text x="156" y="38" fill="var(--velocity)" font-weight="700">v₀ = 10 m/s</text>
+        <line x1="250" y1="230" x2="250" y2="22" stroke="currentColor" stroke-width="1.5"/>
+        <polygon points="245,24 250,12 255,24" fill="currentColor"/>
+        <text x="260" y="22" fill="currentColor" font-style="italic">y</text>
+        <line x1="160" y1="80" x2="256" y2="80" stroke="currentColor" stroke-dasharray="4 4"/>
+        <text x="262" y="84" fill="currentColor">15 m</text>
+        <text x="262" y="234" fill="currentColor">0</text>
+      </svg>
+    parts:
+      - label: א
+        type: twotier
+        points: 5
+        level: basic
+        qualitative: true
+        objectives: [OBJ-1.7-3]
+        prompt: 'קבעו ונמקו: מה התאוצה של הכדור ברגע שהוא בנקודה הגבוהה ביותר?'
+        choices:
+          - text: '$a = -10\,\text{m/s}^2$'
+            correct: true
+            feedback: 'נכון. גם בנקודה הגבוהה ביותר התאוצה היא $a = -g$: גודלה $10\,\text{m/s}^2$, והיא כלפי מטה.'
+          - text: 'אפס'
+            feedback: >-
+              אפס היא **המהירות** בנקודה הגבוהה ביותר, ורק לרגע. אילו גם התאוצה הייתה אפס, המהירות הייתה נשארת אפס,
+              והכדור היה נשאר תלוי באוויר.
+            misconception: MC-zero-velocity-zero-accel
+          - text: '$a = +10\,\text{m/s}^2$'
+            feedback: >-
+              $g$ הוא גודל, אבל התאוצה היא מספר עם סימן לפי הציר. היא כלפי מטה, והכיוון החיובי כלפי מעלה, ולכן היא
+              שלילית.
+            misconception: MC-free-fall-sign
+        reasons:
+          - text: >-
+              המהירות ממשיכה להשתנות באותו קצב: רגע לפני הנקודה הגבוהה ביותר היא חיובית, ורגע אחריה שלילית.
+            correct: true
+            feedback: >-
+              זה הנימוק. התאוצה היא קצב השינוי של המהירות, לא המהירות עצמה. בכל שנייה המהירות קטנה ב-$10\,\text{m/s}$,
+              גם כשהיא עוברת דרך אפס.
+          - text: 'המהירות בנקודה הגבוהה ביותר אפס, ולכן גם התאוצה שם אפס.'
+            feedback: >-
+              מהירות אפס לרגע אינה מהירות שלא משתנה. שנייה לפני הכדור עלה ב-$10\,\text{m/s}$, ושנייה אחרי הוא יורד
+              ב-$10\,\text{m/s}$.
+            misconception: MC-zero-velocity-zero-accel
+          - text: '$g$ תמיד חיובי, ולכן התאוצה תמיד חיובית.'
+            feedback: >-
+              $g$ הוא הגודל. הסימן של התאוצה נקבע לפי הכיוון החיובי שבחרנו: כלפי מעלה, ולכן $a = -g$.
+            misconception: MC-free-fall-sign
+        hints:
+          - 'מה המהירות של הכדור שנייה לפני הנקודה הגבוהה ביותר, ומה היא שנייה אחריה?'
+
+      - label: ב
+        type: numeric
+        points: 5
+        level: mid
+        objectives: [OBJ-1.7-2]
+        prompt: מה הגובה המרבי של הכדור מעל הקרקע?
+        answer: 20
+        unit: m
+        correctFeedback: >-
+          נכון. בנקודה הגבוהה ביותר $v = 0$, ולכן $0 = v_0^2 - 2g(y - y_0)$, ומכאן
+          $y - y_0 = \dfrac{v_0^2}{2g} = \dfrac{100}{20} = 5\,\text{m}$ מעל המרפסת, כלומר $15 + 5 = 20\,\text{m}$ מעל הקרקע.
+        wrongFeedback: >-
+          בנקודה הגבוהה ביותר $v = 0$. הציבו ב-$v^2 = v_0^2 + 2a(y - y_0)$ עם $a = -g$, ואל תשכחו שהראשית בקרקע.
+        commonWrong:
+          - value: 5
+            feedback: >-
+              $5\,\text{m}$ הוא ההעתק מהמרפסת עד הנקודה הגבוהה ביותר. הגובה מעל הקרקע הוא המקום: $y = y_0 + \Delta y = 15 + 5$.
+            misconception: MC-position-equals-displacement
+          - value: 25
+            feedback: >-
+              חישבתם $v_0^2/g = 10\,\text{m}$ מעל המרפסת. מ-$v^2 = v_0^2 - 2g(y - y_0)$ יוצא $v_0^2/(2g) = 5\,\text{m}$:
+              שכחתם את ה-2.
+        hints:
+          - 'מה המהירות של הכדור בנקודה הגבוהה ביותר?'
+
+      - label: ג
+        type: numeric
+        points: 6
+        level: mid
+        objectives: [OBJ-1.7-2]
+        prompt: כמה זמן אחרי הזריקה הכדור פוגע בקרקע?
+        answer: 3
+        unit: s
+        correctFeedback: >-
+          נכון. $0 = 15 + 10t - 5t^2$, כלומר $t^2 - 2t - 3 = 0$, ו-$(t - 3)(t + 1) = 0$. שומרים את השורש החיובי:
+          $t = 3\,\text{s}$.
+        wrongFeedback: >-
+          הציבו $y = 0$ במשוואת המקום $y = y_0 + v_0 t - \tfrac12 gt^2$, עם $y_0 = 15\,\text{m}$ ו-$v_0 = +10\,\text{m/s}$,
+          ופתרו את המשוואה הריבועית.
+        commonWrong:
+          - value: 2
+            feedback: >-
+              אחרי $2\,\text{s}$ הכדור חוזר לגובה המרפסת, לא לקרקע. משם הוא יורד עוד $15\,\text{m}$. (אותו מספר יוצא
+              גם ממי שחישב רק את הנפילה מהנקודה הגבוהה, $\sqrt{2\cdot20/10}$, ושכח את השנייה של העלייה.)
+          - value: 1.73
+            feedback: >-
+              $\sqrt{2\cdot15/10}$ הוא זמן הנפילה של כדור שמשמיטים ממנוחה. הכדור כאן נזרק כלפי מעלה, עולה קודם, ורק
+              אז יורד.
+          - value: 1
+            feedback: 'אחרי $1\,\text{s}$ הכדור רק מגיע לנקודה הגבוהה ביותר. הוא עוד צריך לרדת $20\,\text{m}$.'
+        hints:
+          - 'מה $y$ של הכדור ברגע שהוא פוגע בקרקע?'
+          - 'למשוואה הריבועית שני פתרונות. איזה מהם אחרי הזריקה?'
+
+      - label: ד
+        type: mc
+        points: 6
+        level: mid
+        qualitative: true
+        objectives: [OBJ-1.8-3, OBJ-1.7-3]
+        prompt: איזה תיאור מתאים לגרף המהירות-זמן של הכדור, מרגע הזריקה ועד שהוא פוגע בקרקע?
+        choices:
+          - text: >-
+              קו ישר אחד יורד, שמתחיל ב-$v_0 = 10\,\text{m/s}$, חוצה את ציר הזמן ב-$t = 1\,\text{s}$ וממשיך לרדת מתחת
+              לציר עד רגע הפגיעה.
+            correct: true
+            feedback: >-
+              נכון. התאוצה קבועה, $a = -g$, ולכן גרף המהירות-זמן הוא קו ישר אחד שהשיפוע שלו $-10\,\text{m/s}^2$. הוא
+              חוצה את הציר בנקודה הגבוהה ביותר, ושם הכדור מחליף כיוון.
+          - text: >-
+              קו יורד עד אפס ב-$t = 1\,\text{s}$, ואחריו קו עולה עד רגע הפגיעה, בצורת V.
+            feedback: >-
+              זה גרף של **גודל המהירות**. בדרך למטה הכדור אכן מאיץ, אבל הוא נע נגד הכיוון החיובי: המהירות שלילית,
+              והתאוצה $a = -g$ שלילית גם היא. סימנים שווים פירושם האצה, כלומר מהירות שלילית שגודלה גדל, ולכן הקו ממשיך
+              לרדת מתחת לציר הזמן באותו שיפוע.
+            misconception: MC-negative-accel-slows
+          - text: 'קשת שעולה ויורדת, כמו הדרך שבה הכדור עולה ויורד.'
+            feedback: >-
+              קשת היא הצורה של גרף **המקום**-זמן. גרף המהירות-זמן מתאר את השיפוע שלו בכל רגע, והשיפוע הזה יורד בקצב
+              קבוע: קו ישר.
+            misconception: MC-graphs-same-shape
+          - text: >-
+              קו יורד עד אפס ב-$t = 1\,\text{s}$, קטע אופקי קצר על ציר הזמן בנקודה הגבוהה ביותר, ואחריו קו יורד.
+            feedback: >-
+              קטע אופקי על הציר פירושו שהכדור עומד לזמן מה, כלומר שבנקודה הגבוהה ביותר אין תאוצה. אבל $a = -g$ גם
+              שם, והמהירות עוברת דרך אפס רק לרגע.
+            misconception: MC-zero-velocity-zero-accel
+        hints:
+          - 'מה התאוצה של הכדור לאורך כל הדרך? ומה זה אומר על השיפוע של גרף המהירות-זמן?'
+
+      - label: ה
+        type: open
+        points: 11
+        level: bagrut
+        objectives: [OBJ-1.7-1, OBJ-1.7-2]
+        prompt: >-
+          בטאו באמצעות $v_0$, גובה המרפסת $h$ ו-$g$ את גודל המהירות שבה הכדור פוגע בקרקע. פתחו את הביטוי מנוסחה שבדף
+          הנוסחאות, והציבו. מה משתנה בגודל מהירות הפגיעה ובזמן עד הפגיעה אם הילדה זורקת את הכדור מאותה מרפסת כלפי
+          מטה, באותו גודל מהירות? כתבו את הפתרון בפורמט בגרות.
+        hints:
+          - 'איזו נוסחה בדף מקשרת בין מהירות למקום בלי זמן?'
+          - 'בזריקה כלפי מטה, מה הסימן של $v_0$ כשהכיוון החיובי כלפי מעלה?'
+        solution:
+          - { kind: formula, text: '$v^2 = v_0^2 + 2a(y - y_0)$, עם ציר כלפי מעלה: $a = -g$, $y_0 = h$, ובקרקע $y = 0$.' }
+          - { kind: manipulation, text: '$v^2 = v_0^2 - 2g(0 - h) = v_0^2 + 2gh$, ולכן $|v| = \sqrt{v_0^2 + 2gh}$.' }
+          - { kind: substitution, text: '$|v| = \sqrt{(10\,\text{m/s})^2 + 2\cdot10\,\text{m/s}^2\cdot15\,\text{m}} = \sqrt{400}\,\text{m/s} = 20\,\text{m/s}$' }
+          - { kind: manipulation, text: 'בזריקה כלפי מטה $v_0 = -10\,\text{m/s}$, והוא מופיע בביטוי בריבוע: גודל מהירות הפגיעה לא משתנה. הזמן: $0 = 15 - 10t - 5t^2$, כלומר $t^2 + 2t - 3 = 0$, ו-$(t + 3)(t - 1) = 0$, ולכן $t = 1\,\text{s}$ (השורש החיובי).' }
+          - { kind: result, text: '$|v| = \sqrt{v_0^2 + 2gh} = 20\,\text{m/s}$, כלפי מטה. בזריקה כלפי מטה הכדור פוגע באותה מהירות, $20\,\text{m/s}$, אבל אחרי $1\,\text{s}$ במקום $3\,\text{s}$, כי הוא לא עולה ויורד קודם.' }
+        rubric:
+          - text: כתבתי ציר וסימן לתאוצה ($a = -g$ עם ציר כלפי מעלה) לפני ההצבה.
+          - text: יצאתי מ-$v^2 = v_0^2 + 2a(y - y_0)$ שבדף, ופיתחתי את $\sqrt{v_0^2 + 2gh}$.
+          - text: הצבתי עם יחידות, וקיבלתי $20\,\text{m/s}$ כלפי מטה.
+          - text: הסברתי שגודל מהירות הפגיעה לא משתנה בזריקה כלפי מטה, כי $v_0$ מופיע בריבוע.
+          - text: חישבתי את הזמן החדש, $1\,\text{s}$, ושמרתי רק את השורש החיובי.
+
+  # ------------------------------------------------------- 3: a boat crossing a river, then turning in a harbour
+  - id: Q-1-bagrut-3
+    type: bagrut
+    title: סירה חוצה נהר
+    prompt: >-
+      נהר ישר ברוחב $60\,\text{m}$ זורם מזרחה, ומהירות המים ביחס לגדה היא $3\,\text{m/s}$ בכל רוחב הנהר. סירת מנוע
+      יוצאת מהנקודה A שעל הגדה הדרומית, וגודל המהירות שלה ביחס למים הוא $5\,\text{m/s}$. הנקודה B נמצאת על הגדה הצפונית,
+      בדיוק מול A. ציר $x$ מזרחה וציר $y$ צפונה. התייחסו לסירה כאל גוף נקודתי.
+    diagramAlt: >-
+      מבט מלמעלה על נהר בין שתי גדות אופקיות, ברוחב 60 מטרים. המים זורמים ימינה, מזרחה, במהירות 3 מטרים לשנייה.
+      הנקודה A על הגדה התחתונה, הדרומית, והנקודה B על הגדה העליונה, בדיוק מעליה. בפינה צירים: x ימינה, מזרחה,
+      ו-y למעלה, צפונה.
+    diagram: |
+      <svg viewBox="0 0 440 220" width="440" height="220" font-size="13" aria-hidden="true">
+        <rect x="20" y="50" width="400" height="120" fill="var(--paper-2)"/>
+        <line x1="20" y1="50" x2="420" y2="50" stroke="var(--equip)" stroke-width="3"/>
+        <line x1="20" y1="170" x2="420" y2="170" stroke="var(--equip)" stroke-width="3"/>
+        <line x1="240" y1="110" x2="330" y2="110" stroke="var(--velocity)" stroke-width="3"/>
+        <polygon points="328,104 340,110 328,116" fill="var(--velocity)"/>
+        <text x="250" y="100" fill="var(--velocity)" font-weight="700">3 m/s</text>
+        <circle cx="160" cy="170" r="5" fill="currentColor"/>
+        <text x="160" y="192" text-anchor="middle" fill="currentColor" font-weight="700">A</text>
+        <circle cx="160" cy="50" r="5" fill="currentColor"/>
+        <text x="160" y="38" text-anchor="middle" fill="currentColor" font-weight="700">B</text>
+        <line x1="160" y1="56" x2="160" y2="164" stroke="currentColor" stroke-dasharray="4 4"/>
+        <text x="168" y="114" fill="currentColor">60 m</text>
+        <line x1="40" y1="206" x2="90" y2="206" stroke="currentColor" stroke-width="1.5"/>
+        <polygon points="88,201 98,206 88,211" fill="currentColor"/>
+        <text x="102" y="210" fill="currentColor" font-style="italic">x</text>
+        <line x1="40" y1="206" x2="40" y2="182" stroke="currentColor" stroke-width="1.5"/>
+        <polygon points="35,184 40,174 45,184" fill="currentColor"/>
+        <text x="48" y="180" fill="currentColor" font-style="italic">y</text>
+      </svg>
+    parts:
+      - label: א
+        type: numeric
+        points: 5
+        level: basic
+        objectives: [OBJ-1.9-3]
+        prompt: >-
+          הסירה מכוונת את החרטום ישר צפונה, כלומר המהירות שלה ביחס למים היא צפונה. מה גודל המהירות של הסירה ביחס
+          לגדה?
+        answer: 5.83
+        unit: m/s
+        correctFeedback: >-
+          נכון. ביחס לגדה $\vec v_S = \vec v_{SM} + \vec v_M = (0,\ 5) + (3,\ 0) = (3,\ 5)\,\text{m/s}$, וגודלה
+          $\sqrt{3^2 + 5^2} = \sqrt{34} = 5.8\,\text{m/s}$.
+        wrongFeedback: >-
+          המהירות ביחס לגדה היא הסכום הווקטורי של המהירות ביחס למים ושל מהירות המים. שני הווקטורים מאונכים: חברו
+          רכיבים, ומצאו את הגודל בפיתגורס.
+        commonWrong:
+          - value: 8
+            feedback: >-
+              חיברתם גדלים. גודל הסכום שווה לסכום הגדלים רק כששני הווקטורים באותו כיוון. כאן הם מאונכים:
+              $\sqrt{3^2 + 5^2}$.
+            misconception: MC-magnitudes-add
+          - value: 4
+            feedback: >-
+              חישבתם $\sqrt{5^2 - 3^2}$, כאילו $5\,\text{m/s}$ הוא היתר. כאן $5\,\text{m/s}$ ו-$3\,\text{m/s}$ הם שני
+              הניצבים, והמהירות ביחס לגדה היא היתר, ולכן היא גדולה משניהם.
+          - value: 2
+            feedback: >-
+              חיסרתם גדלים. $5 - 3$ נכון רק אם הסירה שטה נגד הזרם. כאן הזרם ניצב לחרטום, ומחברים וקטורים, רכיב לרכיב:
+              $(0,\ 5) + (3,\ 0)$.
+            misconception: MC-difference-of-magnitudes
+        hints:
+          - 'כתבו את שתי המהירויות כרכיבים, $(x,\ y)$, וחברו.'
+
+      - label: ב
+        type: numeric
+        points: 5
+        level: mid
+        objectives: [OBJ-1.9-3]
+        prompt: כשהחרטום מכוון ישר צפונה, כמה מטרים מזרחה מ-B הסירה מגיעה לגדה הצפונית?
+        answer: 36
+        unit: m
+        correctFeedback: >-
+          נכון. הזמן נקבע ברכיב הצפוני: $t = \dfrac{60}{5} = 12\,\text{s}$. בזמן הזה הזרם מסיע את הסירה
+          $3\cdot12 = 36\,\text{m}$ מזרחה.
+        wrongFeedback: >-
+          קודם מצאו את זמן החצייה מהרכיב שמאונך לגדה ($y$), ואז את ההתקדמות מזרחה מהרכיב שלאורך הגדה ($x$).
+        commonWrong:
+          - value: 30.9
+            feedback: >-
+              חילקתם את רוחב הנהר בגודל המהירות, $5.83\,\text{m/s}$. אבל רק הרכיב הצפוני, $5\,\text{m/s}$, מקרב את
+              הסירה לגדה השנייה: $t = 60/5 = 12\,\text{s}$.
+            misconception: MC-current-changes-crossing-time
+          - value: 100
+            feedback: >-
+              הפכתם את היחס. ההתקדמות מזרחה חלקי הרוחב שווה ל-$v_x/v_y = 3/5$, ולכן היא $60\cdot\tfrac35 = 36\,\text{m}$.
+          - value: 0
+            feedback: >-
+              החרטום מכוון ל-B, אבל הסירה נעה ביחס לגדה גם עם המים. ביחס לגדה יש לה רכיב מזרחי של $3\,\text{m/s}$.
+            misconception: MC-velocity-absolute
+        hints:
+          - 'איזה רכיב של המהירות מקרב את הסירה לגדה הצפונית?'
+
+      - label: ג
+        type: twotier
+        points: 6
+        level: mid
+        qualitative: true
+        objectives: [OBJ-1.9-3, OBJ-1.4-1]
+        prompt: >-
+          קבעו ונמקו: ביום אחר הנהר זורם מהר יותר, $6\,\text{m/s}$. הסירה שוב מכוונת ישר צפונה, באותה מהירות ביחס
+          למים. מה קורה לזמן החצייה?
+        choices:
+          - text: הוא לא משתנה.
+            correct: true
+            feedback: >-
+              נכון. החצייה נמשכת $60/5 = 12\,\text{s}$, כמו בזרם של $3\,\text{m/s}$. הסירה רק מגיעה רחוק יותר מ-B:
+              $6\cdot12 = 72\,\text{m}$ מזרחה.
+          - text: הוא גדל.
+            feedback: >-
+              הסירה אכן עוברת דרך ארוכה יותר, אבל גם מהר יותר. הזמן נקבע רק ברכיב שמאונך לגדה, והוא לא השתנה.
+            misconception: MC-current-changes-crossing-time
+          - text: הוא קטן.
+            feedback: >-
+              גודל המהירות ביחס לגדה אכן גדל, אבל התוספת כולה מזרחה, לאורך הגדה. הרכיב הצפוני נשאר $5\,\text{m/s}$.
+            misconception: MC-current-changes-crossing-time
+        reasons:
+          - text: >-
+              הזמן נקבע ברכיב הצפוני של המהירות ביחס לגדה, $5\,\text{m/s}$. הזרם מזרחה, ולכן הוא לא משנה את הרכיב הזה.
+            correct: true
+            feedback: 'זה הנימוק. כל רכיב פועל לחוד: $t = 60/v_y$, והזרם משנה רק את $v_x$.'
+          - text: 'גודל המהירות ביחס לגדה גדל, ולכן הסירה חוצה בפחות זמן.'
+            feedback: >-
+              את הרוחב מחלקים ברכיב שמאונך לגדה, לא בגודל המהירות. גודל המהירות גדל רק בגלל הרכיב המזרחי.
+            misconception: MC-current-changes-crossing-time
+          - text: 'הסירה עוברת דרך ארוכה יותר, ולכן החצייה נמשכת יותר זמן.'
+            feedback: >-
+              הדרך ארוכה יותר, אבל גם גודל המהירות גדל, ובדיוק באותו יחס. ההשוואה הפשוטה היא ברכיב הצפוני בלבד, והוא
+              לא השתנה.
+            misconception: MC-current-changes-crossing-time
+          - text: 'המהירות האמיתית של הסירה היא $5\,\text{m/s}$ צפונה, והזרם לא משפיע עליה בכלל, גם לא על מקום ההגעה.'
+            feedback: >-
+              $5\,\text{m/s}$ צפונה היא המהירות ביחס **למים**. ביחס לגדה מחברים את מהירות המים, ולכן הסירה כן נסחפת
+              מזרחה. הזמן לא משתנה, אבל מקום ההגעה כן.
+            misconception: MC-velocity-absolute
+        hints:
+          - 'איזה רכיב של המהירות ביחס לגדה הזרם משנה, ואיזה לא?'
+
+      - label: ד
+        type: vector
+        points: 5
+        level: mid
+        qualitative: true
+        objectives: [OBJ-1.10-2, OBJ-1.10-3]
+        prompt: >-
+          אחרי החצייה, במים השקטים של מעגן, הסירה שטה צפונה במהירות $4\,\text{m/s}$, פונה ימינה, ואחרי $2\,\text{s}$
+          היא שטה מזרחה, שוב במהירות $4\,\text{m/s}$. מה כיוון התאוצה הממוצעת של הסירה בזמן הפנייה?
+        answer: se
+        correctFeedback: >-
+          נכון. $\Delta\vec v = \vec v_2 - \vec v_1 = (4,\ 0) - (0,\ 4) = (4,\ -4)\,\text{m/s}$, כלומר דרום-מזרח, והתאוצה
+          הממוצעת $\Delta\vec v/\Delta t$ באותו כיוון, בגודל $\dfrac{4\sqrt2}{2} = 2.8\,\text{m/s}^2$. גודל המהירות לא
+          השתנה, ובכל זאת יש תאוצה: היא מצביעה אל הצד הפנימי של הפנייה.
+        wrong:
+          - dir: zero
+            feedback: >-
+              גודל המהירות לא השתנה, אבל הכיוון שלה השתנה, ולכן $\Delta\vec v$ אינו אפס. פנייה היא תאוצה.
+            misconception: MC-constant-speed-no-accel
+          - dir: ne
+            feedback: >-
+              חיברתם את שתי המהירויות. $\Delta\vec v$ הוא הפרש: $\vec v_2 - \vec v_1 = \vec v_2 + (-\vec v_1)$, כלומר מזרחה
+              ועוד **דרומה**.
+            misconception: MC-difference-of-magnitudes
+          - dir: e
+            feedback: >-
+              מזרחה היא המהירות בסוף הפנייה. התאוצה מצביעה בכיוון השינוי במהירות, $\Delta\vec v$, ולא בכיוון המהירות.
+            misconception: MC-accel-along-velocity
+          - dir: nw
+            feedback: >-
+              חיסרתם בסדר הפוך. בהפרש הסדר קובע: $\vec v_1 - \vec v_2$ הוא בדיוק ההפך של $\vec v_2 - \vec v_1$, אותו גודל
+              בכיוון הנגדי. השינוי הוא הסופי פחות ההתחלתי: $\vec v_2 - \vec v_1$.
+            misconception: MC-relative-order
+        wrongFeedback: >-
+          חשבו את $\Delta\vec v = \vec v_2 - \vec v_1$ לפי רכיבים. התאוצה הממוצעת היא $\Delta\vec v/\Delta t$, ולכן היא
+          בכיוון של $\Delta\vec v$.
+        hints:
+          - 'כתבו את שתי המהירויות כרכיבים, $(x,\ y)$, והחסירו את ההתחלתית מהסופית.'
+
+      - label: ה
+        type: open
+        points: 12
+        level: bagrut
+        objectives: [OBJ-1.9-2, OBJ-1.9-3]
+        prompt: >-
+          בזרם של $3\,\text{m/s}$, הסירה צריכה להגיע בדיוק ל-B. בטאו באמצעות רוחב הנהר $d$, גודל המהירות של הסירה ביחס
+          למים $u$ וגודל המהירות של הזרם $w$ את זמן החצייה. מצאו לאיזה כיוון יש לכוון את הסירה (זווית מכיוון צפון) ואת זמן החצייה. מה
+          התנאי על $u$ ו-$w$ כדי שזה יהיה אפשרי? כתבו את הפתרון בפורמט בגרות.
+        hints:
+          - 'כדי להגיע ל-B, מה צריך להיות רכיב ה-$x$ של המהירות ביחס לגדה?'
+          - 'שרטטו משולש מהירויות: $\vec v_{SM}$ הוא היתר.'
+        solution:
+          - { kind: formula, text: 'ציר $x$ מזרחה וציר $y$ צפונה. $\vec v_S = \vec v_{SM} + \vec v_M$: המהירות ביחס לגדה היא המהירות ביחס למים ועוד מהירות המים, $\vec v_M = (w,\ 0)$.' }
+          - { kind: manipulation, text: 'מכוונים את הסירה בזווית $\theta$ מצפון לכיוון מערב, ולכן $\vec v_{SM} = (-u\sin\theta,\ u\cos\theta)$. כדי להגיע ל-B, רכיב ה-$x$ של המהירות ביחס לגדה הוא אפס: $v_{S,x} = w - u\sin\theta = 0$, ולכן $\sin\theta = \dfrac{w}{u}$.' }
+          - { kind: manipulation, text: 'במשולש המהירויות $u$ הוא היתר ו-$w$ ניצב, ולכן מפיתגורס $v_{S,y} = u\cos\theta = \sqrt{u^2 - w^2}$. על ציר $y$ התנועה קצובה: $t = \dfrac{d}{v_{S,y}} = \dfrac{d}{\sqrt{u^2 - w^2}}$. יש פתרון רק כש-$u > w$: רכיב אף פעם לא גדול מגודל הווקטור, וכש-$u = w$ הסירה לא מתקדמת צפונה בכלל.' }
+          - { kind: substitution, text: '$\sin\theta = \dfrac{3\,\text{m/s}}{5\,\text{m/s}} = 0.6$, ולכן $\theta \approx 37^\circ$. $t = \dfrac{60\,\text{m}}{\sqrt{5^2 - 3^2}\,\text{m/s}} = \dfrac{60\,\text{m}}{4\,\text{m/s}} = 15\,\text{s}$' }
+          - { kind: result, text: '$t = \dfrac{d}{\sqrt{u^2 - w^2}} = 15\,\text{s}$. מכוונים את הסירה $37^\circ$ מצפון לכיוון מערב, נגד הזרם, וזה אפשרי רק כש-$u > w$. החצייה ארוכה מ-$12\,\text{s}$ של סעיף ב, כי חלק מהמהירות של הסירה מבטל את הזרם.' }
+        rubric:
+          - text: כתבתי את חיבור המהירויות $\vec v_S = \vec v_{SM} + \vec v_M$, ושרטטתי משולש מהירויות.
+          - text: הבנתי שכדי להגיע ל-B רכיב ה-$x$ של המהירות ביחס לגדה הוא אפס, וקיבלתי $\sin\theta = w/u$.
+          - text: פיתחתי $t = d/\sqrt{u^2 - w^2}$ מהרכיב שמאונך לגדה.
+          - text: הצבתי עם יחידות, וקיבלתי $\theta \approx 37^\circ$ מצפון לכיוון מערב ו-$t = 15\,\text{s}$.
+          - text: ציינתי את התנאי $u > w$.
