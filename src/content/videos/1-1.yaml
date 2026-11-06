@@ -1,0 +1,26 @@
+# Videos for lesson 1.1. Every id was checked against YouTube oEmbed (200: exists and embeddable; title and channel
+# as below) on the `verified` date. Never add an id that was not checked.
+
+- id: v-1-1-distance-displacement
+  youtubeId: vQCkYm3v3aA
+  title: 'Distance and displacement introduction | One-dimensional motion | Physics | Khan Academy'
+  channel: Khan Academy
+  lang: en
+  captions: [en]
+  minutes: 4
+  why: >-
+    הסבר קצר על ציר מספרים: איך מחשבים דרך ואיך מחשבים העתק לאותה תנועה (לפי תיאור הסרטון). בזמן הצפייה, עצרו
+    לפני כל חישוב ונסו לעשות אותו בעצמכם, עם הכיוון החיובי שנבחר בסרטון.
+  verified: '2026-11-05'
+
+- id: v-1-1-displacement-he
+  youtubeId: 0L5DSVuiJEU
+  title: 'קינמטיקה - העתק'
+  channel: מרכז שוורץ/רייסמן הדרכות למורי פיזיקה
+  lang: he
+  captions: []
+  minutes: 24
+  why: >-
+    שיעור בעברית מרצף סרטונים להדרכת מורים לפיזיקה: מהו העתק ובמה הוא שונה מהדרך (בסרטון היא נקראת "מרחק"), ומה המשמעות של העתק שלילי ושל העתק אפס
+    (לפי תיאור הסרטון). הסרטון ארוך, ואפשר לצפות רק בחלק הראשון שלו.
+  verified: '2026-11-05'
