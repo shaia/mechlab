@@ -1,7 +1,7 @@
 /**
  * Linearization lab: a table of lab measurements plotted as a graph. The student chooses what goes
  * on the horizontal axis (x, x², √x, 1/x, 1/x²) until the points fall on a straight line, then lays
- * a ruler line through them and reads its slope from two points on the line. Built for lesson 0.4;
+ * a ruler line (apparatus colour, --equip) through them and reads its slope from two points on the line. Built for lesson 0.4;
  * the same move recurs in every lab question of the Bagrut.
  *
  * The data come from src/physics/lab.ts (seeded scatter, so the table is the same on every load),
@@ -44,7 +44,7 @@ const slopeUnit = (y: Axis, a: Axis, t: Transform) => {
 const axisTitle = (sym: string, unit: string) => (unit ? `${sym} (${unit})` : sym);
 
 const TASK_LABEL: Record<string, string> = {
-  'ruler-slope': 'הניחו את הסרגל (הקו הכחול) כך שיעבור קרוב ככל האפשר לכל הנקודות: גררו את שתי הנקודות שעליו.',
+  'ruler-slope': 'הניחו את הסרגל (הקו הסגול) כך שיעבור קרוב ככל האפשר לכל הנקודות: גררו את שתי הנקודות שעליו.',
   'linearize-fall': 'בנפילה החופשית: מצאו מה לשים על הציר האופקי כדי שהנקודות יסתדרו על קו ישר.',
 };
 
@@ -211,7 +211,7 @@ export default function LinearizeLab(props: LinearizeLabProps) {
     }
     if (s.showRuler) {
       const { p1, p2, slope, intercept } = ruler;
-      ctx.strokeStyle = p.hand;
+      ctx.strokeStyle = p.equip;
       ctx.lineWidth = 2.2;
       ctx.beginPath();
       ctx.moveTo(f.sx(0), f.sy(intercept));
@@ -219,7 +219,7 @@ export default function LinearizeLab(props: LinearizeLabProps) {
       ctx.stroke();
       // the slope triangle between the two handles: Δy over Δx, read on the line
       ctx.setLineDash([4, 4]);
-      ctx.strokeStyle = withAlpha(p.hand, 0.6);
+      ctx.strokeStyle = withAlpha(p.equip, 0.6);
       ctx.lineWidth = 1.3;
       ctx.beginPath();
       ctx.moveTo(f.sx(p1[0]), f.sy(p1[1]));
@@ -247,7 +247,7 @@ export default function LinearizeLab(props: LinearizeLabProps) {
       [ruler.p1, ruler.p2].forEach((q, i) => handle(ctx, f.sx(q[0]), f.sy(q[1]), p, s.selected === i));
       ctx.save();
       ctx.font = `600 13px ${p.fontUi}`;
-      ctx.fillStyle = p.hand;
+      ctx.fillStyle = p.equip;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'top';
       ctx.fillText('Δx', f.sx((ruler.p1[0] + ruler.p2[0]) / 2), f.sy(ruler.p1[1]) + 4);
@@ -362,7 +362,7 @@ export default function LinearizeLab(props: LinearizeLabProps) {
           {/* Hebrew words stay outside the LTR quantities, and no commas between them */}
           {s.showFit && (
             <span>
-              הקו המתאים ביותר: שיפוע <b class="q">{sci(fit.slope)} {su}</b>
+              קו המגמה: שיפוע <b class="q">{sci(fit.slope)} {su}</b>
             </span>
           )}
           {s.showFit && (
@@ -395,8 +395,8 @@ export default function LinearizeLab(props: LinearizeLabProps) {
             </div>
           )}
           <div class="group" role="group" aria-label="קווים">
-            <Toggle label="סרגל" on={s.showRuler} swatch="var(--hand)" onChange={(v) => setS({ ...s, showRuler: v })} />
-            <Toggle label="הקו המתאים ביותר" on={s.showFit} swatch="var(--accent)" onChange={(v) => setS({ ...s, showFit: v })} />
+            <Toggle label="סרגל" on={s.showRuler} swatch="var(--equip)" onChange={(v) => setS({ ...s, showRuler: v })} />
+            <Toggle label="קו מגמה" on={s.showFit} swatch="var(--accent)" onChange={(v) => setS({ ...s, showFit: v })} />
           </div>
         </>
       }
@@ -459,10 +459,10 @@ function handle(ctx: CanvasRenderingContext2D, x: number, y: number, p: Palette,
   ctx.save();
   ctx.beginPath();
   ctx.arc(x, y, HANDLE_PX, 0, Math.PI * 2);
-  ctx.fillStyle = withAlpha(p.hand, 0.18);
+  ctx.fillStyle = withAlpha(p.equip, 0.18);
   ctx.fill();
   ctx.lineWidth = selected ? 2.8 : 1.6;
-  ctx.strokeStyle = selected ? p.ink : p.hand;
+  ctx.strokeStyle = selected ? p.ink : p.equip;
   ctx.stroke();
   ctx.restore();
 }

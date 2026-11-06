@@ -1,0 +1,53 @@
+---
+/**
+ * The measurement table behind a LinearizeLab figure, rendered at build time from the same seeded
+ * data (src/physics/lab.ts DATASETS), so the table in the text and the points in the figure never
+ * disagree. The quantity the students set is the first row, the one they measured the second.
+ */
+import { DATASETS, type DatasetId } from '~/physics/lab';
+import { tex } from '~/lib/tex';
+
+interface Props {
+  dataset: DatasetId;
+}
+const { dataset } = Astro.props;
+const d = DATASETS[dataset];
+
+interface Row {
+  head: string;
+  values: number[];
+  digits: number;
+}
+const ROWS: Record<DatasetId, { label: string; rows: Row[] }> = {
+  spring: {
+    label: 'טבלת המדידות של הקפיץ: הכוח והאורך',
+    rows: [
+      { head: '$F\\ (\\text{N})$', values: d.x, digits: 0 },
+      { head: '$L\\ (\\text{m})$', values: d.y, digits: 3 },
+    ],
+  },
+  fall: {
+    label: 'טבלת המדידות של הנפילה: הגובה וזמן הנפילה',
+    rows: [
+      { head: '$d\\ (\\text{m})$', values: d.y, digits: 1 },
+      { head: '$t\\ (\\text{s})$', values: d.x, digits: 3 },
+    ],
+  },
+};
+const { label, rows } = ROWS[dataset];
+---
+
+<table class="lab-table" aria-label={label}>
+  <tbody>
+    {
+      rows.map((r) => (
+        <tr>
+          <th scope="row" set:html={tex(r.head, `LabTable ${dataset}`)} />
+          {r.values.map((v) => (
+            <td>{v.toFixed(r.digits)}</td>
+          ))}
+        </tr>
+      ))
+    }
+  </tbody>
+</table>

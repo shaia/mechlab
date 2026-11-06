@@ -1,0 +1,7 @@
+---
+/** Slope-and-triangle figure for lesson MDX: <Spread figure={SlopeTriangle} figureProps={{ mode: 'line', … }}>. */
+import SlopeTriangle, { type SlopeTriangleProps } from './SlopeTriangle';
+type Props = SlopeTriangleProps;
+---
+
+<SlopeTriangle client:visible {...Astro.props} />

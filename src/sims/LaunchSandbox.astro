@@ -1,0 +1,7 @@
+---
+/** Launcher figure for lesson MDX: <Spread figure={LaunchSandbox} figureProps={{ v: 20, angle: 30, target: 30, tasks: […] }}>. */
+import LaunchSandbox, { type LaunchSandboxProps } from './LaunchSandbox';
+type Props = LaunchSandboxProps;
+---
+
+<LaunchSandbox client:visible {...Astro.props} />

@@ -1,0 +1,7 @@
+---
+/** Plane-motion figure for lesson MDX: <Spread figure={PlaneMotion} figureProps={{ id: 'fig-1-10', preset: 'throw' }}>. */
+import PlaneMotion, { type PlaneMotionProps } from './PlaneMotion';
+type Props = PlaneMotionProps;
+---
+
+<PlaneMotion client:visible {...Astro.props} />

@@ -1,7 +1,7 @@
 /**
  * The prefix ruler: one logarithmic ruler from 10⁻¹² to 10⁹, a marker the student slides along it,
  * and the marked quantity written three ways: scientific notation, with a prefix, and in full.
- * Built for lesson 0.3. Each step of the ruler is a factor of 10, and the prefixes sit every three
+ * Built for lesson 0.2 (emlab 0.3). Each step of the ruler is a factor of 10, and the prefixes sit every three
  * steps, so "μ is a thousand times smaller than m" is something you can see.
  *
  * The value is kept as a mantissa from a short list times a power of ten, so every readout is
@@ -82,6 +82,10 @@ export default function PrefixRuler(props: PrefixRulerProps) {
   const [s, setS] = useState<State>(() => initial(props));
   const [live, setLive] = useState('');
   const dragging = useRef(false);
+  // the state a text step produced, and the mount state, must not tick a task: only the learner's own controls do.
+  // A boolean flag is not enough: on late hydration the cached step arrives during mount and the mount effect eats it.
+  const stepState = useRef<State | null>(null);
+  const mounted = useRef(false);
   const tasks: TaskDef[] = (props.tasks ?? []).map((id) => ({ id, label: TASK_LABEL[id] ?? id }));
 
   useEffect(
@@ -94,6 +98,7 @@ export default function PrefixRuler(props: PrefixRulerProps) {
             next.m = Number(st.value[0]);
             next.e = Number(st.value[1]);
           }
+          stepState.current = next;
           return next;
         }),
       ),
@@ -101,9 +106,21 @@ export default function PrefixRuler(props: PrefixRulerProps) {
   );
 
   useEffect(() => {
+    if (!mounted.current) {
+      mounted.current = true;
+      return;
+    }
+    if (s === stepState.current) return;
     if (props.tasks?.includes('set-20ms') && s.unit === 's' && s.m === 2 && s.e === -2) markTask(`${props.id}:set-20ms`);
     if (props.tasks?.includes('set-15cm') && s.unit === 'm' && s.m === 1.5 && s.e === -1) markTask(`${props.id}:set-15cm`);
   }, [s, props.id, props.tasks]);
+
+  /** a reset is the props' starting state again: like the mount state, it ticks nothing */
+  const reset = () => {
+    const st = initial(props);
+    stepState.current = st;
+    setS(st);
+  };
 
   const layout = (v: View) => {
     const pad = Math.max(18, v.w * 0.04);
@@ -115,6 +132,15 @@ export default function PrefixRuler(props: PrefixRulerProps) {
   const draw = ({ ctx, view, palette: p }: FrameInfo) => {
     const { x0, x1, y, px } = layout(view);
     const narrow = view.w < 520;
+    /** a handwritten label under the ruler, kept inside the canvas (a landmark near an end must not be cut off) */
+    const note = (text: string, x: number) => {
+      const size = narrow ? 12 : 14;
+      ctx.save();
+      ctx.font = `500 ${size}px ${p.fontHand}`;
+      const half = ctx.measureText(text).width / 2 + 2;
+      ctx.restore();
+      handNote(ctx, text, Math.max(half, Math.min(view.w - half, x)), y + 48, p, size);
+    };
 
     const band = BANDS[s.unit];
     if (band) {
@@ -122,7 +148,7 @@ export default function PrefixRuler(props: PrefixRulerProps) {
       ctx.fillStyle = withAlpha(p.velocity, 0.14);
       ctx.fillRect(px(band.from), y - 12, px(band.to) - px(band.from), 24);
       ctx.restore();
-      handNote(ctx, band.label, (px(band.from) + px(band.to)) / 2, y + 48, p, narrow ? 12 : 14);
+      note(band.label, (px(band.from) + px(band.to)) / 2);
     }
 
     // the ruler: a tick per power of ten, longer ticks and labels at the prefixes
@@ -187,7 +213,7 @@ export default function PrefixRuler(props: PrefixRulerProps) {
       ctx.arc(x, y, 3.2, 0, Math.PI * 2);
       ctx.fill();
       ctx.restore();
-      handNote(ctx, l.label, x, y + 48, p, narrow ? 12 : 14);
+      note(l.label, x);
     }
 
     // the marker
@@ -268,7 +294,7 @@ export default function PrefixRuler(props: PrefixRulerProps) {
       aspect={ASPECT}
       live={live}
       tasks={tasks}
-      onReset={() => setS(initial(props))}
+      onReset={reset}
       onKeyDown={onKeyDown}
       onPointerDown={(e) => {
         dragging.current = true;
@@ -310,7 +336,7 @@ export default function PrefixRuler(props: PrefixRulerProps) {
               ›
             </button>
           </div>
-          <p class="hint hand">גררו את הסמן לאורך הסרגל, וכוונו בכפתורים. מקו לקו: פי 10. מקידומת לקידומת: פי 1000.</p>
+          <p class="hint hand">גררו את הסמן לאורך הסרגל, וכוונו בכפתורים. מקו מסומן לקו מסומן: פי 10. מקידומת לקידומת: פי 1000.</p>
         </>
       }
     />

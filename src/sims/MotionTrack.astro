@@ -1,0 +1,7 @@
+---
+/** Motion track figure for lesson MDX: <Spread figure={MotionTrack} figureProps={{ id: 'fig-1-5', preset: 'curved-xt', … }}>. API: see MotionTrack.tsx. */
+import MotionTrack, { type MotionTrackProps } from './MotionTrack';
+type Props = MotionTrackProps;
+---
+
+<MotionTrack client:visible {...Astro.props} />
