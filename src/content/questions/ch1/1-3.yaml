@@ -1,0 +1,372 @@
+# Question bank for lesson 1.3 (uniform motion). Strings may hold $inline$ TeX; they are rendered at build time.
+# YAML note: plain and single-quoted strings keep backslashes literally; never use "…" for TeX.
+# Every number recomputed with src/physics/kinematics.ts (uniform, legs, avgVelocity, avgSpeed, meetingUniform);
+# script: screens/check-1-3.ts, run with npx tsx.
+
+chapter: 1
+questions:
+  # ---------------------------------------------------------------- OBJ-1.3-1: velocity as the x–t slope, with sign
+  - id: Q-1.3-higher-line
+    type: twotier
+    objectives: [OBJ-1.3-1]
+    qualitative: true
+    prompt: >-
+      בגרף מקום-זמן שני קווים ישרים, של שתי מכוניות על אותו כביש. במשך כל הזמן שבגרף, הקו של מכונית P נמצא מעל
+      הקו של מכונית Q, אבל הקו של Q תלול יותר. איזו מכונית נוסעת מהר יותר?
+    choices:
+      - text: P
+        feedback: >-
+          הקו של P גבוה יותר, כלומר P נמצאת רחוק יותר מהראשית. אבל מהירות היא כמה המקום משתנה בכל שנייה, וזה
+          השיפוע, לא הגובה.
+        misconception: MC-higher-graph-faster
+      - text: Q
+        correct: true
+        feedback: נכון. הקו של Q תלול יותר, ולכן המקום שלה משתנה יותר בכל שנייה.
+      - text: לשתיהן אותה מהירות, כי שני הקווים ישרים.
+        feedback: >-
+          קו ישר אומר שהמהירות של כל מכונית קבועה, אבל לא שהמהירויות שוות. שני קווים ישרים בשיפועים שונים הם שתי
+          מהירויות קבועות שונות.
+    reasonPrompt: ומה הנימוק?
+    reasons:
+      - text: המהירות היא השיפוע של גרף המקום-זמן, $\Delta x/\Delta t$.
+        correct: true
+        feedback: בדיוק. בכל שנייה הקו של Q עולה יותר, כלומר Q עוברת יותר מטרים בכל שנייה.
+      - text: הגובה של הקו מראה כמה מהר המכונית נוסעת.
+        feedback: >-
+          הגובה של הקו הוא המקום של המכונית. מכונית שחונה רחוק מהראשית מצוירת בקו גבוה ואופקי, ומהירותה אפס.
+        misconception: MC-higher-graph-faster
+      - text: המכונית שנמצאת לפני השנייה היא זו שנוסעת מהר יותר.
+        feedback: >-
+          מי שנמצא לפני יכול להיות איטי, ופשוט יצא ממקום רחוק יותר. אם Q מהירה יותר, היא תשיג את P, והקווים
+          ייחתכו.
+        misconception: MC-higher-graph-faster
+    hints:
+      - 'חשבו על מכונית שחונה 100 מטרים מהראשית. איך נראה הקו שלה בגרף?'
+
+  - id: Q-1.3-slope-from-graph
+    type: numeric
+    objectives: [OBJ-1.3-1]
+    level: basic
+    prompt: >-
+      הכיוון החיובי הוא ימינה. גרף המקום-זמן של גוף הוא קו ישר שעובר דרך הנקודות $(0\,\text{s},\ 18\,\text{m})$
+      ו-$(6\,\text{s},\ 6\,\text{m})$. מה המהירות של הגוף, עם הסימן?
+    answer: -2
+    unit: m/s
+    correctFeedback: >-
+      נכון. $v = \dfrac{6 - 18}{6 - 0} = \dfrac{-12}{6} = -2\,\text{m/s}$: הגוף נע שמאלה, 2 מטרים בכל שנייה.
+    wrongFeedback: >-
+      המהירות היא השיפוע: ההפרש במקום חלקי ההפרש בזמן, $\Delta x/\Delta t$, כשמחסירים בשניהם את הנקודה הראשונה
+      מהשנייה.
+    commonWrong:
+      - value: 2
+        feedback: >-
+          הגודל נכון, אבל הסימן חסר. המקום קטן מ-18 ל-6 מטרים, ולכן $\Delta x$ שלילי: הגוף נע נגד הכיוון החיובי.
+        misconception: MC-negative-velocity-slower
+      - value: 3
+        feedback: >-
+          חילקתם את המקום ההתחלתי, 18 מטרים, בזמן. מהירות היא **שינוי** המקום חלקי הזמן, $\Delta x/\Delta t$, לא
+          המקום עצמו.
+        misconception: MC-position-equals-displacement
+      - value: 1
+        feedback: >-
+          חילקתם את המקום הסופי בזמן הסופי, $6/6$. כך מקבלים את המהירות רק אם הגוף התחיל בראשית. כאן הוא התחיל
+          ב-18 מטרים, וצריך את ההעתק $\Delta x = 6 - 18$.
+        misconception: MC-position-equals-displacement
+      - value: -0.5
+        feedback: >-
+          הפכתם את השבר: $\Delta t/\Delta x$. מהירות היא מטרים חלקי שניות, ולכן ההעתק במונה והזמן במכנה.
+
+  - id: Q-1.3-sign-meaning
+    type: mc
+    objectives: [OBJ-1.3-1]
+    qualitative: true
+    prompt: >-
+      הכיוון החיובי של ציר המקום הוא מזרחה. מהירות של גוף היא $v = -3\,\text{m/s}$. מה אפשר להסיק?
+    choices:
+      - text: הגוף נע מערבה, 3 מטרים בכל שנייה.
+        correct: true
+        feedback: נכון. הסימן אומר שהגוף נע נגד הכיוון החיובי, והגודל אומר כמה מטרים הוא עובר בכל שנייה.
+      - text: הגוף מאט.
+        feedback: >-
+          בתנועה קצובה המהירות קבועה, והגוף לא מאט ולא מאיץ. הסימן של המהירות אומר רק לאיזה כיוון הוא נע.
+        misconception: MC-negative-velocity-slower
+      - text: הגוף נע לאט יותר מגוף שעומד במקום.
+        feedback: >-
+          אין דבר איטי יותר מעמידה. גודל המהירות של הגוף הוא $3\,\text{m/s}$, והוא נע; רק הכיוון שלו מערבה.
+        misconception: MC-negative-velocity-slower
+      - text: הגוף נמצא מערבה לראשית.
+        feedback: >-
+          הסימן של המהירות אומר לאן הגוף **נע**, לא איפה הוא **נמצא**. גוף מזרחה לראשית יכול לנוע מערבה, לכיוון
+          הראשית.
+        misconception: MC-position-equals-displacement
+
+  - id: Q-1.3-rank-speeds
+    type: rank
+    objectives: [OBJ-1.3-1]
+    level: basic
+    prompt: >-
+      חמישה גופים נעים על אותו ציר, כל אחד במהירות קבועה. סדרו אותם לפי **גודל המהירות**, מהגדול לקטן.
+    items:
+      - { id: a, label: '$v = +2\,\text{m/s}$' }
+      - { id: b, label: '$v = -5\,\text{m/s}$' }
+      - { id: c, label: '$v = 0$' }
+      - { id: d, label: '$v = +4\,\text{m/s}$' }
+      - { id: e, label: '$v = -3\,\text{m/s}$' }
+    order: [b, d, e, a, c]
+    correctFeedback: >-
+      נכון. גודל המהירות הוא המהירות בלי הסימן: 5, 4, 3, 2, 0. הסימן אומר רק את הכיוון.
+    wrongFeedback: >-
+      גודל המהירות לא תלוי בסימן: $v = -5\,\text{m/s}$ פירושו 5 מטרים בכל שנייה, נגד הכיוון החיובי. זה הגוף המהיר
+      ביותר.
+
+  # ---------------------------------------------------------------- OBJ-1.3-2: x = x0 + vt, meeting problems
+  - id: Q-1.3-position-later
+    type: numeric
+    objectives: [OBJ-1.3-2]
+    level: basic
+    prompt: >-
+      הכיוון החיובי הוא ימינה. ברגע $t = 0$ גוף נמצא ב-$x_0 = -8\,\text{m}$, והוא נע במהירות קבועה
+      $v = +3\,\text{m/s}$. איפה הוא נמצא ברגע $t = 5\,\text{s}$?
+    answer: 7
+    unit: m
+    correctFeedback: >-
+      נכון. $x = x_0 + v\,t = -8 + 3\cdot5 = 7\,\text{m}$: הגוף עבר את הראשית והוא 7 מטרים מימין לה.
+    wrongFeedback: השתמשו ב-$x = x_0 + v\,t$, עם הסימנים של $x_0$ ושל $v$.
+    commonWrong:
+      - value: 15
+        feedback: >-
+          $15\,\text{m}$ הוא ההעתק, $v\,t$. המקום הוא המקום ההתחלתי ועוד ההעתק: $x = -8 + 15$.
+        misconception: MC-position-equals-displacement
+      - value: 23
+        feedback: >-
+          הצבתם $x_0 = +8$ במקום $x_0 = -8$. הגוף מתחיל משמאל לראשית.
+      - value: -23
+        feedback: >-
+          חיסרתם את ההעתק: $x = -8 - 15$. המהירות חיובית, ולכן הגוף נע ימינה, והמקום שלו גדל.
+        misconception: MC-negative-velocity-slower
+
+  - id: Q-1.3-meet-time
+    type: numeric
+    objectives: [OBJ-1.3-2]
+    level: mid
+    prompt: >-
+      הכיוון החיובי הוא ימינה. גוף A יוצא מ-$x = 0$ במהירות $v_A = +4\,\text{m/s}$, ובאותו רגע גוף B יוצא מ-$x = 60\,\text{m}$
+      במהירות $v_B = -2\,\text{m/s}$. כעבור כמה שניות הם נפגשים?
+    answer: 10
+    unit: s
+    correctFeedback: >-
+      נכון. $x_A = 4t$ ו-$x_B = 60 - 2t$. בפגישה $4t = 60 - 2t$, ולכן $6t = 60$ ו-$t = 10\,\text{s}$.
+    wrongFeedback: >-
+      כתבו ביטוי מקום לכל גוף, עם הסימנים, ודרשו שהמקומות יהיו שווים.
+    commonWrong:
+      - value: 30
+        feedback: >-
+          חילקתם את 60 בהפרש בין גודלי המהירויות, $4 - 2$. אבל B נע **לקראת** A, ולכן המהירות $v_B = -2$ מקטינה את
+          $x_B$: מהשוויון $4t = 60 - 2t$ יוצא $6t = 60$.
+        misconception: MC-relative-speeds-add
+      - value: 15
+        feedback: >-
+          זה הזמן ש-A היה צריך כדי להגיע ל-60 מטרים אילו B עמד במקום. אבל גם B נע לקראתו.
+      - value: 7.5
+        feedback: >-
+          מצאתם את הרגע שבו A מגיע לאמצע, 30 מטרים. הגופים לא נפגשים באמצע, כי A מהיר יותר.
+        misconception: MC-meet-halfway
+
+  - id: Q-1.3-meet-where
+    type: numeric
+    objectives: [OBJ-1.3-2]
+    level: mid
+    prompt: >-
+      באותם נתונים: A יוצא מ-$x = 0$ במהירות $v_A = +4\,\text{m/s}$, ו-B יוצא מ-$x = 60\,\text{m}$ במהירות
+      $v_B = -2\,\text{m/s}$. באיזה מקום $x$ הם נפגשים?
+    answer: 40
+    unit: m
+    correctFeedback: >-
+      נכון. הם נפגשים ב-$t = 10\,\text{s}$, ו-$x_A = 4\cdot10 = 40\,\text{m}$. בדיקה: $x_B = 60 - 20 = 40\,\text{m}$.
+    wrongFeedback: >-
+      מצאו קודם את רגע הפגישה מהשוויון $x_A = x_B$, ואחר כך הציבו אותו באחד הביטויים.
+    commonWrong:
+      - value: 30
+        feedback: >-
+          30 מטרים הוא האמצע. הגופים נפגשים באמצע רק אם יש להם אותו גודל מהירות. A מהיר פי 2, ולכן עובר יותר.
+        misconception: MC-meet-halfway
+      - value: 20
+        feedback: >-
+          $20\,\text{m}$ הוא כמה ש-B עבר, $2\cdot10$. השאלה היא על המקום, ו-B התחיל ב-60 מטרים: $60 - 20$.
+        misconception: MC-position-equals-displacement
+
+  - id: Q-1.3-graph-crossing
+    type: mc
+    objectives: [OBJ-1.3-2]
+    qualitative: true
+    prompt: >-
+      בגרף מקום-זמן של שני גופים על אותו ציר, שני הקווים נחתכים בנקודה $(4\,\text{s},\ 12\,\text{m})$. מה קורה ברגע
+      $t = 4\,\text{s}$?
+    choices:
+      - text: 'שני הגופים נמצאים באותו מקום, $x = 12\,\text{m}$: הם נפגשים.'
+        correct: true
+        feedback: נכון. נקודה על גרף מקום-זמן היא "באיזה רגע, באיזה מקום". נקודה משותפת היא אותו מקום באותו רגע.
+      - text: לשני הגופים אותה מהירות.
+        feedback: >-
+          באותה נקודה לשני הקווים אותו **גובה**, כלומר אותו מקום. המהירויות הן השיפועים, והקווים נחתכים דווקא
+          כי השיפועים שלהם שונים.
+        misconception: MC-higher-graph-faster
+      - text: הגופים התנגשו, ולכן מעכשיו הם ינועו יחד.
+        feedback: >-
+          הקווים ממשיכים אחרי החיתוך, כל אחד בשיפוע שלו: הגופים חולפים זה על פני זה, למשל בשני נתיבים, וממשיכים
+          כל אחד במהירות שלו.
+      - text: אחד הגופים הסתובב ושינה כיוון.
+        feedback: >-
+          גוף שמשנה כיוון מצויר בקו שעובר מעלייה לירידה. חיתוך של **שני** קווים אומר משהו על שני גופים: שהם באותו
+          מקום.
+
+  - id: Q-1.3-parallel-lines
+    type: twotier
+    objectives: [OBJ-1.3-2]
+    qualitative: true
+    prompt: >-
+      שתי מכוניות נוסעות על כביש ישר לאותו כיוון, כל אחת $20\,\text{m/s}$. מכונית אחת נמצאת $50\,\text{m}$ לפני
+      השנייה. האם המכונית האחורית תשיג את הקדמית?
+    choices:
+      - text: לא, לעולם לא.
+        correct: true
+        feedback: נכון. המרחק ביניהן נשאר $50\,\text{m}$.
+      - text: כן, אחרי $2.5\,\text{s}$.
+        feedback: >-
+          $50/20 = 2.5$ הוא הזמן שהאחורית צריכה כדי לעבור 50 מטרים, אבל באותו זמן גם הקדמית עוברת 50 מטרים.
+      - text: כן, אבל רק אחרי זמן ארוך מאוד.
+        feedback: >-
+          המרחק ביניהן לא קטן בכלל, אפילו לא לאט. כדי להשיג, האחורית צריכה להיות מהירה יותר.
+    reasonPrompt: ומה הנימוק?
+    reasons:
+      - text: הקווים שלהן בגרף מקום-זמן מקבילים, ולכן לא נחתכים.
+        correct: true
+        feedback: >-
+          בדיוק. אותו שיפוע, גבהים שונים. באלגברה, $20t = 50 + 20t$ נותן $0 = 50$: אין פתרון.
+      - text: בכל שנייה האחורית מתקרבת 20 מטרים.
+        feedback: >-
+          ביחס לכביש היא עוברת 20 מטרים, אבל גם הקדמית. כמה הן מתקרבות זו לזו תלוי בהפרש המהירויות, שהוא אפס.
+        misconception: MC-velocity-absolute
+      - text: שתיהן באותה מהירות, ולכן הן נמצאות באותו מקום.
+        feedback: >-
+          אותה מהירות אינה אותו מקום: בגרף זה אותו שיפוע, לא אותו גובה. הן התחילו 50 מטרים זו מזו ונשארות כך.
+        misconception: MC-higher-graph-faster
+
+  # ---------------------------------------------------------------- OBJ-1.3-3: average velocity vs average speed
+  - id: Q-1.3-two-legs-average
+    type: numeric
+    objectives: [OBJ-1.3-3]
+    level: mid
+    prompt: >-
+      רוכבת אופניים נוסעת בדרך ישרה, כל הזמן לאותו כיוון: $6\,\text{km}$ במהירות $12$ קמ״ש, ואחר כך עוד
+      $6\,\text{km}$ במהירות $24$ קמ״ש. מה המהירות הממוצעת שלה על כל הדרך, בקמ״ש?
+    answer: 16
+    unit: km/h
+    correctFeedback: >-
+      נכון. הקטע הראשון לוקח $6/12 = 0.5$ שעה, והשני $6/24 = 0.25$ שעה. $\bar{v} = 12\ \text{km}/0.75\ \text{h} = 16$
+      קמ״ש.
+    wrongFeedback: >-
+      מהירות ממוצעת היא ההעתק הכולל חלקי הזמן הכולל. חשבו קודם כמה זמן לוקח כל קטע.
+    commonWrong:
+      - value: 18
+        feedback: >-
+          18 הוא הממוצע של 12 ו-24. הוא היה נכון אילו שני הקטעים נמשכו אותו **זמן**. כאן הם שווים **באורכם**,
+          והקטע האיטי לוקח פי 2 יותר זמן.
+        misconception: MC-average-of-speeds
+      - value: 36
+        feedback: >-
+          חיברתם את המהירויות. מהירות ממוצעת היא העתק חלקי זמן: $12\,\text{km}$ ב-$0.75$ שעה.
+        misconception: MC-average-of-speeds
+
+  - id: Q-1.3-round-trip
+    type: mc
+    objectives: [OBJ-1.3-3]
+    qualitative: true
+    prompt: >-
+      הכיוון החיובי הוא מזרחה. אישה הולכת $30\,\text{m}$ מזרחה, ומיד חוזרת לנקודת ההתחלה. כל ההליכה נמשכת
+      $50\,\text{s}$. מה המהירות הממוצעת שלה, ומה המהירות הממוצעת לפי הדרך שלה?
+    choices:
+      - text: מהירות ממוצעת $0$, ומהירות ממוצעת לפי הדרך $1.2\,\text{m/s}$.
+        correct: true
+        feedback: >-
+          נכון. היא חזרה למקום שבו התחילה, ולכן $\Delta x = 0$. הדרך היא $60\,\text{m}$, ו-$60/50 = 1.2\,\text{m/s}$.
+      - text: שתיהן $1.2\,\text{m/s}$.
+        feedback: >-
+          $1.2\,\text{m/s}$ היא הדרך חלקי הזמן. המהירות הממוצעת היא ההעתק חלקי הזמן, וההעתק הוא אפס: היא סיימה
+          במקום שבו התחילה.
+        misconception: MC-distance-equals-displacement
+      - text: שתיהן $0$.
+        feedback: >-
+          המהירות הממוצעת אפס, אבל היא כן הלכה $60\,\text{m}$. הדרך אף פעם לא קטנה כשחוזרים, ולכן המהירות הממוצעת
+          לפי הדרך היא $60/50$.
+        misconception: MC-distance-equals-displacement
+      - text: מהירות ממוצעת $0.6\,\text{m/s}$, ומהירות ממוצעת לפי הדרך $1.2\,\text{m/s}$.
+        feedback: >-
+          $0.6\,\text{m/s}$ הוא $30/50$: חלוקה של המרחק הגדול ביותר מנקודת ההתחלה בזמן. אבל ההעתק נקבע רק לפי המקום
+          בסוף, והיא חזרה להתחלה.
+        misconception: MC-position-equals-displacement
+
+  - id: Q-1.3-stop-counts
+    type: twotier
+    objectives: [OBJ-1.3-3]
+    qualitative: true
+    prompt: >-
+      אוטובוס נוסע בכביש ישר במהירות קבועה, עוצר בתחנה 5 דקות, וממשיך באותה מהירות לאותו כיוון. האם העצירה משנה
+      את המהירות הממוצעת שלו על כל הנסיעה?
+    choices:
+      - text: כן, היא מקטינה אותה.
+        correct: true
+        feedback: נכון. ההעתק לא השתנה, אבל הזמן הכולל גדל ב-5 דקות.
+      - text: לא, כי בזמן העצירה האוטובוס לא נסע.
+        feedback: >-
+          בזמן העצירה האוטובוס לא התקדם, אבל השעון המשיך. המהירות הממוצעת היא ההעתק חלקי **כל** הזמן.
+        misconception: MC-average-of-speeds
+      - text: כן, היא מגדילה אותה.
+        feedback: >-
+          ההעתק נשאר אותו העתק, והזמן גדל. חלוקה של אותו מספר במספר גדול יותר נותנת תוצאה קטנה יותר.
+    reasonPrompt: ומה הנימוק?
+    reasons:
+      - text: המהירות הממוצעת היא ההעתק הכולל חלקי הזמן הכולל, כולל זמני העמידה.
+        correct: true
+        feedback: בדיוק. לכן שעה של נסיעה ועוד חצי שעה בפקק נותנות ממוצע נמוך, גם אם הנהג נסע מהר כשנסע.
+      - text: מחשבים ממוצע של המהירויות רק בקטעים שבהם האוטובוס נע.
+        feedback: >-
+          כך מתעלמים מהזמן שעבר בעצירה. הנוסעים, שהגיעו מאוחר יותר, יודעים שהוא נחשב.
+        misconception: MC-average-of-speeds
+      - text: מהירות ממוצעת תלויה רק במהירות שבה האוטובוס נסע.
+        feedback: >-
+          היא תלויה רק בהעתק ובזמן הכולל. האוטובוס נסע תמיד באותה מהירות, ובכל זאת הממוצע נמוך ממנה.
+        misconception: MC-average-of-speeds
+
+  - id: Q-1.3-walker-average-speed
+    type: numeric
+    objectives: [OBJ-1.3-3]
+    level: bagrut
+    prompt: >-
+      הכיוון החיובי הוא ימינה. מתעמל הולך $1.5\,\text{m/s}$ ימינה במשך $40\,\text{s}$, עומד $30\,\text{s}$, ואז
+      הולך $2\,\text{m/s}$ שמאלה במשך $15\,\text{s}$. מה המהירות הממוצעת לפי הדרך שלו, על כל $85$ השניות?
+    answer: 1.06
+    unit: m/s
+    correctFeedback: >-
+      נכון. הדרך היא $60 + 30 = 90\,\text{m}$, ו-$90/85 \approx 1.06\,\text{m/s}$. (המהירות הממוצעת, לעומת זאת,
+      היא $30/85 \approx +0.35\,\text{m/s}$.)
+    wrongFeedback: >-
+      חשבו את הדרך בכל קטע: גודל המהירות כפול הזמן. חברו את הדרכים, וחלקו בכל הזמן, כולל העמידה.
+    commonWrong:
+      - value: 0.353
+        feedback: >-
+          זו המהירות הממוצעת, ההעתק $30\,\text{m}$ חלקי הזמן. השאלה היא על הדרך, $90\,\text{m}$, שכוללת גם את
+          הדרך חזרה.
+        misconception: MC-distance-equals-displacement
+      - value: 1.64
+        feedback: >-
+          חילקתם רק בזמן ההליכה, $55\,\text{s}$. גם 30 השניות של העמידה הן חלק מהזמן.
+        misconception: MC-average-of-speeds
+      - value: 1.75
+        feedback: >-
+          זה הממוצע של 1.5 ו-2. הקטעים לא נמשכים אותו זמן, ויש גם עמידה. מחשבים דרך כוללת חלקי זמן כולל.
+        misconception: MC-average-of-speeds
+      - value: 1.17
+        feedback: >-
+          זה הממוצע של שלוש המהירויות, 1.5, 0 ו-2. אבל הקטעים נמשכים 40, 30 ו-15 שניות, לא אותו זמן.
+        misconception: MC-average-of-speeds

@@ -1,0 +1,50 @@
+# Glossary terms introduced in lesson 1.3 (uniform motion). All five ids are fixed by .claude/specs/ch0-1.md.
+# The Hebrew term of `average-speed` ("מהירות ממוצעת לפי הדרך") is marked in the spec "to confirm with the user".
+# `reject` lists spellings that must not appear in course text (lint-content enforces it).
+
+- id: uniform-motion
+  term: תנועה קצובה
+  en: uniform motion
+  definition: >-
+    תנועה לאורך קו ישר שבה הגוף עובר העתקים שווים בכל פרקי זמן שווים, כלומר מהירותו קבועה. הגרף של המקום מול
+    הזמן הוא קו ישר.
+  reject: [תנועה אחידה]
+  lesson: '1.3'
+
+- id: velocity
+  term: מהירות
+  en: velocity
+  definition: >-
+    בכמה מטרים משתנה המקום של הגוף בכל שנייה, עם סימן: חיובית כשהגוף נע בכיוון החיובי של הציר, ושלילית כשהוא נע
+    נגדו. בתנועה קצובה v = Δx/Δt, והיא השיפוע של גרף המקום-זמן.
+  symbol: 'v'
+  unit: m/s
+  lesson: '1.3'
+
+- id: speed
+  term: גודל המהירות
+  en: speed
+  definition: >-
+    המהירות בלי הסימן שלה: כמה מטרים הגוף עובר בכל שנייה, בלי קשר לכיוון. היא אף פעם לא שלילית.
+  symbol: '|v|'
+  unit: m/s
+  lesson: '1.3'
+
+- id: average-velocity
+  term: מהירות ממוצעת
+  en: average velocity
+  definition: >-
+    ההעתק של גוף בפרק זמן, חלקי משך פרק הזמן: Δx/Δt. היא נקבעת רק לפי המקום בהתחלה ובסוף, ויש לה סימן. זמן
+    של עמידה במקום נכלל ב-Δt. בתנועה קצובה היא שווה למהירות בכל רגע.
+  symbol: '\bar{v}'
+  unit: m/s
+  lesson: '1.3'
+
+- id: average-speed
+  term: מהירות ממוצעת לפי הדרך
+  en: average speed (path length / time)
+  definition: >-
+    הדרך שגוף עבר בפרק זמן, חלקי משך פרק הזמן. היא אף פעם לא שלילית, וכשהגוף חוזר על עקבותיו היא גדולה מהגודל של
+    המהירות הממוצעת.
+  unit: m/s
+  lesson: '1.3'
