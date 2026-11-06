@@ -86,6 +86,12 @@
   gap: 6px;
   align-items: center;
 }
+/* a hint is a sentence, not a control: its own full row, no paragraph margins pushing the row wider */
+.sim-controls .hint {
+  flex: 1 1 100%;
+  min-width: 0;
+  margin: 0;
+}
 .sim-controls .sep {
   width: 1px;
   align-self: stretch;

@@ -33,3 +33,6 @@ public/media/
 
 # project-local Claude tooling: a junction to ../claude/mechlab, never committed
 .claude/
+
+# build mutex used by parallel lesson agents
+.build-lock/

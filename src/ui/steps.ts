@@ -46,8 +46,10 @@ export function initStepObserver() {
   const steps = Array.from(document.querySelectorAll<HTMLElement>('[data-step]'));
   if (steps.length === 0) return;
   let current: HTMLElement | null = null;
-  const activate = (el: HTMLElement) => {
-    if (el === current) return;
+  // scrolling re-announces nothing while the same step stays mid-screen; a click always does, so
+  // clicking the active step puts the figure back in that step's state (lessons promise this)
+  const activate = (el: HTMLElement, force = false) => {
+    if (el === current && !force) return;
     current?.classList.remove('is-active');
     el.classList.add('is-active');
     current = el;
@@ -65,6 +67,6 @@ export function initStepObserver() {
   );
   steps.forEach((s) => {
     io.observe(s);
-    s.addEventListener('click', () => activate(s));
+    s.addEventListener('click', () => activate(s, true));
   });
 }

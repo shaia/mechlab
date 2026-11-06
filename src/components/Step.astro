@@ -12,7 +12,8 @@ const { fig, set, id } = Astro.props;
 const state = JSON.stringify(set);
 ---
 
-<div class="step" data-step={id ?? state} data-fig={fig} data-state={state} tabindex="0">
+<!-- the id is also an HTML id, so a misconception remedy or a LessonLink can point at the step -->
+<div class="step" id={id} data-step={id ?? state} data-fig={fig} data-state={state} tabindex="0">
   <span class="step-mark" aria-hidden="true">◂</span>
   <slot />
 </div>

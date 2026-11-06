@@ -232,11 +232,18 @@ for (const l of lessons) {
 
 /* ------------------------------------------------------- misconceptions */
 
+/**
+ * Whether a lesson renders an element with this HTML id. <Term id> and <Watch id> name a glossary entry or a
+ * video and render no id, so they don't count.
+ */
+const hasAnchor = (body: string, id: string) =>
+  [...body.matchAll(/<(\w+)\b[^>]*?\sid="([^"]+)"/g)].some((m) => m[2] === id && m[1] !== 'Term' && m[1] !== 'Watch');
+
 for (const m of misconceptions) {
   if (!detected.has(m.id)) fail(m.file, `${m.id} is not detected by any distractor`, true);
   const target = lessonById.get(m.remedy.lesson);
   if (!target) fail(m.file, `${m.id} remedy points at lesson ${m.remedy.lesson}, which is not written`, true);
-  else if (m.remedy.anchor && !target.figures.includes(m.remedy.anchor) && !target.body.includes(`id="${m.remedy.anchor}"`)) {
+  else if (m.remedy.anchor && !target.figures.includes(m.remedy.anchor) && !hasAnchor(target.body, m.remedy.anchor)) {
     fail(m.file, `${m.id} remedy anchor #${m.remedy.anchor} is not in lesson ${m.remedy.lesson}`, true);
   }
 }
@@ -394,7 +401,7 @@ for (const sm of summaries) {
   for (const m of sm.body.matchAll(/<LessonLink\s+id="([^"]+)"(?:\s+anchor="([^"]+)")?/g)) {
     const target = lessonById.get(m[1]);
     if (!target) fail(sm.file, `<LessonLink id="${m[1]}">: lesson not written`);
-    else if (m[2] && !target.body.includes(`id="${m[2]}"`)) fail(sm.file, `<LessonLink id="${m[1]}" anchor="${m[2]}">: no such id in the lesson`);
+    else if (m[2] && !hasAnchor(target.body, m[2])) fail(sm.file, `<LessonLink id="${m[1]}" anchor="${m[2]}">: no such id in the lesson`);
   }
 }
 for (const ch of chaptersWithLessons) {
