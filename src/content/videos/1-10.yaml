@@ -1,0 +1,14 @@
+# Videos for lesson 1.10. Each youtubeId verified with YouTube oEmbed (HTTP 200, title and channel matched) on the date given.
+
+- id: v-1-10-race-cars-curve
+  youtubeId: ITA1rW5UraU
+  title: Race cars with constant speed around curve | Physics | Khan Academy
+  channel: Khan Academy
+  lang: en
+  captions: []
+  start: 0
+  minutes: 5
+  why: >-
+    מכוניות מרוץ עוברות סיבוב במהירות של 100 קמ״ש שלא משתנה. הסרטון שואל אם הן מאיצות, ומסביר שכן, כי כיוון
+    המהירות משתנה, והתאוצה מצביעה אל מרכז הסיבוב. זו בדיוק שאלת החיזוי של השיעור. הסרטון באנגלית.
+  verified: '2026-11-05'
