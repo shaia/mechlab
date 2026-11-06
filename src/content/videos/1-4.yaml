@@ -1,0 +1,17 @@
+# Videos for lesson 1.4. Every id was checked against YouTube oEmbed (200: exists and embeddable; title and channel
+# as below) on the `verified` date. Length (474 s) and the English caption track were read off the watch page.
+# No Hebrew video on 1D relative velocity at Bagrut level was found (searched 2026-11-05).
+
+- id: v-1-4-ball-from-truck
+  youtubeId: xb_kS5pRv-0
+  title: 'Can You Drop A Ball From A Moving Vehicle And Have It Land Straight Down? | MythBusters'
+  channel: MythBusters
+  lang: en
+  captions: [en]
+  start: 0
+  minutes: 8
+  why: >-
+    לפי הכותרת והתיאור, צוות MythBusters מנסה לירות כדור מרכב נוסע כך שייפול ישר למטה, בעזרת תותחי אוויר ומדידה
+    מדויקת של המהירויות. לפני הצפייה חשבו: באיזו מהירות, ביחס לרכב, צריך לירות את הכדור לאחור כדי שמהירותו ביחס
+    לכביש תהיה אפס?
+  verified: '2026-11-05'

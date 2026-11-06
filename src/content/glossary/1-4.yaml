@@ -1,0 +1,21 @@
+# Glossary terms introduced in lesson 1.4 (relative motion). `relative-velocity` is fixed by .claude/specs/ch0-1.md;
+# `closing-speed` is not in the spec's table and was added here (the RelativeMotion figure's readout uses the phrase).
+
+- id: relative-velocity
+  term: מהירות יחסית
+  en: relative velocity
+  definition: >-
+    המהירות של גוף A כפי שהיא נמדדת ממערכת ייחוס שנעה יחד עם גוף B. בתנועה לאורך ציר אחד, כששתי המהירויות נמדדות
+    ביחס לקרקע ועם אותו כיוון חיובי: v_AB = v_A − v_B. הסדר חשוב: v_BA = −v_AB.
+  symbol: v_AB
+  unit: m/s
+  lesson: '1.4'
+
+- id: closing-speed
+  term: מהירות ההתקרבות
+  en: closing speed
+  definition: >-
+    בכמה מטרים קטן המרחק בין שני גופים בכל שנייה, כשהם מתקרבים זה לזה. זהו הגודל של המהירות היחסית שלהם,
+    |v_A − v_B|. היא אף פעם לא שלילית; כשהגופים מתרחקים, אין מהירות התקרבות.
+  unit: m/s
+  lesson: '1.4'
