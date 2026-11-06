@@ -1,0 +1,41 @@
+# Glossary terms introduced in lesson 1.7 (free fall and the vertical throw). free-fall, free-fall-acceleration and
+# vertical-throw are fixed by .claude/specs/ch0-1.md; air-resistance is not in the spec's table and was added here,
+# because the lesson states "no air" as the model assumption of every free fall (forces come only in chapter 2).
+
+- id: free-fall
+  term: נפילה חופשית
+  en: free fall
+  definition: >-
+    תנועה של גוף שהשפעת האוויר עליו זניחה, ושנע רק בהשפעת כדור הארץ, אחרי שעזב את היד או את המתקן שזרק אותו.
+    בנפילה חופשית לאורך קו אנכי הגוף נע בתאוצה קבועה, תאוצת הנפילה החופשית, בין שהוא עולה, נמצא בנקודה הגבוהה
+    ביותר או יורד. גם כדור שנזרק כלפי מעלה נמצא בנפילה חופשית מהרגע שעזב את היד.
+  lesson: '1.7'
+
+- id: free-fall-acceleration
+  term: תאוצת הנפילה החופשית
+  en: free-fall acceleration (g)
+  definition: >-
+    התאוצה של גוף בנפילה חופשית בסמוך לפני כדור הארץ. היא מכוונת אנכית כלפי מטה, וגודלה זהה לכל הגופים, כבדים
+    וקלים. בבחינת הבגרות משתמשים בערך 10 מטרים לשנייה בריבוע. g הוא גודל, ולכן תמיד חיובי; הסימן של התאוצה נקבע
+    לפי הציר: a = −g כשהכיוון החיובי כלפי מעלה, ו-a = +g כשהכיוון החיובי כלפי מטה.
+  symbol: 'g'
+  unit: m/s²
+  reject: [תאוצת הכובד, תאוצת הכבידה]
+  lesson: '1.7'
+
+- id: vertical-throw
+  term: זריקה אנכית
+  en: vertical throw
+  definition: >-
+    נפילה חופשית של גוף שנזרק כלפי מעלה או כלפי מטה לאורך קו אנכי, עם מהירות התחלתית שאינה אפס. בזריקה כלפי
+    מעלה הגוף מאט, נעצר לרגע בנקודה הגבוהה ביותר, ונופל בחזרה, ולאורך כל הדרך התאוצה שלו קבועה.
+  lesson: '1.7'
+
+- id: air-resistance
+  term: התנגדות האוויר
+  en: air resistance (drag)
+  definition: >-
+    ההשפעה של האוויר על גוף שנע דרכו: האוויר מאט את הגוף, וההשפעה גדלה ככל שהגוף מהיר יותר, וככל ששטחו גדול
+    ביחס למסה שלו. נוצה ודף נייר מושפעים ממנה מאוד, ואבן או כדור מתכת שנופלים כמה מטרים כמעט לא מושפעים. במודל
+    של נפילה חופשית מזניחים אותה.
+  lesson: '1.7'

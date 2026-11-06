@@ -1,0 +1,30 @@
+# Videos for lesson 1.7. Every id was checked against YouTube oEmbed (200: exists and embeddable; title and channel
+# as below) on the `verified` date. Lengths (52 s, 281 s), descriptions and caption tracks were read off the watch
+# pages: the Science News clip has only an automatic English track; the BBC clip has English captions.
+# No Hebrew video on free fall at Bagrut level could be verified (searched 2026-11-05).
+
+- id: v-1-7-hammer-feather
+  youtubeId: Oo8TaPVsn9Y
+  title: 'David Scott does the feather hammer experiment on the moon | Science News'
+  channel: Science News
+  lang: en
+  captions: [en]
+  start: 0
+  minutes: 1
+  why: >-
+    לפי התיאור, במשימת אפולו 15 האסטרונאוט דייוויד סקוט משמיט נוצה ביד שמאל ופטיש ביד ימין, כדי להראות שבלי אוויר
+    גופים נופלים באותו קצב, בלי קשר למסה. לפני הצפייה נחשו מי ינחת ראשון, ובזמן הצפייה בדקו.
+  verified: '2026-11-05'
+
+- id: v-1-7-vacuum-chamber
+  youtubeId: E43-CfukEgs
+  title: "Brian Cox visits the world's biggest vacuum | Human Universe - BBC"
+  channel: BBC
+  lang: en
+  captions: [en]
+  start: 0
+  minutes: 5
+  why: >-
+    לפי התיאור, בריאן קוקס מבקר בתא הוואקום של נאס״א באוהיו ובודק מה קורה כשמשמיטים יחד כדור באולינג ונוצה בתנאים
+    של החלל החיצון. השוו בין ההפלה באוויר להפלה אחרי שהאוויר נשאב מהתא.
+  verified: '2026-11-05'
