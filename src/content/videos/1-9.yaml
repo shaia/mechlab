@@ -1,0 +1,26 @@
+# Verified YouTube videos for lesson 1.9. Both ids were checked against YouTube oEmbed on 2026-11-05 (200,
+# embeddable; title and channel exactly as below). `why` rests on the title (BIU) and on a transcript summary of
+# the Khan Academy video (5-unit vector at 36.87° split into 4 and 3; head-to-tail addition; "2D into two 1D
+# problems"). Lengths are not confirmed by oEmbed: the Khan transcript runs to about 9 minutes.
+
+- id: v-1-9-biu-addition
+  youtubeId: nIzu1t1v7es
+  title: 'חיבור ווקטורים על גביי מערכת צירים'
+  channel: מבוא לפיזיקה BIU
+  lang: he
+  captions: []
+  start: 0
+  minutes: 10
+  why: חיבור וקטורים בעזרת רכיבים על מערכת צירים, מתוך קורס המבוא לפיזיקה של אוניברסיטת בר-אילן (לפי כותרת הסרטון). השוו לחיבור רכיב לרכיב שבשיעור.
+  verified: '2026-11-05'
+
+- id: v-1-9-khan-2d
+  youtubeId: xp6ibuI8UuQ
+  title: 'Visualizing vectors in 2 dimensions | Two-dimensional motion | Physics | Khan Academy'
+  channel: Khan Academy
+  lang: en
+  captions: []
+  start: 0
+  minutes: 9
+  why: 'סרטון באנגלית: חיבור וקטורים ראש לזנב, ופירוק של וקטור שגודלו 5, בזווית של כ-37 מעלות, לרכיבים 4 ו-3 בעזרת סינוס וקוסינוס. בסופו: הפירוק הופך בעיה במישור לשתי בעיות על קו אחד.'
+  verified: '2026-11-05'

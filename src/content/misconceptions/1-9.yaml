@@ -1,0 +1,46 @@
+# Misconceptions lesson 1.9 detects and remedies. The first two ids are fixed by .claude/specs/ch0-1.md;
+# MC-difference-of-magnitudes, MC-x-always-cos and MC-arctan-quadrant were added by this lesson.
+# Each is caught by a tagged distractor in questions/ch1/1-9.yaml, except MC-current-changes-crossing-time, added by
+# the chapter 1 Bagrut review and caught in questions/ch1/bagrut.yaml (the river crossing, Q-1-bagrut-3).
+
+- id: MC-magnitudes-add
+  title: גודל הסכום הוא סכום הגדלים
+  belief: אם הולכים 3 מטרים ואחר כך 4 מטרים, ההעתק הכולל הוא תמיד 7 מטרים, ובאופן כללי |A + B| = |A| + |B|.
+  truth: >-
+    גודל הסכום שווה לסכום הגדלים רק כששני הווקטורים באותו כיוון. בכל כיוון אחר הוא קטן יותר: מ-3 מטרים ומ-4 מטרים
+    יכול לצאת כל העתק בין מטר אחד (כיוונים מנוגדים) ל-7 מטרים (אותו כיוון), ובמאונך יוצא 5 מטרים.
+  remedy: { lesson: '1.9', anchor: sum, label: 'שיעור 1.9, איור 1.9ב: מסובבים את B ורואים את גודל הסכום משתנה' }
+
+- id: MC-components-add-to-magnitude
+  title: סכום הרכיבים הוא גודל הווקטור
+  belief: לווקטור עם רכיבים 3 ו-4 יש גודל 7, כי Aₓ + A_y = |A|.
+  truth: >-
+    הרכיבים הם שני הניצבים של משולש ישר-זווית, והווקטור הוא היתר. לכן |A| = √(Aₓ² + A_y²), ולווקטור (3, 4) הגודל
+    הוא 5. רכיב אף פעם אינו גדול מהגודל, וסכום הרכיבים אינו הגודל (חוץ ממקרה שבו אחד מהם אפס).
+  remedy: { lesson: '1.9', anchor: components, label: 'שיעור 1.9, איור 1.9א: מציגים רכיבים ומשווים את סכומם לגודל' }
+
+- id: MC-difference-of-magnitudes
+  title: ההפרש בין וקטורים הוא ההפרש בין הגדלים
+  belief: >-
+    אם מהירות של 6 מטרים לשנייה מזרחה הופכת ל-8 מטרים לשנייה צפונה, השינוי במהירות הוא 2 מטרים לשנייה. ושני וקטורים
+    שווים בגודלם הם בעלי הפרש אפס.
+  truth: >-
+    מחסרים וקטורים כמו שמחברים: A − B = A + (−B), רכיב לרכיב. ההפרש תלוי בכיוונים, לא רק בגדלים. מ-6 מזרחה ל-8 צפונה
+    השינוי הוא 10 מטרים לשנייה, וגם כשהגודל לא משתנה כלל (פנייה במהירות קבועה) השינוי במהירות אינו אפס.
+  remedy: { lesson: '1.9', anchor: subtract, label: 'שיעור 1.9, איור 1.9ב: מציגים את ההפרש A − B כ-A ועוד B הפוך' }
+
+- id: MC-x-always-cos
+  title: לרכיב x תמיד cos, לרכיב y תמיד sin
+  belief: את רכיב ה-x מוצאים תמיד בכפל ב-cos ואת רכיב ה-y בכפל ב-sin, מאיזה קו שהזווית לא תימדד.
+  truth: >-
+    cos שייך לניצב שצמוד לזווית, ו-sin לניצב שמולה. כשהזווית נמדדת מהקו האנכי, הרכיב האנכי הוא שמקבל cos. לכן קודם
+    בודקים מאיזה קו נמדדת הזווית, ורק אז בוחרים.
+  remedy: { lesson: '1.9', anchor: components, label: 'שיעור 1.9: זווית שנמדדת מהקו האנכי' }
+
+- id: MC-arctan-quadrant
+  title: המחשבון יודע לאן הווקטור מצביע
+  belief: הזווית שהמחשבון נותן ל-tan⁻¹(A_y/Aₓ) היא תמיד הכיוון של הווקטור.
+  truth: >-
+    המחשבון רואה רק את המנה A_y/Aₓ, ולשני וקטורים הפוכים, כמו (3, 4) ו-(−3, −4), אותה מנה. את הצד (ימינה או שמאלה,
+    למעלה או למטה) קובעים לפי הסימנים של הרכיבים, ומשרטטים לפני שמחשבים.
+  remedy: { lesson: '1.9', anchor: by-components, label: 'שיעור 1.9, איור 1.9ג: הגשם שנראה מהמכונית' }

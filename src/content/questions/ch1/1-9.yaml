@@ -1,0 +1,293 @@
+# Chapter 1 question bank, lesson 1.9 (vectors). Every number recomputed with src/physics/vec.ts (add, sub, len,
+# angle) and src/physics/toolbox.ts (sinDeg, cosDeg, angleFromLegs); radians slips with Math.sin/Math.cos of the
+# bare number. Directions: x east / right, y north / up.
+
+chapter: 1
+questions:
+  # ------------------------------------------------------------ OBJ-1.9-1: vector vs scalar, graphical + and −
+  - id: Q-1.9-vector-or-scalar
+    type: multi
+    objectives: [OBJ-1.9-1]
+    qualitative: true
+    prompt: >-
+      אילו מהגדלים האלה הם וקטורים? סמנו את כל התשובות הנכונות.
+    choices:
+      - text: ההעתק של מטייל
+        correct: true
+        feedback: 'נכון. להעתק יש גודל וגם כיוון: 5 קילומטרים צפונה אינם 5 קילומטרים מזרחה.'
+      - text: הדרך שעבר מטייל
+        feedback: 'הדרך היא סקלר: מספר עם יחידות, בלי כיוון, והיא אף פעם לא שלילית. בגלל זה היא יכולה להיות 700 מטרים כשההעתק רק 500.'
+      - text: המהירות של מכונית
+        correct: true
+        feedback: נכון. המהירות כוללת כיוון. מכונית שפונה בכיכר במהירות קבועה בגודלה משנה את המהירות שלה.
+      - text: גודל המהירות של מכונית, כפי שמראה מד המהירות
+        feedback: 'מד המהירות מראה רק מספר, למשל 60 קמ״ש, בלי לומר לאן. זה גודל המהירות, והוא סקלר.'
+      - text: משך הנסיעה
+        feedback: זמן הוא סקלר. אין לו כיוון במרחב.
+      - text: המסה של המכונית
+        feedback: מסה היא סקלר. ל-1200 קילוגרם אין כיוון.
+
+  - id: Q-1.9-sum-range
+    type: mc
+    objectives: [OBJ-1.9-1]
+    qualitative: true
+    prompt: >-
+      ילדה הולכת $3\,\text{m}$ בכיוון אחד, מסתובבת והולכת עוד $4\,\text{m}$ בכיוון אחר (לא בהכרח ניצב). מה אפשר לומר על הגודל של ההעתק הכולל שלה?
+    choices:
+      - text: 'הוא בין $1\,\text{m}$ ל-$7\,\text{m}$, לפי הזווית בין שני הכיוונים.'
+        correct: true
+        feedback: 'נכון. באותו כיוון $7\,\text{m}$, בכיוונים מנוגדים $1\,\text{m}$, ובכל זווית אחרת משהו ביניהם (במאונך $5\,\text{m}$).'
+      - text: 'הוא תמיד $7\,\text{m}$.'
+        feedback: '$7\,\text{m}$ היא הדרך. ההעתק שווה לה רק אם שני הקטעים באותו כיוון. בכל כיוון אחר המשולש מקצר את הדרך.'
+        misconception: MC-magnitudes-add
+      - text: 'הוא תמיד $5\,\text{m}$.'
+        feedback: '$5\,\text{m}$ נכון רק כשהקטעים ניצבים זה לזה. כאן הזווית לא נתונה.'
+      - text: 'הוא תמיד $1\,\text{m}$, ההפרש בין הקטעים.'
+        feedback: 'זה המקרה שבו הילדה חוזרת על עקבותיה, בכיוון ההפוך בדיוק. בזוויות אחרות ההעתק גדול יותר.'
+        misconception: MC-difference-of-magnitudes
+
+  - id: Q-1.9-rank-sums
+    type: rank
+    objectives: [OBJ-1.9-1]
+    qualitative: true
+    prompt: >-
+      שני העתקים, של $3\,\text{m}$ ושל $4\,\text{m}$, מחוברים בארבעה סידורים שונים. דרגו את הגודל של הסכום, מהגדול לקטן:
+    items:
+      - id: same
+        label: באותו כיוון
+      - id: sixty
+        label: 'בזווית של $60^\circ$ זה לזה'
+      - id: perp
+        label: ניצבים זה לזה
+      - id: opposite
+        label: בכיוונים מנוגדים
+    order: [same, sixty, perp, opposite]
+    correctFeedback: 'נכון. $7\,\text{m}$, כ-$6.1\,\text{m}$, $5\,\text{m}$ ו-$1\,\text{m}$: ככל שהזווית בין החצים גדלה, הסכום קטן.'
+    wrongFeedback: 'שרטטו כל סידור ראש לזנב. ככל שהחץ השני "פונה לאחור" יותר, כך הסוף שלו קרוב יותר לנקודת ההתחלה.'
+
+  - id: Q-1.9-diff-direction
+    type: vector
+    objectives: [OBJ-1.9-1]
+    qualitative: true
+    prompt: >-
+      הווקטור $\vec A$ מצביע מזרחה (ימינה), והווקטור $\vec B$ מצביע צפונה (למעלה), ולשניהם אותו גודל. מה הכיוון של $\vec A - \vec B$?
+    answer: se
+    correctFeedback: 'נכון. $\vec A - \vec B = \vec A + (-\vec B)$: מזרחה ועוד דרומה, כלומר דרום-מזרח, באלכסון.'
+    wrong:
+      - dir: ne
+        feedback: 'זה הכיוון של $\vec A + \vec B$. בחיסור משרשרים את $-\vec B$, שמצביע דרומה, ולא את $\vec B$.'
+      - dir: nw
+        feedback: 'זה הכיוון של $\vec B - \vec A$, ההפך של מה שנשאל. הסדר בחיסור קובע את הכיוון.'
+      - dir: zero
+        feedback: 'לשני הווקטורים אותו גודל, אבל כיוונים שונים, ולכן ההפרש שלהם אינו אפס. רק וקטורים שווים (אותו גודל ואותו כיוון) נותנים הפרש אפס.'
+        misconception: MC-difference-of-magnitudes
+      - dir: e
+        feedback: 'זה הכיוון של $\vec A$ לבדו. החיסור של $\vec B$ מוסיף רכיב דרומה.'
+    wrongFeedback: 'כתבו $\vec A - \vec B = \vec A + (-\vec B)$. לאן מצביע $-\vec B$?'
+
+  - id: Q-1.9-minus-v
+    type: vector
+    objectives: [OBJ-1.9-1]
+    qualitative: true
+    prompt: >-
+      המהירות $\vec v$ של רוכב אופניים מצביעה צפונה (למעלה). מה הכיוון של הווקטור $-2\vec v$?
+    answer: s
+    correctFeedback: 'נכון. כפל במספר שלילי הופך את הכיוון, וה-2 מכפיל את האורך: פי 2 מ-$\vec v$, דרומה.'
+    wrong:
+      - dir: n
+        feedback: 'זה הכיוון של $2\vec v$. המינוס הופך את הכיוון.'
+      - dir: zero
+        feedback: 'וקטור כפול מספר שלילי לא "יורד מתחת לאפס" ולא נעלם. הגודל שלו גדל פי 2, והכיוון מתהפך.'
+    wrongFeedback: 'מה עושה המינוס לכיוון? ומה עושה ה-2 לאורך?'
+
+  - id: Q-1.9-delta-v
+    type: numeric
+    objectives: [OBJ-1.9-1, OBJ-1.9-3]
+    level: mid
+    prompt: >-
+      מכונית נוסעת $6\,\text{m/s}$ מזרחה, ופונה בצומת. אחרי הפנייה היא נוסעת $8\,\text{m/s}$ צפונה.
+      מה הגודל של השינוי במהירות, $\Delta\vec v = \vec v_2 - \vec v_1$?
+    answer: 10
+    unit: m/s
+    tolerance: 0.02
+    correctFeedback: 'נכון. $\Delta\vec v = (0, 8) - (6, 0) = (-6, 8)\,\text{m/s}$, וגודלו $\sqrt{36 + 64} = 10\,\text{m/s}$, לכיוון צפון-מערב.'
+    wrongFeedback: 'חסרו רכיב לרכיב: $\Delta v_x = 0 - 6$ ו-$\Delta v_y = 8 - 0$. אחר כך פיתגורס.'
+    commonWrong:
+      - value: 2
+        feedback: 'זה $8 - 6$, ההפרש בין הגדלים. אבל המהירות שינתה גם כיוון, וההפרש בין וקטורים תלוי בכיוונים.'
+        misconception: MC-difference-of-magnitudes
+      - value: 14
+        feedback: 'זה $6 + 8$, סכום הגדלים. החצים ניצבים, ולכן הגודל של ההפרש הוא היתר, $\sqrt{6^2 + 8^2}$.'
+        misconception: MC-magnitudes-add
+      - value: 100
+        feedback: 'זה $6^2 + 8^2$. נשאר להוציא שורש.'
+    hints:
+      - 'כתבו את שתי המהירויות כרכיבים, עם ציר x מזרחה וציר y צפונה.'
+
+  # ------------------------------------------------------------ OBJ-1.9-2: components, magnitude and angle
+  - id: Q-1.9-components
+    type: numeric
+    objectives: [OBJ-1.9-2]
+    prompt: >-
+      כדור נבעט במהירות של $20\,\text{m/s}$, בזווית של $30^\circ$ מעל הקרקע. מה הרכיב האנכי של המהירות?
+    answer: 10
+    unit: m/s
+    tolerance: 0.02
+    correctFeedback: 'נכון. הזווית נמדדת מהקרקע, והרכיב האנכי מול הזווית: $v_y = 20\sin 30^\circ = 10\,\text{m/s}$.'
+    wrongFeedback: 'ציירו משולש: הזווית בין המהירות לקרקע. הרכיב שמול הזווית מקבל $\sin$, והרכיב שצמוד לה מקבל $\cos$.'
+    commonWrong:
+      - value: 17.32
+        feedback: 'זה $20\cos 30^\circ$, הרכיב האופקי, שצמוד לזווית. הרכיב האנכי נמצא מול הזווית ומקבל $\sin$.'
+      - value: -19.76
+        feedback: 'המחשבון במצב רדיאנים: זה $20\sin(30)$ כש-30 נקרא כרדיאנים. העבירו למצב מעלות (DEG). רכיב שלילי של כדור שנבעט למעלה הוא סימן שמשהו לא בסדר.'
+      - value: 20
+        feedback: 'זה הגודל של המהירות כולה. רכיב של וקטור נטוי תמיד קטן ממנו.'
+
+  - id: Q-1.9-angle-from-vertical
+    type: numeric
+    objectives: [OBJ-1.9-2]
+    level: mid
+    prompt: >-
+      שחקן כדורעף מקפיץ את הכדור במהירות של $15\,\text{m/s}$, בזווית של $30^\circ$ **מהקו האנכי**. מה הרכיב האופקי של המהירות?
+    answer: 7.5
+    unit: m/s
+    tolerance: 0.02
+    correctFeedback: 'נכון. הזווית נמדדת מהאנך, ולכן הרכיב האופקי הוא שמול הזווית: $v_x = 15\sin 30^\circ = 7.5\,\text{m/s}$.'
+    wrongFeedback: 'מאיזה קו נמדדת הזווית? הרכיב שצמוד אליה מקבל $\cos$, והרכיב שמולה מקבל $\sin$.'
+    commonWrong:
+      - value: 12.99
+        feedback: 'זה $15\cos 30^\circ$. הכלל "x מקבל cos" נכון רק כשהזווית נמדדת מציר x. כאן היא נמדדת מהאנך, ולכן הרכיב האנכי הוא שמקבל $\cos$.'
+        misconception: MC-x-always-cos
+      - value: -14.82
+        feedback: 'המחשבון במצב רדיאנים: זה $15\sin(30)$ כש-30 נקרא כרדיאנים. העבירו למצב מעלות (DEG).'
+      - value: 2.31
+        feedback: 'גם הקוסינוס במקום הסינוס וגם מצב רדיאנים: $15\cos(30)$ ברדיאנים. בדקו את מצב המחשבון ואת הצלע שמול הזווית.'
+        misconception: MC-x-always-cos
+    hints:
+      - 'שרטטו את המהירות ואת הקו האנכי. איזה רכיב צמוד לזווית של $30^\circ$?'
+
+  - id: Q-1.9-magnitude-from-components
+    type: numeric
+    objectives: [OBJ-1.9-2]
+    prompt: >-
+      רכיבי ההעתק של רחפן הם $\Delta x = -6\,\text{m}$ ו-$\Delta y = 8\,\text{m}$. מה הגודל של ההעתק?
+    answer: 10
+    unit: m
+    tolerance: 0.02
+    correctFeedback: 'נכון. $|\Delta\vec r| = \sqrt{(-6)^2 + 8^2} = \sqrt{100} = 10\,\text{m}$. המינוס נעלם בריבוע: הוא אומר רק "מערבה".'
+    wrongFeedback: 'הרכיבים הם ניצבים של משולש ישר-זווית, וההעתק הוא היתר.'
+    commonWrong:
+      - value: 2
+        feedback: 'זה $-6 + 8$, סכום הרכיבים. הרכיבים ניצבים זה לזה, ולכן משתמשים בפיתגורס.'
+        misconception: MC-components-add-to-magnitude
+      - value: 14
+        feedback: 'זה $6 + 8$. גם בלי הסימן, את הרכיבים לא מחברים כמו מספרים: הגודל הוא $\sqrt{6^2 + 8^2}$.'
+        misconception: MC-components-add-to-magnitude
+      - value: 100
+        feedback: 'זה $6^2 + 8^2$. נשאר להוציא שורש.'
+      - value: -10
+        feedback: 'גודל של וקטור אף פעם אינו שלילי. הסימן של רכיב x אומר רק שהרחפן נע מערבה.'
+
+  - id: Q-1.9-component-bigger
+    type: mc
+    objectives: [OBJ-1.9-2]
+    qualitative: true
+    prompt: >-
+      גודל המהירות של מטוס הוא $200\,\text{m/s}$. האם הרכיב האופקי של המהירות שלו יכול להיות $250\,\text{m/s}$?
+    choices:
+      - text: לא. רכיב אף פעם לא גדול מגודל הווקטור.
+        correct: true
+        feedback: 'נכון. הרכיב הוא ניצב במשולש ישר-זווית שהמהירות היא היתר שלו, וניצב לא ארוך מהיתר. בכתיב: $|v_x| = |\vec v|\,|\cos\theta| \le |\vec v|$.'
+      - text: 'כן, אם הרכיב האנכי שלילי, למשל $250 + (-50) = 200$.'
+        feedback: 'גודל הווקטור אינו סכום הרכיבים אלא $\sqrt{v_x^2 + v_y^2}$. עם $v_x = 250$ הגודל כבר לפחות $250\,\text{m/s}$.'
+        misconception: MC-components-add-to-magnitude
+      - text: כן, אם המטוס טס בזווית חדה מספיק.
+        feedback: 'בשום זווית. $\cos\theta$ לא גדול מ-1, ולכן $v_x$ לא עולה על $200\,\text{m/s}$.'
+
+  - id: Q-1.9-quadrant
+    type: vector
+    objectives: [OBJ-1.9-2]
+    qualitative: true
+    prompt: >-
+      לווקטור המהירות של סירה יש רכיבים $v_x = -3\,\text{m/s}$ ו-$v_y = -3\,\text{m/s}$ (ציר x מזרחה, ימינה בשרטוט, וציר y צפונה, למעלה בשרטוט).
+      תלמיד מחשב $\tan^{-1}\!\left(\frac{-3}{-3}\right) = 45^\circ$. לאיזה כיוון שטה הסירה?
+    answer: sw
+    correctFeedback: 'נכון. שני הרכיבים שליליים: מערבה ודרומה, כלומר דרום-מערב. ה-$45^\circ$ של המחשבון נכון רק כזווית מהציר, לא כצד.'
+    wrong:
+      - dir: ne
+        feedback: 'זה מה שהמחשבון "חושב": $45^\circ$ מעל ציר x החיובי. אבל המחשבון רואה רק את המנה, ול-$(3, 3)$ ול-$(-3, -3)$ אותה מנה. הסימנים אומרים מערבה ודרומה.'
+        misconception: MC-arctan-quadrant
+      - dir: nw
+        feedback: 'רכיב y שלילי פירושו דרומה, לא צפונה.'
+      - dir: se
+        feedback: 'רכיב x שלילי פירושו מערבה, לא מזרחה.'
+    wrongFeedback: 'קבעו את הצד לפי הסימנים של שני הרכיבים, לא לפי המחשבון.'
+
+  # ------------------------------------------------------------ OBJ-1.9-3: adding by components
+  - id: Q-1.9-walk
+    type: numeric
+    objectives: [OBJ-1.9-3]
+    prompt: >-
+      שליח הולך $500\,\text{m}$ מזרחה, אחר כך $400\,\text{m}$ צפונה, ולבסוף $200\,\text{m}$ מערבה. מה הגודל של ההעתק שלו?
+    answer: 500
+    unit: m
+    tolerance: 0.02
+    correctFeedback: 'נכון. רכיב x: $500 - 200 = 300\,\text{m}$, רכיב y: $400\,\text{m}$, וגודל ההעתק $\sqrt{300^2 + 400^2} = 500\,\text{m}$.'
+    wrongFeedback: 'חברו רכיב לרכיב, עם סימנים: מערבה הוא מינוס בציר x. אחר כך פיתגורס.'
+    commonWrong:
+      - value: 1100
+        feedback: 'זו הדרך, $500 + 400 + 200$. ההעתק הוא החץ מנקודת ההתחלה לנקודת הסיום, והוא קצר מהדרך.'
+        misconception: MC-magnitudes-add
+      - value: 700
+        feedback: 'זה $300 + 400$, סכום הרכיבים. הם ניצבים זה לזה, ולכן הגודל הוא $\sqrt{300^2 + 400^2}$.'
+        misconception: MC-components-add-to-magnitude
+      - value: 806.2
+        feedback: 'שכחתם את הסימן של הקטע מערבה: $\sqrt{700^2 + 400^2}$. הליכה מערבה מבטלת חלק מההליכה מזרחה, ולכן רכיב x הוא $500 - 200$.'
+
+  - id: Q-1.9-boat
+    type: numeric
+    objectives: [OBJ-1.9-3]
+    prompt: >-
+      סירה שטה במהירות של $4\,\text{m/s}$ ביחס למים, והחרטום מכוון ישר אל הגדה שממול. המים זורמים במהירות של $3\,\text{m/s}$ לאורך הגדה.
+      מה גודל המהירות של הסירה ביחס לגדה?
+    answer: 5
+    unit: m/s
+    tolerance: 0.02
+    correctFeedback: 'נכון. המהירות ביחס לגדה היא הסכום $(0, 4) + (3, 0) = (3, 4)\,\text{m/s}$, וגודלה $5\,\text{m/s}$.'
+    wrongFeedback: 'המהירות ביחס לגדה היא המהירות ביחס למים ועוד מהירות המים. שתי המהירויות ניצבות זו לזו.'
+    commonWrong:
+      - value: 7
+        feedback: 'זה $4 + 3$: נכון רק אם הסירה שטה עם הזרם. כאן הזרם ניצב לכיוון החרטום.'
+        misconception: MC-magnitudes-add
+      - value: 1
+        feedback: 'זה $4 - 3$: נכון רק אם הסירה שטה נגד הזרם. כאן הזרם ניצב לכיוון החרטום.'
+        misconception: MC-difference-of-magnitudes
+      - value: 4
+        feedback: 'זו המהירות ביחס למים. ביחס לגדה הזרם מוסיף לה רכיב לאורך הגדה.'
+
+  - id: Q-1.9-rain-car
+    type: twotier
+    objectives: [OBJ-1.9-3, OBJ-1.9-1]
+    qualitative: true
+    level: mid
+    prompt: >-
+      אין רוח, והגשם יורד ישר למטה. מכונית נוסעת ימינה. איך נראות הטיפות לנוסע שמסתכל מהחלון הצדדי?
+    choices:
+      - text: הן יורדות באלכסון, למטה ואחורה (שמאלה), כאילו הגשם בא מלפנים.
+        correct: true
+        feedback: נכון. ביחס למכונית יש לגשם רכיב אופקי אחורה, בגודל המהירות של המכונית.
+      - text: הן יורדות ישר למטה, כי אין רוח.
+        feedback: 'ביחס לקרקע כן. אבל לגשם אין מהירות אחת "אמיתית": הנוסע מודד מהירויות ביחס למכונית, והמכונית נעה ימינה.'
+        misconception: MC-velocity-absolute
+      - text: הן יורדות באלכסון, למטה וקדימה (ימינה), עם המכונית.
+        feedback: 'הכיוון הפוך. המכונית מתקדמת ימינה, ולכן ביחס אליה כל מה שעומד, וגם הגשם, "זז" שמאלה.'
+    reasonPrompt: ומה הנימוק?
+    reasons:
+      - text: 'המהירות של הגשם ביחס למכונית היא המהירות של הגשם ביחס לקרקע פחות המהירות של המכונית, $\vec v_{GC} = \vec v_G - \vec v_C$ (G לגשם, C למכונית), וחיסור של מהירות ימינה מוסיף רכיב שמאלה.'
+        correct: true
+        feedback: בדיוק. זה החיסור של שיעור 1.4, הפעם בין וקטורים ניצבים.
+      - text: 'למהירות של הגשם ביחס למכונית אותו גודל כמו ביחס לקרקע, כי חיסור של וקטור ניצב לא משנה את הגודל.'
+        feedback: 'חיסור של וקטור ניצב **מגדיל** את הגודל: $\sqrt{u^2 + w^2}$ גדול מ-$u$. הגשם פוגע בחלון מהר יותר מאשר במדרכה.'
+        misconception: MC-difference-of-magnitudes
+      - text: הרוח שנוצרת מהנסיעה דוחפת את הטיפות.
+        feedback: 'גם בלי שום אוויר זה היה קורה. הנטייה היא תוצאה של מערכת הייחוס של המכונית, לא של רוח.'

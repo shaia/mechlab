@@ -1,0 +1,35 @@
+# Glossary terms introduced in lesson 1.9 (vectors). The first four ids are fixed by .claude/specs/ch0-1.md;
+# `vector-magnitude` is not in the spec's table and was added here (1.9 defines |A|).
+
+- id: scalar
+  term: סקלר
+  en: scalar
+  definition: גודל פיזיקלי שמתואר במספר אחד עם יחידות, בלי כיוון במרחב, כמו זמן, מסה, דרך וגודל המהירות. סקלר יכול להיות שלילי (טמפרטורה של מינוס 5 מעלות), אבל הסימן שלו אינו כיוון.
+  reject: [סקאלר]
+  lesson: '1.9'
+
+- id: vector
+  term: וקטור
+  en: vector
+  definition: גודל פיזיקלי שיש לו גודל וגם כיוון, כמו העתק ומהירות. מציירים אותו כחץ, שאורכו הוא הגודל והוא מצביע לכיוון, ומסמנים אותו בחץ מעל האות, A⃗. שני וקטורים שווים כשיש להם אותו גודל ואותו כיוון, גם אם הם מצוירים במקומות שונים.
+  lesson: '1.9'
+
+- id: vector-magnitude
+  term: גודל של וקטור
+  en: magnitude
+  definition: אורך החץ של הווקטור, מספר שאינו שלילי, עם היחידות של הגודל הפיזיקלי. מסמנים |A⃗|. ממרכיבי הווקטור, |A⃗| = √(Aₓ² + A_y²). הגודל של המהירות נקרא גודל המהירות.
+  symbol: '|\vec A|'
+  lesson: '1.9'
+
+- id: vector-component
+  term: רכיב
+  en: component
+  definition: ההיטל של וקטור על ציר, מספר עם סימן. החיובי אומר "בכיוון הציר" והשלילי "נגדו". כאשר θ היא הזווית מציר x החיובי, Aₓ = |A⃗|cos θ ו-A_y = |A⃗|sin θ. רכיב אף פעם אינו גדול מגודל הווקטור.
+  symbol: 'A_x,\ A_y'
+  lesson: '1.9'
+
+- id: vector-sum
+  term: סכום וקטורי
+  en: vector sum
+  definition: הווקטור A⃗ + B⃗ שמתקבל כששרשרים את B⃗ לקצה של A⃗ ("ראש לזנב"), מההתחלה של A⃗ עד הסוף של B⃗. בחשבון מחברים רכיב לרכיב. הגודל של הסכום שווה לסכום הגדלים רק כששני הווקטורים באותו כיוון.
+  lesson: '1.9'
