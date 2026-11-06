@@ -1,0 +1,69 @@
+# Glossary terms introduced in lesson 1.6 (acceleration and constant-acceleration motion). The first four ids are fixed
+# by .claude/specs/ch0-1.md; `reaction-time`, `braking-distance` and `stopping-distance` are not in the spec's table and
+# were added here (the stopping-distance problem is part of 1.6's scope; the Hebrew follows Israeli driving education).
+
+- id: acceleration
+  term: תאוצה
+  en: acceleration
+  definition: >-
+    קצב השינוי של המהירות: בכמה מטרים לשנייה משתנה המהירות בכל שנייה. בתנועה לאורך ציר התאוצה היא מספר עם
+    סימן: חיובית כשהמהירות משתנה בכיוון החיובי של הציר, ושלילית כשהיא משתנה בכיוון השלילי. הסימן לבדו לא אומר
+    אם הגוף מאיץ או מאט; את זה קובעים לפי הסימנים של המהירות ושל התאוצה יחד. התאוצה הרגעית היא השיפוע של
+    גרף מהירות-זמן.
+  symbol: 'a'
+  unit: m/s²
+  reject: ['תאוטה']
+  lesson: '1.6'
+
+- id: average-acceleration
+  term: תאוצה ממוצעת
+  en: average acceleration
+  definition: >-
+    השינוי במהירות חלקי פרק הזמן שבו הוא קרה, Δv/Δt. בגרף מהירות-זמן זה השיפוע של המיתר בין שתי הנקודות.
+    בתנועה בתאוצה קבועה התאוצה הממוצעת שווה לתאוצה בכל רגע.
+  symbol: '\bar{a}'
+  unit: m/s²
+  lesson: '1.6'
+
+- id: uniform-acceleration
+  term: תנועה בתאוצה קבועה
+  en: uniformly accelerated motion
+  definition: >-
+    תנועה לאורך קו ישר שבה המהירות משתנה באותה כמות בכל שנייה. גרף מהירות-זמן שלה הוא קו ישר ששיפועו הוא
+    התאוצה, וגרף מקום-זמן שלה הוא פרבולה. בדף הנוסחאות היא נקראת "תנועה שוות-תאוצה".
+  lesson: '1.6'
+
+- id: velocity-time-graph
+  term: גרף מהירות-זמן
+  en: velocity–time (v–t) graph
+  definition: >-
+    גרף שעל הציר האופקי שלו הזמן ועל הציר האנכי המהירות, עם הסימן שלה. הגובה של הגרף ברגע מסוים הוא המהירות
+    באותו רגע, והשיפוע שלו הוא התאוצה. גרף מתחת לציר הזמן פירושו תנועה בכיוון השלילי.
+  lesson: '1.6'
+
+- id: reaction-time
+  term: זמן תגובה
+  en: reaction time
+  definition: >-
+    הזמן שעובר מהרגע שהנהג מבחין בסכנה עד שהבלמים מתחילים לפעול. בזמן הזה הרכב ממשיך במהירות שהייתה לו.
+    אצל נהג ערני הוא בערך שנייה אחת או פחות, ועייפות, שיחה בטלפון ואלכוהול מאריכים אותו.
+  unit: s
+  lesson: '1.6'
+
+- id: braking-distance
+  term: מרחק בלימה
+  en: braking distance
+  definition: >-
+    הדרך שהרכב עובר מהרגע שהבלמים מתחילים לפעול עד שהוא נעצר. בתאוצה קבועה היא v₀²/(2|a|), ולכן היא
+    ביחס ישר לריבוע המהירות: מהירות כפולה נותנת מרחק בלימה גדול פי 4.
+  unit: m
+  lesson: '1.6'
+
+- id: stopping-distance
+  term: מרחק עצירה
+  en: stopping distance
+  definition: >-
+    הדרך שהרכב עובר מהרגע שהנהג מבחין בסכנה עד שהרכב נעצר: הדרך בזמן התגובה, במהירות קבועה, ועוד מרחק
+    הבלימה.
+  unit: m
+  lesson: '1.6'

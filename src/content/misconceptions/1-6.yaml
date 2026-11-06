@@ -1,0 +1,24 @@
+# Misconceptions lesson 1.6 detects and remedies. Each is caught by a tagged distractor in questions/ch1/1-6.yaml.
+# MC-negative-accel-slows is fixed by .claude/specs/ch0-1.md; MC-fast-means-accel was added here.
+# The braking-distance mistake ("double the speed, double the distance") is tagged with 0.3's MC-square-law-doubles.
+
+- id: MC-negative-accel-slows
+  title: תאוצה שלילית פירושה תמיד האטה
+  belief: >-
+    כשהתאוצה שלילית, הגוף מאט, וכשהיא חיובית, הגוף מאיץ. "תאוצה שלילית" היא פשוט שם אחר לבלימה.
+  truth: >-
+    הסימן של התאוצה אומר רק לאיזה כיוון של הציר המהירות משתנה, והוא תלוי בכיוון החיובי שבחרנו. גוף מאיץ (גודל
+    המהירות גדל) כשלמהירות ולתאוצה יש אותו סימן, ומאט כשהסימנים מנוגדים. גוף שנע בכיוון השלילי ותאוצתו
+    שלילית מאיץ.
+  remedy: { lesson: '1.6', anchor: signs, label: 'שיעור 1.6, איור 1.6א: מאיץ או מאט? הסימנים של v ו-a' }
+
+- id: MC-fast-means-accel
+  title: גוף מהיר הוא גוף עם תאוצה גדולה
+  belief: >-
+    תאוצה ומהירות הן כמעט אותו דבר: לגוף שנע מהר יש תאוצה גדולה, ולגוף שנע לאט יש תאוצה קטנה. מטוס שטס
+    במהירות קבועה של 900 קמ״ש "מאיץ" יותר מאופניים שיוצאים לדרך.
+  truth: >-
+    התאוצה מודדת כמה מהר המהירות משתנה, לא כמה היא גדולה. מטוס שטס בקו ישר במהירות קבועה אין לו תאוצה בכלל,
+    ואופניים שמגבירים מהירות מ-0 ל-5 מטרים לשנייה בשתי שניות הם בעלי תאוצה של 2.5 מטרים לשנייה בכל שנייה.
+    בגרף מהירות-זמן, המהירות היא הגובה של הגרף והתאוצה היא השיפוע שלו.
+  remedy: { lesson: '1.6', anchor: definition, label: 'שיעור 1.6: מהי תאוצה, וגרף מהירות-זמן' }

@@ -1,0 +1,30 @@
+# Videos for lesson 1.6. Every id was checked against YouTube oEmbed (HTTP 200: exists and embeddable; title and
+# channel exactly as below) on the `verified` date. The ids were read off the embeds on flippingphysics.com, whose
+# pages also give each video's length and chapter list (the source of `why` and `minutes`). Caption tracks were not
+# confirmed, so `captions` is left empty. No Hebrew video on acceleration at Bagrut level could be identified and
+# verified (searched 2026-11-05).
+
+- id: v-1-6-accel-direction
+  youtubeId: Mg8NsHpaDrY
+  title: 'A Basic Acceleration Example Problem and Understanding Acceleration Direction'
+  channel: Flipping Physics
+  lang: en
+  start: 0
+  minutes: 10
+  why: >-
+    לפי התיאור ורשימת הפרקים, הסרטון פותר תרגיל תאוצה פשוט, ואז מראה ארבע רכיבות על אופניים שצולמו ממכונית,
+    כדי לבדוק את הטענה שתאוצה שלילית פירושה תמיד האטה. מדקה 4:48 בערך שואלים איך אופניים מאיצים כשהתאוצה
+    שלילית, ומדקה 5:50 משווים בין כיוון המהירות לכיוון התאוצה.
+  verified: '2026-11-05'
+
+- id: v-1-6-meters-per-second-every-second
+  youtubeId: 0kQrz4dfxDw
+  title: 'Understanding Uniformly Accelerated Motion'
+  channel: Flipping Physics
+  lang: en
+  start: 0
+  minutes: 6
+  why: >-
+    לפי התיאור, הסרטון מסביר תאוצה כ"מטרים לשנייה בכל שנייה" במקום "מטרים לשנייה בריבוע", ומוצאים בו את
+    המהירות ואת המקום בכל שנייה בשתי הדגמות. השוו את הטבלה שבסרטון לשורת הקריאה שמתחת לאיור 1.6א.
+  verified: '2026-11-05'
