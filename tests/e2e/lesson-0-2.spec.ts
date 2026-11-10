@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { freezeSteps, hydrated, progress } from './helpers';
+import { freezeSteps, hydrated, progress, rankTo } from './helpers';
 
 const LESSON = '/lessons/0-2/';
 
@@ -69,12 +69,8 @@ test('ranking lengths with a tie', async ({ page }) => {
   const r = page.locator('[data-qid="Q-0.2-rank-lengths"]');
   await r.scrollIntoViewIfNeeded();
   await hydrated(r);
-  // starts as 2 mm, 5·10⁻⁴ m, 3000 μm, 2·10⁶ nm; the answer is 3000 μm > 2 mm = 2·10⁶ nm > 5·10⁻⁴ m
-  const up = r.getByRole('button', { name: 'למעלה' });
-  await up.nth(2).click();
-  await up.nth(1).click(); // 3000 μm, 2 mm, 5·10⁻⁴, 2·10⁶ nm
-  await up.nth(3).click(); // 3000 μm, 2 mm, 2·10⁶ nm, 5·10⁻⁴
-  await r.locator('.q-rank-rel').nth(1).click();
+  // the answer is 3000 μm > 2 mm = 2·10⁶ nm > 5·10⁻⁴ m
+  await rankTo(r, ['3000\\,\\mu', '2\\,\\text{mm}', '2\\cdot10^{6}', '5\\cdot10^{-4}'], [1]);
   await r.getByRole('button', { name: 'בדיקה · בטוחים', exact: true }).click();
   await expect(r).toHaveClass(/is-right/);
 });
